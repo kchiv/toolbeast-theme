@@ -81,12 +81,12 @@
     "settings": [
       {
         "type": "text",
-        "id": "contact-phone",
+        "id": "contact_phone",
         "label": "Phone Number"
       },
       {
         "type": "text",
-        "id": "contact-mailing",
+        "id": "contact_mailing",
         "label": "Mailing Address"
       }
     ]
