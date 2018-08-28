@@ -13,8 +13,10 @@
       <div class="col-xl-8 contact-form">
         <p>*Required Fields</p>
         {% form 'contact' %}
-          {% if form.posted_successfully %}
+          {% if form.posted_successfully? %}
             <p>Thank you for contacting us!</p>
+          {% else %}
+            {{ form.errors | default_errors }}
           {% endif %}
           <div class="form-group">
             <label for="ContactFormReason">*Reason</label>
