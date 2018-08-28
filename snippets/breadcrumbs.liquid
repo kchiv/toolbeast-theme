@@ -1,4 +1,8 @@
+{% if template contains 'page' %}
+<div class="container">
+{% else %}
 <div class="container-fluid">
+{% endif %}
   <div class="row">
     {% unless template == 'index' or template == 'cart' or template == 'list-collections' %}
     <nav aria-label="breadcrumb">
