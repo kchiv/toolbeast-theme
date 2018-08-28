@@ -53,6 +53,16 @@
         "type": "text",
         "id": "hp_hero_subcopy",
         "label": "Hero Subcopy"
+      },
+      {
+        "type": "url",
+        "id": "hp_hero_link_url",
+        "label": "Hero Link URL"
+      },
+      {
+        "type": "text",
+        "id": "hp_hero_link_text",
+        "label": "Hero Link Text"
       }
     ]
   },
