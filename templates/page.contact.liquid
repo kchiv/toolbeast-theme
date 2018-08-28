@@ -12,10 +12,13 @@
     <div class="row">
       <div class="col-xl-8">
         <p>*Required Fields</p>
-        <form>
+        {% form 'contact' %}
+          {% if form.posted_successfully %}
+            <p>Thank you for contacting us!</p>
+          {% endif %}
           <div class="form-group">
             <label>*Reason</label>
-            <select class="form-control">
+            <select class="form-control" name="contact[reason]">
               <option>Order Status</option>
               <option>Return</option>
               <option>Product Information</option>
@@ -27,25 +30,31 @@
           </div>
           <div class="form-group">
             <label>*Full Name</label>
-            <input type="name" class="form-control" placeholder="First and Last Name">
+            <input type="name" name="contact[name]" class="form-control" placeholder="First and Last Name">
           </div>
           <div class="form-group">
             <label>*Email Address</label>
-            <input type="email" class="form-control" placeholder="name@example.com">
+            <input type="email" name="contact[email]" class="form-control" placeholder="name@example.com">
           </div>
           <div class="form-group">
             <label>Order Number</label>
-            <input type="order" class="form-control" placeholder="Order Number (Optional)">
+            <input type="order" name="contact[order]" class="form-control" placeholder="Order Number (Optional)">
           </div>
           <div class="form-group">
             <label>*Subject</label>
-            <input type="subject" class="form-control" placeholder="Subject for Message">
+            <input type="subject" name="contact[subject]" class="form-control" placeholder="Subject for Message">
           </div>
           <div class="form-group">
             <label>*Message</label>
-            <textarea class="form-control" rows="3" placeholder="Enter a Message"></textarea>
+            <textarea class="form-control" rows="3" placeholder="Enter a Message" name="contact[message]"></textarea>
           </div>
-        </form>
+          <div class="form-group">
+            <input type="submit" class="btn" value="Submit">
+          </div>
+        {% endform %}
       </div>
     </div>
 </div>
+
+{% if settings.contact-phone != blank %}
+{% endif %}
