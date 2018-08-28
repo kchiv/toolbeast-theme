@@ -75,5 +75,20 @@
         "label": "About Page Image"
       }
     ]
+  },
+  {
+    "name": "Contact Page",
+    "settings": [
+      {
+        "type": "text",
+        "id": "contact-phone",
+        "label": "Phone Number"
+      },
+      {
+        "type": "text",
+        "id": "contact-mailing",
+        "label": "Mailing Address"
+      }
+    ]
   }
 ]
