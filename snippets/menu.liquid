@@ -1,0 +1,42 @@
+<nav class="navbar navbar-expand-lg navbar-light main-nav">
+  <a class="navbar-brand" href="/">
+    <img src="{{ 'TOOL_BEAST201.png' | asset_url }}" width="230">
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <!-- main menu for loop -->
+      {% for link in linklists[section.settings.main_linklist].links %}
+        <!-- if subnav links empty -->
+        {% if link.links == blank %}
+          <li class="nav-item">
+            <a class="nav-link hvr-underline-reveal" href="{{ link.url }}">{{ link.title }}</a>
+          </li>
+        {% endif %}
+
+        <!-- if subnav links not empty - dropdown -->
+        {% if link.links != blank %}
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle dropbtn hvr-underline-reveal" href="{{ link.url }}" id="navbarDropdown" aria-haspopup="true" role="button" data-toggle="dropdown" aria-expanded="false">
+              {{ link.title }} <i class="fas fa-caret-down caret"></i>
+            </a>
+            <div class="dropdown-menu dropdown-content" aria-labelledby="navbarDropdown">
+              <!-- loop through sub links -->
+              {% for childlink in link.links %}
+                <!-- last object in loop prepends fontawesome double arrow -->
+                {% if forloop.last == true %}
+                  <a class="dropdown-item" href="{{ childlink.url }}"><i class="fas fa-angle-right"></i> {{ childlink.title }}</a>
+                {% else %}
+                  <a class="dropdown-item" href="{{ childlink.url }}">{{ childlink.title }}</a>
+                {% endif %}
+              {% endfor %}
+            </div>
+          </li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </div>
+</nav>

@@ -1,0 +1,49 @@
+<section class="top-sub-nav">
+  <div class="navbar navbar-expand-sm navbar-dark bg-dark top-subnav justify-content-end">
+      <div class="navbar-text subnav-elem">
+        <span class="subnav-icon hvr-icon-fade"><a href=""><i class="fas fa-user hvr-icon"></i> Sign In</a></span>
+        <span class="subnav-icon hvr-icon-fade"><a href=""><i class="fas fa-shopping-cart hvr-icon"></i> Cart (1)</a></span>
+        <span class="subnav-icon hvr-icon-fade"><a class="openBtn" href="#"><i class="fas fa-search hvr-icon"></i> Search</a></span>
+      </div>
+  </div>
+</section>
+
+<div id="myOverlay" class="overlay">
+  <div class="overlay-content">
+    <span class="closebtn" title="Close Overlay"><i class="fas fa-times"></i></span>
+    <div class="search-bar-form">
+      <form class="form-inline" action="GET">
+        <input class="form-control mr-auto" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-primary" type="submit"><i class="fas fa-search"></i> Search</button>
+      </form>
+    </div>
+  </div>
+  <div class="search-bar-cat">
+    <div id="search-browse-cat">Browse Popular Categories:</div>
+    <div class="search-cat-list">
+      {% for link in linklists.search-links.links %}
+        {% if forloop.last == true %}
+          <a href="{{ link.url }}">{{ link.title }}</a>
+        {% else %}
+          <a href="{{ link.url }}">{{ link.title }}</a>, 
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% include 'menu' %}
+
+{% schema %}
+  {
+    "name": "Main Menu",
+    "settings": [
+      {
+        "type": "link_list",
+        "id": "main_linklist",
+        "label": "Menu",
+        "default": "main-menu"
+      }
+    ]
+  }
+{% endschema %}
