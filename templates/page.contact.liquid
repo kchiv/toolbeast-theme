@@ -1,0 +1,51 @@
+{% include 'breadcrumbs' %}
+
+<div class="container">
+    <div class="row">
+      <div class="col-xl-12">
+        <h1>{{ page.title }}</h1>
+      </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+      <div class="col-xl-8">
+        <p>*Required Fields</p>
+        <form>
+          <div class="form-group">
+            <label>*Reason</label>
+            <select class="form-control">
+              <option>Order Status</option>
+              <option>Return</option>
+              <option>Product Information</option>
+              <option>Company Information</option>
+              <option>Feedback</option>
+              <option>Mailing Lists</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>*Full Name</label>
+            <input type="name" class="form-control" placeholder="First and Last Name">
+          </div>
+          <div class="form-group">
+            <label>*Email Address</label>
+            <input type="email" class="form-control" placeholder="name@example.com">
+          </div>
+          <div class="form-group">
+            <label>Order Number</label>
+            <input type="order" class="form-control" placeholder="Order Number (Optional)">
+          </div>
+          <div class="form-group">
+            <label>*Subject</label>
+            <input type="subject" class="form-control" placeholder="Subject for Message">
+          </div>
+          <div class="form-group">
+            <label>*Message</label>
+            <textarea class="form-control" rows="3" placeholder="Enter a Message"></textarea>
+          </div>
+        </form>
+      </div>
+    </div>
+</div>
