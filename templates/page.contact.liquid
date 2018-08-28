@@ -17,8 +17,8 @@
             <p>Thank you for contacting us!</p>
           {% endif %}
           <div class="form-group">
-            <label>*Reason</label>
-            <select class="form-control" name="contact[reason]">
+            <label for="ContactFormReason">*Reason</label>
+            <select id="ContactFormReason" class="form-control" name="contact[reason]">
               <option>Order Status</option>
               <option>Return</option>
               <option>Product Information</option>
@@ -29,24 +29,24 @@
             </select>
           </div>
           <div class="form-group">
-            <label>*Full Name</label>
-            <input type="name" name="contact[name]" class="form-control" placeholder="First and Last Name">
+            <label for="ContactFormName">*Full Name</label>
+            <input id="ContactFormName" type="name" name="contact[name]" class="form-control" placeholder="First and Last Name">
           </div>
           <div class="form-group">
-            <label>*Email Address</label>
-            <input type="email" name="contact[email]" class="form-control" placeholder="name@example.com">
+            <label for="ContactFormEmail">*Email Address</label>
+            <input id="ContactFormEmail" type="email" name="contact[email]" class="form-control" placeholder="name@example.com">
           </div>
           <div class="form-group">
-            <label>Order Number</label>
-            <input type="order" name="contact[order]" class="form-control" placeholder="Order Number (Optional)">
+            <label for="ContactFormOrder">Order Number</label>
+            <input id="ContactFormOrder" type="order" name="contact[order]" class="form-control" placeholder="Order Number (Optional)">
           </div>
           <div class="form-group">
-            <label>*Subject</label>
-            <input type="subject" name="contact[subject]" class="form-control" placeholder="Subject for Message">
+            <label for="ContactFormSubject">*Subject</label>
+            <input id="ContactFormSubject" type="subject" name="contact[subject]" class="form-control" placeholder="Subject for Message">
           </div>
           <div class="form-group">
-            <label>*Message</label>
-            <textarea class="form-control" rows="3" placeholder="Enter a Message" name="contact[message]"></textarea>
+            <label for="ContactFormMessage">*Message</label>
+            <textarea id="ContactFormMessage" class="form-control" rows="5" placeholder="Enter a Message" name="contact[message]"></textarea>
           </div>
           <div class="form-group">
             <input type="submit" class="btn" value="Submit">
