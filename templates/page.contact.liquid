@@ -30,7 +30,8 @@
       <div class="col-xl-6 contact-form">
         {% form 'contact' %}
           {% if form.posted_successfully? %}
-            <p>Thank you for contacting us!</p>
+            <h4 class="success-text">Thank you for contacting us!</h4>
+            <br>
           {% else %}
             {{ form.errors | default_errors }}
           {% endif %}
