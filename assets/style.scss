@@ -1,16 +1,16 @@
 /**** Global Elements ****/
 
-	.tb-button {
-		background-color: #2ECC71;
-		border-color: #2ECC71;
-		border-radius: 0.15rem;
-	}
+.tb-button {
+	background-color: #2ECC71;
+	border-color: #2ECC71;
+	border-radius: 0.15rem;
+}
 
-	.tb-button:hover {
-		background-color: #229552;
-		border-color: #229552;
+.tb-button:hover {
+	background-color: #229552;
+	border-color: #229552;
 
-	}
+}
 
 
 /**** Top Nav ****/
@@ -325,6 +325,15 @@
 /**** Contact Page ****/
 
 .contact-form .form-group .form-control,
-.contact-form .form-group .form-control option {
+.contact-form .form-group .form-control {
 	border-radius: 0.15rem;
+}
+
+.h1-underline {
+	border-bottom: 2px solid currentColor;
+	display: inline-block;
+}
+
+.contact-social-info {
+	
 }
