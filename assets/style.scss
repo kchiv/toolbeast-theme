@@ -330,10 +330,20 @@
 }
 
 .h1-underline {
-	border-bottom: 2px solid currentColor;
+	border-bottom: 2px solid #2ECC71;
 	display: inline-block;
 }
 
 .contact-social-info {
-	
+	font-size: 20px;
+	padding: 20px 0px 30px 0px;
+}
+
+.contact-social-info div {
+	padding-bottom: 10px;
+}
+
+.contact-social-info span i {
+	padding-left: 10px;
+	font-size: 30px;
 }
