@@ -348,3 +348,26 @@
 	font-size: 35px;
 	color: #212529;
 }
+
+
+.errors li {
+	color: red;
+}
+
+input.shopify-challenge__button.btn {
+	background-color: #2ECC71;
+	border-color: #2ECC71;
+	border-radius: 0.15rem;
+	color: white;
+}
+
+input.shopify-challenge__button.btn:hover {
+	background-color: #229552;
+	border-color: #229552;
+	border-radius: 0.15rem;
+	color: white;
+}
+
+.success-text {
+	color: #2ECC71;
+}
