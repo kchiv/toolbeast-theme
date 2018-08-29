@@ -12,17 +12,18 @@
         <h3>We're here for you.</h3>
         <div class="contact-social-info">
         {% if settings.contact_phone != blank %}
-          <div><i class="fas fa-phone"></i> {{ settings.contact_phone }}</div>
+          <div class="hvr-icon-fade"><i class="fas fa-phone hvr-icon"></i> {{ settings.contact_phone }}</div>
+          <br>
         {% endif %}
         {% if settings.contact_mailing != blank %}
-          <div><i class="fas fa-envelope"></i> {{ settings.contact_mailing }}</div>
+          <div class="hvr-icon-fade"><i class="fas fa-envelope hvr-icon"></i> {{ settings.contact_mailing }}</div>
         {% endif %}
           <div>
             <span>Follow Us:</span>
-            <span><i class="fab fa-facebook"></i></span>
-            <span><i class="fab fa-instagram"></i></span>
-            <span><i class="fab fa-twitter"></i></span>
-            <span><i class="fab fa-pinterest"></i></span>
+            <span class="hvr-icon-fade"><a href="{{ settings.facebook_link }}"><i class="fab fa-facebook hvr-icon"></i></a></span>
+            <span class="hvr-icon-fade"><a href="{{ settings.instagram_link }}"><i class="fab fa-instagram hvr-icon"></i></a></span>
+            <span class="hvr-icon-fade"><a href="{{ settings.twitter_link }}"><i class="fab fa-twitter hvr-icon"></i></a></span>
+            <span class="hvr-icon-fade"><a href="{{ settings.pinterest_link }}"><i class="fab fa-pinterest hvr-icon"></i></a></span>
           </div>
         </div>
       </div>
