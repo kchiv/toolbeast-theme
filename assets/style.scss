@@ -1,3 +1,18 @@
+/**** Global Elements ****/
+
+	.tb-button {
+		background-color: #2ECC71;
+		border-color: #2ECC71;
+		border-radius: 0.15rem;
+	}
+
+	.tb-button:hover {
+		background-color: #229552;
+		border-color: #229552;
+
+	}
+
+
 /**** Top Nav ****/
 
 
@@ -285,23 +300,6 @@
 		font-style: italic;
 	}
 
-	/* Hero button */
-
-	.hero-cell a {
-		border-radius: 0.15rem;
-	}
-
-	.hero-cell a {
-		background-color: #2ECC71;
-		border-color: #2ECC71;
-
-	}
-
-	.hero-cell a:hover {
-		background-color: #229552;
-		border-color: #229552;
-
-	}
 
 	/* Right justified content box mobile devices */
 
