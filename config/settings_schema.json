@@ -61,36 +61,6 @@
     ]
   },
   {
-    "name": "Home Page",
-    "settings": [
-      {
-        "type": "image_picker",
-        "id": "hp_hero_img",
-        "label": "Hero Image"
-      },
-      {
-        "type": "text",
-        "id": "hp_hero_h1",
-        "label": "Hero H1"
-      },
-      {
-        "type": "text",
-        "id": "hp_hero_subcopy",
-        "label": "Hero Subcopy"
-      },
-      {
-        "type": "url",
-        "id": "hp_hero_link_url",
-        "label": "Hero Link URL"
-      },
-      {
-        "type": "text",
-        "id": "hp_hero_link_text",
-        "label": "Hero Link Text"
-      }
-    ]
-  },
-  {
     "name": "About Page",
     "settings": [
       {
