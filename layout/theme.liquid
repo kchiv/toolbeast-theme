@@ -36,12 +36,6 @@
     <!-- Brings in CSS file from assets directory -->
     {{ 'style.scss' | asset_url | stylesheet_tag }}
 
-    <style type="text/css">
-      .homepage-hero {
-        background-image: url({{ settings.hp_hero_img | img_url: '1920x' }});
-      }
-    </style>
-
   </head>
   <body>
     {% section 'header' %}
