@@ -1,0 +1,55 @@
+<style type="text/css">
+  .homepage-hero {
+    background-image: url({{ section.settings.hp_hero_img | img_url: '1920x' }});
+  }
+</style>
+
+<!-- homepage hero -->
+<div class="homepage-hero">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-6 offset-md-6 hp-hero-text">
+				<div class="hp-hero-row">
+					<span class="hero-cell">
+						<h1>{{ section.settings.hp_hero_h1 }}</h1>
+						<p>{{ section.settings.hp_hero_subcopy }}</p>
+						<a href="{{ section.settings.hp_hero_link_url }}" class="btn btn-primary tb-button">{{ section.settings.hp_hero_link_text }}</a>
+					</span>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+{% schema %}
+{
+	"name": "Home Page Hero",
+	"settings": [
+	  {
+	    "type": "image_picker",
+	    "id": "hp_hero_img",
+	    "label": "Hero Image"
+	  },
+	  {
+	    "type": "text",
+	    "id": "hp_hero_h1",
+	    "label": "Hero H1"
+	  },
+	  {
+	    "type": "text",
+	    "id": "hp_hero_subcopy",
+	    "label": "Hero Subcopy"
+	  },
+	  {
+	    "type": "url",
+	    "id": "hp_hero_link_url",
+	    "label": "Hero Link URL"
+	  },
+	  {
+	    "type": "text",
+	    "id": "hp_hero_link_text",
+	    "label": "Hero Link Text"
+	  }
+	]
+}
+{% endschema %}
