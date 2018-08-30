@@ -1,25 +1,4 @@
-<style type="text/css">
-  .homepage-hero {
-    background-image: url({{ settings.hp_hero_img | img_url: '1920x' }});
-  }
-</style>
-
-<!-- homepage hero -->
-<div class="homepage-hero">
-	<div class="container-fluid">
-		<div class="row">
-			<div class="col-md-6 offset-md-6 hp-hero-text">
-				<div class="hp-hero-row">
-					<span class="hero-cell">
-						<h1>{{ settings.hp_hero_h1 }}</h1>
-						<p>{{ settings.hp_hero_subcopy }}</p>
-						<a href="{{ settings.hp_hero_link_url }}" class="btn btn-primary tb-button">{{ settings.hp_hero_link_text }}</a>
-					</span>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
+{% section 'homepage-hero' %}
 
 <!-- shop by category -->
 <div class="container-fluid">
