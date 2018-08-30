@@ -1,57 +1,66 @@
 /**** Global Elements ****/
 
-.tb-button {
-	background-color: #2ECC71;
-	border-color: #2ECC71;
-	border-radius: 0.15rem;
-}
+	/** Buttons **/
 
-.tb-button:hover {
-	background-color: #229552;
-	border-color: #229552;
+	.tb-button {
+		background-color: #2ECC71;
+		border-color: #2ECC71;
+		border-radius: 0.15rem;
+	}
 
-}
+	.tb-button:hover {
+		background-color: #229552;
+		border-color: #229552;
+
+	}
+
+	/** Headers **/
+
+	.tb-h1-underline {
+		border-bottom: 2px solid #2ECC71;
+		display: inline-block;
+	}
 
 
 /**** Top Nav ****/
 
 
-/** Top Black Bar **/
+	/** Top Black Bar **/
 
-
-.subnav-elem {
-  padding-top: 0px;
-  padding-bottom: 0px;
-  font-size: 13px;
-}
-  
-.subnav-icon {
-  padding-left: 10px;
-  padding-right: 10px;
-}
-
-.subnav-icon a {
-  text-decoration: none;
-  color: #afafaf !important;
-}
-
-.hvr-icon-fade:active .hvr-icon, 
-.hvr-icon-fade:focus .hvr-icon, 
-.hvr-icon-fade:hover .hvr-icon{
-	color: #2ECC71;
-}
-
-
-@media (max-width: 767.98px) {
 
 	.subnav-elem {
-		font-size: 16px;
+	  padding-top: 0px;
+	  padding-bottom: 0px;
+	  font-size: 13px;
+	}
+	  
+	.subnav-icon {
+	  padding-left: 10px;
+	  padding-right: 10px;
 	}
 
-	.justify-content-end {
-		justify-content: center !important;
+	.subnav-icon a {
+	  text-decoration: none;
+	  color: #afafaf !important;
 	}
-}
+
+	.hvr-icon-fade:active .hvr-icon, 
+	.hvr-icon-fade:focus .hvr-icon, 
+	.hvr-icon-fade:hover .hvr-icon{
+		color: #2ECC71;
+	}
+
+
+	@media (max-width: 767.98px) {
+
+		.subnav-elem {
+			font-size: 16px;
+		}
+
+		.justify-content-end {
+			justify-content: center !important;
+		}
+	}
 
 
 
@@ -327,11 +336,6 @@
 .contact-form .form-group .form-control,
 .contact-form .form-group .form-control {
 	border-radius: 0.15rem;
-}
-
-.h1-underline {
-	border-bottom: 2px solid #2ECC71;
-	display: inline-block;
 }
 
 .contact-social-info {
