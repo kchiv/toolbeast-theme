@@ -1,6 +1,103 @@
+<style type="text/css">
+.hp-category-img-1 {
+	background-image: url({{ section.settings.hp_cat_img_1 | img_url: '500x' }});
+}
+
+.hp-category-img-2 {
+	background-image: url({{ section.settings.hp_cat_img_2 | img_url: '500x' }});
+}
+
+.hp-category-img-3 {
+	background-image: url({{ section.settings.hp_cat_img_3 | img_url: '500x' }});
+}
+</style>
+
+
+
 <!-- shop by category -->
 <div class="container-fluid">
 	<div class="row justify-content-center">
-	  <h3 class="hp-h3">Shop by category</h3>
+	  <h3 class="hp-h3">{{ section.settings.hp_cat_header }}</h3>
+	</div>
+	<div class="row">
+	  <div class="col-xl-4">
+	  	<a href="{{ section.settings.hp_cat_url_1 }}">
+			<div class="hp-category-img-1">
+				<h4 class="hp-cat-text">{{ section.settings.hp_cat_text_1 }}</h4>
+			</div>
+		</a>
+	  </div>
+	  <div class="col-xl-4">
+	  	<a href="{{ section.settings.hp_cat_url_2 }}">
+			<div class="hp-category-img-2">
+				<h4 class="hp-cat-text">{{ section.settings.hp_cat_text_2 }}</h4>
+			</div>
+		</a>
+	  </div>
+	  <div class="col-xl-4">
+	  	<a href="{{ section.settings.hp_cat_url_3 }}">
+			<div class="hp-category-img-3">
+				<h4 class="hp-cat-text">{{ section.settings.hp_cat_text_3 }}</h4>
+			</div>
+		</a>
+	  </div>
 	</div>
 </div>
+
+{% schema %}
+{
+	"name": "Home Page Categories",
+	"settings": [
+	  {
+	    "type": "text",
+	    "id": "hp_cat_header",
+	    "label": "Home Category Header"
+	  },
+	  {
+	    "type": "image_picker",
+	    "id": "hp_cat_img_1",
+	    "label": "Home Category Image 1"
+	  },
+	  {
+	    "type": "text",
+	    "id": "hp_cat_text_1",
+	    "label": "Home Category Text 1"
+	  },
+	  {
+	    "type": "url",
+	    "id": "hp_cat_url_1",
+	    "label": "Home Category URL 1"
+	  },
+	  {
+	    "type": "image_picker",
+	    "id": "hp_cat_img_2",
+	    "label": "Home Category Image 2"
+	  },
+	  {
+	    "type": "text",
+	    "id": "hp_cat_text_2",
+	    "label": "Home Category Text 2"
+	  },
+	  {
+	    "type": "url",
+	    "id": "hp_cat_url_2",
+	    "label": "Home Category URL 2"
+	  },
+	  {
+	    "type": "image_picker",
+	    "id": "hp_cat_img_3",
+	    "label": "Home Category Image 3"
+	  },
+	  {
+	    "type": "text",
+	    "id": "hp_cat_text_3",
+	    "label": "Home Category Text 3"
+	  },
+	  {
+	    "type": "url",
+	    "id": "hp_cat_url_3",
+	    "label": "Home Category URL 3"
+	  }
+	]
+}
+{% endschema %}
