@@ -7,26 +7,42 @@
 .hp-category-img {
     position: relative;
     display: inline-block;
+    padding-top: 20px;
 }
 
 /*experiment*/
 
-.hp-category-img:after, .hp-category-img:before {
-    position:absolute;
-    opacity:0;
-    transition: all 0.5s;
-    -webkit-transition: all 0.5s;
+.solidcolor {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  cursor: default;
+  background: #343a40;
 }
 
-.hp-category-img:after {
-    content:'\A';
-    width:100%; height:100%;
-    top:0; left:0;
-    background:rgba(0,0,0,0.6);
+.solidcolor .hp-category-text {
+  width: 100%;
+  position: absolute;
+  overflow: hidden;
+  padding: 50px 20px;
 }
 
-.hp-category-img:hover:after, .hp-category-img:hover:before {
-    opacity:1;
+.solidcolor img {
+  display: block;
+  position: relative;
+  width: calc(100% + 20px);
+  -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  opacity: 0.3
+}
+
+.solidcolor:hover img {
+  opacity: 0.6;
+  filter: alpha(opacity=60);
 }
 
 /*end experiment*/
@@ -59,28 +75,34 @@
 	</div>
 	<div class="row hp-category-block">
       <div class="col-md-4 hp-category-img">
+      	<div class="solidcolor">
       	<a href="{{ section.settings.hp_cat_url_1 }}">
           <img class="img-fluid" src="{{ section.settings.hp_cat_img_1 | img_url: '500x350', crop: 'center' }}" alt="{{ section.settings.hp_cat_text_1 }}">
           <div class="hp-category-text">
               <h4 class="hp-cat-text">{{ section.settings.hp_cat_text_1 }}</h4>
           </div>
         </a>
+        </div>
       </div>
       <div class="col-md-4 hp-category-img">
+      	<div class="solidcolor">
       	<a href="{{ section.settings.hp_cat_url_2 }}">
           <img class="img-fluid" src="{{ section.settings.hp_cat_img_2 | img_url: '500x350', crop: 'center' }}" alt="{{ section.settings.hp_cat_text_2 }}">
           <div class="hp-category-text">
               <h4 class="hp-cat-text">{{ section.settings.hp_cat_text_2 }}</h4>
           </div>
         </a>
+    	</div>
       </div>
       <div class="col-md-4 hp-category-img">
+      	<div class="solidcolor">
       	<a href="{{ section.settings.hp_cat_url_3 }}">
           <img class="img-fluid" src="{{ section.settings.hp_cat_img_3 | img_url: '500x350', crop: 'center' }}" alt="{{ section.settings.hp_cat_text_3 }}">
           <div class="hp-category-text">
               <h4 class="hp-cat-text">{{ section.settings.hp_cat_text_3 }}</h4>
           </div>
         </a>
+    	</div>
       </div>
     </div>
 </div>
