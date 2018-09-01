@@ -1,3 +1,22 @@
+<style type="text/css">
+
+.hp-category-text {
+	text-align: left;
+}
+
+.sample-test {
+	width: fit-content;
+}
+
+.sample-test .hp-blog-category {
+	background: #2ECC71;
+	padding-left: 5px;
+	padding-right: 5px;
+	border-radius: 0.15rem;
+}
+	
+</style>
+
 <!-- featured tips and info -->
 <div class="container-fluid">
 	<div class="row justify-content-center">
@@ -45,13 +64,16 @@ If featuredArticles is not false we should have articles to show.
 					<a href="{{ article.url }}">
 						<img class="img-fluid" src="{{ article.image.src | img_url: '500x300', crop: 'center' }}">
 						<div class="hp-category-text">
-							{% assign article_cat_hand = article.handle | split:'/' %}
-							{% for blog_cat in featuredBlogs %}
-								{% if blogs[blog_cat].handle == article_cat_hand[0] %}
-									<h3>{{ blogs[blog_cat].title }}</h3>
-								{% endif %}
-							{% endfor %}
+							<div class="sample-test">
+								{% assign article_cat_hand = article.handle | split:'/' %}
+								{% for blog_cat in featuredBlogs %}
+									{% if blogs[blog_cat].handle == article_cat_hand[0] %}
+										<p class="hp-blog-category">{{ blogs[blog_cat].title }}</p>
+									{% endif %}
+								{% endfor %}
+							</div>
 							<h3 class="article_title">{{ article.title }}</h3>
+							<p><i class="fas fa-clock"></i> {{ article.published_at | date: "%B %d, %Y" }}</p>
 						</div>
 					</a>
 				</div>
