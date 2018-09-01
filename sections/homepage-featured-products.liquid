@@ -1,0 +1,20 @@
+<!-- shop by product -->
+<div class="container">
+	<div class="row solid-bottom-line">
+	  <h3 class="tb-h3-underline">{{ section.settings.hp_product_header }}</h3>
+	</div>
+</div>
+
+
+{% schema %}
+{
+	"name": "Home Page Products",
+	"settings": [
+	  {
+	    "type": "text",
+	    "id": "hp_product_header",
+	    "label": "Home Product Header"
+	  }
+	]
+}
+{% endschema %}
