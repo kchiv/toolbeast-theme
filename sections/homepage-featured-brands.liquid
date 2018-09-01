@@ -1,0 +1,85 @@
+<!-- shop by brand -->
+<div class="container">
+	<div class="row brand-row">
+		<div class="col-md-6 my-auto">
+	  		<h3 class="hp-brand-header">{{ section.settings.hp_brand_header }}</h3>
+	  	</div>
+	  	<div class="col-md-6 hp-brand-logos">
+	  		<div class="hp-brand-image text-center">
+	  			<a href="{{ section.settings.hp_brand_url_1 }}">
+	  				<img class="img-fluid" src="{{ section.settings.hp_brand_img_1 | img_url: 'x100', crop: 'center' }}">
+	  			</a>
+	  		</div>
+	  		<div class="hp-brand-img-center hp-brand-image text-center">
+	  			<a href="{{ section.settings.hp_brand_url_2 }}">
+	  				<img class="img-fluid" src="{{ section.settings.hp_brand_img_2 | img_url: 'x100', crop: 'center' }}">
+	  			</a>
+	  		</div>
+	  		<div class="hp-brand-image text-center">
+	  			<a href="{{ section.settings.hp_brand_url_3 }}">
+	  				<img class="img-fluid" src="{{ section.settings.hp_brand_img_3 | img_url: 'x100', crop: 'center' }}">
+	  			</a>
+	  		</div>
+	  	</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12 text-center hp-brand-button">
+			<a href="{{ section.settings.hp_brand_button_url }}" class="btn btn-primary tb-button">{{ section.settings.hp_brand_button_text }}</a>
+		</div>
+	</div>
+</div>
+
+
+
+{% schema %}
+{
+	"name": "Home Page Brands",
+	"settings": [
+	  {
+	    "type": "text",
+	    "id": "hp_brand_header",
+	    "label": "Home Brand Header"
+	  },
+	  {
+	    "type": "image_picker",
+	    "id": "hp_brand_img_1",
+	    "label": "Home Brand Image 1"
+	  },
+	  {
+	    "type": "url",
+	    "id": "hp_brand_url_1",
+	    "label": "Home Brand URL 1"
+	  },
+	  {
+	    "type": "image_picker",
+	    "id": "hp_brand_img_2",
+	    "label": "Home Brand Image 2"
+	  },
+	  {
+	    "type": "url",
+	    "id": "hp_brand_url_2",
+	    "label": "Home Brand URL 2"
+	  },
+	  {
+	    "type": "image_picker",
+	    "id": "hp_brand_img_3",
+	    "label": "Home Brand Image 3"
+	  },
+	  {
+	    "type": "url",
+	    "id": "hp_brand_url_3",
+	    "label": "Home Brand URL 3"
+	  },
+	  {
+	    "type": "text",
+	    "id": "hp_brand_button_text",
+	    "label": "Home Brand Button Text"
+	  },
+	  {
+	    "type": "url",
+	    "id": "hp_brand_button_url",
+	    "label": "Home Brand Button URL"
+	  }
+	]
+}
+{% endschema %}
