@@ -4,3 +4,65 @@
 	  <h3 class="tb-box-h3">Featured Tips & Info</h3>
 	</div>
 </div>
+
+
+
+{% assign featuredBlogs = 'how-to,news,welding' | split:',' %}
+
+{% comment %}
+Set the featuredArticles variable to false by default.
+{% endcomment %}
+{% assign featuredArticles = false %}
+
+{% comment %}
+Grab the last 50 (default) articles from each Blog. Add the articles to the featureArticles variable.
+{% endcomment %}
+{% for featuredBlog in featuredBlogs %}
+	{% if blogs[featuredBlog].articles %}
+		{% if featuredArticles %}
+			{% assign featuredArticles = featuredArticles | concat:blogs[featuredBlog].articles %}
+		{% else %}
+			{% assign featuredArticles = blogs[featuredBlog].articles %}
+		{% endif %}
+	{% endif %}
+{% endfor %}
+
+{% comment %}
+If featuredArticles is not false we should have articles to show.
+{% endcomment %}
+<div class="container">
+	<div class="row">
+	{% if featuredArticles %}
+		{% assign featuredArticles = featuredArticles | sort:'published_at' | reverse %}
+
+		{% comment %}
+		Now a quick example of showing the latest 2 articles from our master article list
+		{% endcomment %}
+
+		{% for article in featuredArticles limit:2 %}
+			<div class="col-md-6 hp-category-img">
+				<div class="hp-cat-color">
+					<a href="{{ article.url }}">
+						<img class="img-fluid" src="{{ article.image.src | img_url: '500x300', crop: 'center' }}">
+						<div class="hp-category-text">
+							{% assign article_cat_hand = article.handle | split:'/' %}
+							{% for blog_cat in featuredBlogs %}
+								{% if blogs[blog_cat].handle == article_cat_hand[0] %}
+									<h3>{{ blogs[blog_cat].title }}</h3>
+								{% endif %}
+							{% endfor %}
+							<h3 class="article_title">{{ article.title }}</h3>
+						</div>
+					</a>
+				</div>
+			</div>
+		{% endfor %}
+
+	{% endif %}
+	</div>
+	<div class="row hp-brand-button">
+		<div class="col-md-12 text-center">
+			<a href="" class="btn btn-primary tb-button">See More Articles</a>
+		</div>
+	</div>
+</div>
