@@ -23,6 +23,11 @@
 			display: inline-block;
 		}
 
+		.tb-h3-underline {
+			border-bottom: 2px solid #2ECC71;
+			display: inline-block;
+		}
+
 		.tb-h4-underline {
 			border-bottom: 2px solid #2ECC71;
 			display: inline-block;
@@ -327,17 +332,17 @@
 	}
 
 
-	/* Right justified content box mobile devices */
+		/* Right justified content box mobile devices */
 
-	@media (max-width: 767.98px) { 
-		.hp-hero-text {
-			padding: 20px;
+		@media (max-width: 767.98px) { 
+			.hp-hero-text {
+				padding: 20px;
+			}
+
 		}
 
-	}
 
-
-	/* Featured Categories */
+/** Featured Categories **/
 
 	.hp-category-block {
 		padding-top: 10px;
@@ -396,13 +401,79 @@
 	    font-weight: bold;
 	}
 
+	/* Smaller category blocks on mobile */
+
 	@media (max-width: 767.98px) {
 
 		.hp-category-block {
-			width: 90%;
+			width: 85%;
 			margin: auto;
 		}
 	}
+
+/** Featured Products **/
+
+.solid-bottom-line {
+	border-bottom: 1px solid;
+	padding-top: 40px;
+}
+
+.solid-bottom-line .tb-h3-underline {
+	margin-bottom: 0px;
+}
+
+@media (max-width: 767.98px) {
+	.solid-bottom-line {
+		width: 85%;
+		margin: auto;
+	}
+}
+
+
+/** Featured Brands **/
+
+.brand-row {
+	padding-top: 40px;
+	padding-bottom: 40px;
+}
+
+.hp-brand-logos {
+	border-left: 1px solid;
+}
+
+.hp-brand-header {
+	text-align: right;
+	font-size: 60px;
+	text-transform: uppercase;
+}
+
+.hp-brand-image {
+	width: 85%;
+	margin: auto;
+}
+
+.hp-brand-img-center {
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+@media (max-width: 767.98px) {
+	.brand-row {
+		width: 85%;
+		margin: auto;
+	}
+
+	.hp-brand-image {
+		width: 100%;
+		margin: auto;
+	}
+
+	.hp-brand-logos {
+		border-left: none;
+		padding-top: 40px;
+		border-top: 1px solid;
+	}
+}
 
 
 /**** Contact Page ****/
