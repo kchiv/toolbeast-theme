@@ -3,17 +3,87 @@
 		background-color: #343A40;
 		background-image: -webkit-linear-gradient(30deg, #343A40 50%, #D8D8D8 50%);
 	}
+
+	.hp-left-email {
+		padding: 55px;
+	}
+
+	.hp-left-email h3 {
+		color: white;
+		text-transform: uppercase;
+	}
+
+	.hp-left-email .hp-social-icons {
+		padding-right: 15px;
+	}
+
+	.hp-left-email a {
+		color: white;
+	}
+
+	.hp-left-email i {
+		font-size: 35px;
+	}
+
+	.tb-green {
+		color: #2ECC71;
+	}
+
+	/* delete */
+
+	.hp-right-email {
+		padding: 55px;
+	}
+
+	.hp-right-email h3 {
+		color: white;
+		text-transform: uppercase;
+	}
+
+	.hp-right-email .hp-social-icons {
+		padding-right: 15px;
+	}
+
+	.hp-right-email a {
+		color: white;
+	}
+
+	.hp-right-email i {
+		font-size: 35px;
+	}
+
+	/* delete */
+
+	@media (max-width: 576px) {
+		.hp-left-email {
+			background-color: #343A40;
+		}
+
+		.hp-right-email {
+			background-color: #D8D8D8;
+		}
+	}
 </style>
 
 
 <div class="sample-class">
-	<div class="container">
+	<div class="container-fluid">
 		<div class="row">
-			<div class="col-md-6">
-				<h3>Sign Up For The Beast Newsletter & Follow Us On:</h3>
+			<div class="col-sm-6 hp-left-email">
+				<h3>Sign Up For The <span class="tb-green">Beast</span> Newsletter & Follow Us On:</h3>
+				<span class="hvr-icon-fade hp-social-icons"><a href="{{ settings.facebook_link }}"><i class="fab fa-facebook hvr-icon"></i></a></span>
+	            <span class="hvr-icon-fade hp-social-icons"><a href="{{ settings.instagram_link }}"><i class="fab fa-instagram hvr-icon"></i></a></span>
+	            <span class="hvr-icon-fade hp-social-icons"><a href="{{ settings.twitter_link }}"><i class="fab fa-twitter hvr-icon"></i></a></span>
+	            <span class="hvr-icon-fade hp-social-icons"><a href="{{ settings.pinterest_link }}"><i class="fab fa-pinterest hvr-icon"></i></a></span>
 			</div>
-			<div class="col-md-6">
-				
+			<div class="col-sm-6 hp-right-email text-center">
+				<p>Join our newsletter to receive exclusive deals!</p>
+				<form>
+				  <div class="form-group">
+				    <input type="email" class="form-control" placeholder="EMAIL ADDRESS">
+				  </div>
+				  <button type="submit" class="btn btn-primary tb-button">Sign Up</button>
+				</form>
 			</div>
 		</div>
 	</div>
