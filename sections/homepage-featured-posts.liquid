@@ -1,18 +1,86 @@
 <style type="text/css">
 
-.hp-category-text {
+.hp-article-img {
+    position: relative;
+    display: inline-block;
+    padding-top: 20px;
+}
+
+.hp-article-color {
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	position: relative;
+	text-align: center;
+	cursor: default;
+	background: #343a40;
+}
+
+.hp-article-color .hp-article-text {
+	width: 100%;
+	position: absolute;
+	overflow: hidden;
+	padding: 50px 20px;
+}
+
+.hp-article-color img {
+	display: block;
+	position: relative;
+	width: calc(100% + 20px);
+	opacity: 0.3;
+}
+
+.hp-article-img img {
+    display: block;
+}
+
+.hp-article-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate( -50%, -50% );
+    text-align: center;
+    color: white;
+}
+
+.hp-article-text {
 	text-align: left;
 }
 
-.sample-test {
+.hp-article-category {
 	width: fit-content;
 }
 
-.sample-test .hp-blog-category {
-	background: #2ECC71;
+.hp-article-category .hp-article-category-text {
+	background-color: #2ECC71;
 	padding-left: 5px;
 	padding-right: 5px;
 	border-radius: 0.15rem;
+}
+
+.hp-article-text h4 {
+	text-transform: uppercase;
+}
+
+.hp-article-txt-block a,
+.hp-article-category a {
+	color: #FFFFFF;
+	-webkit-transition: color .2s linear;
+	-moz-transition: color .2s linear;
+	-ms-transition: color .2s linear;
+	-o-transition: color .2s linear;
+	transition: color .2s linear;
+
+}
+
+.hp-article-txt-block a:hover,
+.hp-article-category a:hover {
+	color: #D8D8D8;
+	text-decoration: none;
+}
+
+.hp-article-button {
+	padding-top: 20px;
 }
 	
 </style>
@@ -59,32 +127,56 @@ If featuredArticles is not false we should have articles to show.
 		{% endcomment %}
 
 		{% for article in featuredArticles limit:2 %}
-			<div class="col-md-6 hp-category-img">
-				<div class="hp-cat-color">
-					<a href="{{ article.url }}">
+			<div class="col-md-6 hp-article-img">
+				<div class="hp-article-color">
 						<img class="img-fluid" src="{{ article.image.src | img_url: '500x300', crop: 'center' }}">
-						<div class="hp-category-text">
-							<div class="sample-test">
+						<div class="hp-article-text">
+							<div class="hp-article-category">
 								{% assign article_cat_hand = article.handle | split:'/' %}
 								{% for blog_cat in featuredBlogs %}
 									{% if blogs[blog_cat].handle == article_cat_hand[0] %}
-										<p class="hp-blog-category">{{ blogs[blog_cat].title }}</p>
+									<a href="{{ blogs[blog_cat].url }}">
+										<p class="hp-article-category-text">{{ blogs[blog_cat].title }}</p>
+									</a>
 									{% endif %}
 								{% endfor %}
 							</div>
-							<h3 class="article_title">{{ article.title }}</h3>
-							<p><i class="fas fa-clock"></i> {{ article.published_at | date: "%B %d, %Y" }}</p>
+							<div class="hp-article-txt-block">
+								<a href="{{ article.url }}">
+									<h4 class="hp-article_title">{{ article.title | truncate: 70 }}</h4>
+								</a>
+									<p><i class="fas fa-clock"></i> {{ article.published_at | date: "%B %d, %Y" }}</p>
+							</div>
 						</div>
-					</a>
 				</div>
 			</div>
 		{% endfor %}
 
 	{% endif %}
 	</div>
-	<div class="row hp-brand-button">
+	<div class="row hp-article-button">
 		<div class="col-md-12 text-center">
-			<a href="" class="btn btn-primary tb-button">See More Articles</a>
+			<a href="{{ section.settings.hp_articles_btn_url }}" class="btn btn-primary tb-button">{{ section.settings.hp_articles_btn_text }}</a>
 		</div>
 	</div>
 </div>
+
+
+
+{% schema %}
+{
+	"name": "Home Page Articles",
+	"settings": [
+	  {
+	    "type": "text",
+	    "id": "hp_articles_btn_text",
+	    "label": "Home Aritcles Button Text"
+	  },
+	  {
+	    "type": "url",
+	    "id": "hp_articles_btn_url",
+	    "label": "Home Articles Button URL"
+	  }
+	]
+}
+{% endschema %}
