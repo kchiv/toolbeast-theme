@@ -1,7 +1,28 @@
+<style type="text/css">
+	.spr-badge[data-rating="0.0"] {
+    	visibility:hidden; display: none;
+	}
+
+</style>
+
 <!-- shop by product -->
 <div class="container">
 	<div class="row solid-bottom-line">
 	  <h3 class="tb-h3-underline">{{ section.settings.hp_product_header }}</h3>
+	</div>
+	<div class="row">
+		{% assign hp_collection = collections[section.settings.hp_product_collection] %}
+		{% for product in hp_collection.products limit: 4 %}
+			<div class="col-md-3">
+				<img class="img-fluid" src="{{ product.featured_image.src | img_url: '1920x' }}">
+				<span>{{ product.title }}</span>
+				<p>Model# {% for vari in product.variants %} {{ vari.sku }} {% endfor %} </p>
+				<span class="shopify-product-reviews-badge" data-id="{{ product.id }}"></span>
+				<p><span>$</span> {{ product.price | money_without_currency }}</p>
+				
+			</div>
+		{% endfor %}
+		
 	</div>
 </div>
 
@@ -14,6 +35,11 @@
 	    "type": "text",
 	    "id": "hp_product_header",
 	    "label": "Home Product Header"
+	  },
+	  {
+	    "type": "collection",
+	    "id": "hp_product_collection",
+	    "label": "Home Product Collection"
 	  }
 	]
 }
