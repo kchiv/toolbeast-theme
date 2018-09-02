@@ -88,7 +88,7 @@
 <!-- featured tips and info -->
 <div class="container-fluid">
 	<div class="row justify-content-center">
-	  <h3 class="tb-box-h3">Featured Tips & Info</h3>
+	  <h3 class="tb-box-h3">{{ section.settings.hp_articles_header }}</h3>
 	</div>
 </div>
 
@@ -167,16 +167,21 @@ If featuredArticles is not false we should have articles to show.
 {
 	"name": "Home Page Articles",
 	"settings": [
-	  {
-	    "type": "text",
-	    "id": "hp_articles_btn_text",
-	    "label": "Home Aritcles Button Text"
-	  },
-	  {
-	    "type": "url",
-	    "id": "hp_articles_btn_url",
-	    "label": "Home Articles Button URL"
-	  }
+		{
+			"type": "text",
+			"id": "hp_articles_header",
+			"label": "Home Aritcles Header"
+		},
+		{
+			"type": "text",
+			"id": "hp_articles_btn_text",
+			"label": "Home Aritcles Button Text"
+		},
+		{
+			"type": "url",
+			"id": "hp_articles_btn_url",
+			"label": "Home Articles Button URL"
+		}
 	]
 }
 {% endschema %}
