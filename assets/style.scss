@@ -290,194 +290,335 @@
 /**** Homepage ****/
 
 
-/** Hero **/
+	/** HP Hero **/
 
 
-	/* Background image */
-	.homepage-hero {
-		background-repeat: no-repeat;
-		background-size: cover;
-		background-position: center;
-		height: 500px;
-		color: #FFFFFF;	
-	}
+		/* Background image */
+		.homepage-hero {
+			background-repeat: no-repeat;
+			background-size: cover;
+			background-position: center;
+			height: 500px;
+			color: #FFFFFF;	
+		}
 
-	/* Right justified content box */
+		/* Right justified content box */
 
-	.hp-hero-text {
-		background: linear-gradient(to right, 
-	                    rgba(56,56,56, 0), 
-	                    rgba(56,56,56, 0.5) 20%);
-		height: 500px;
-		display: table;
-		padding: 70px;
-	}
+		.hp-hero-text {
+			background: linear-gradient(to right, 
+		                    rgba(56,56,56, 0), 
+		                    rgba(56,56,56, 0.5) 20%);
+			height: 500px;
+			display: table;
+			padding: 70px;
+		}
 
-	.hp-hero-row {
-		display: table-row;
-	}
+		.hp-hero-row {
+			display: table-row;
+		}
 
-	.hero-cell {
-		display: table-cell;
-		vertical-align: middle;
-		text-align: right;
-	}
+		.hero-cell {
+			display: table-cell;
+			vertical-align: middle;
+			text-align: right;
+		}
 
-	.hero-cell h1 {
-		text-transform: uppercase;
-	}
+		.hero-cell h1 {
+			text-transform: uppercase;
+		}
 
-	.hero-cell p {
-		font-style: italic;
-	}
-
-
-		/* Right justified content box mobile devices */
-
-		@media (max-width: 767.98px) { 
-			.hp-hero-text {
-				padding: 20px;
-			}
-
+		.hero-cell p {
+			font-style: italic;
 		}
 
 
-/** Featured Categories **/
+			/* Right justified content box mobile devices */
 
-	.hp-category-block {
-		padding-top: 10px;
-	}
+			@media (max-width: 767.98px) { 
+				.hp-hero-text {
+					padding: 20px;
+				}
 
-	.hp-category-img {
-	    position: relative;
-	    display: inline-block;
-	    padding-top: 20px;
-	}
+			}
 
-	.hp-cat-color {
-		width: 100%;
-		height: 100%;
-		overflow: hidden;
-		position: relative;
-		text-align: center;
-		cursor: default;
-		background: #343a40;
-	}
 
-	.hp-cat-color .hp-category-text {
-		width: 100%;
-		position: absolute;
-		overflow: hidden;
-		padding: 50px 20px;
-	}
-
-	.hp-cat-color img {
-		display: block;
-		position: relative;
-		width: calc(100% + 20px);
-		-webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
-		transition: opacity 0.35s, transform 0.35s;
-		-webkit-backface-visibility: hidden;
-		backface-visibility: hidden;
-		opacity: 0.3
-	}
-
-	.hp-cat-color:hover img {
-		opacity: 0.6;
-		filter: alpha(opacity=60);
-	}
-
-	.hp-category-img img {
-	    display: block;
-	}
-
-	.hp-category-text {
-	    position: absolute;
-	    top: 50%;
-	    left: 50%;
-	    transform: translate( -50%, -50% );
-	    text-align: center;
-	    color: white;
-	    font-weight: bold;
-	}
-
-	/* Smaller category blocks on mobile */
-
-	@media (max-width: 767.98px) {
+	/** HP Featured Categories **/
 
 		.hp-category-block {
+			padding-top: 10px;
+		}
+
+		.hp-category-img {
+		    position: relative;
+		    display: inline-block;
+		    padding-top: 20px;
+		}
+
+		.hp-cat-color {
+			width: 100%;
+			height: 100%;
+			overflow: hidden;
+			position: relative;
+			text-align: center;
+			cursor: default;
+			background: #343a40;
+		}
+
+		.hp-cat-color .hp-category-text {
+			width: 100%;
+			position: absolute;
+			overflow: hidden;
+			padding: 50px 20px;
+		}
+
+		.hp-cat-color img {
+			display: block;
+			position: relative;
+			width: calc(100% + 20px);
+			-webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+			transition: opacity 0.35s, transform 0.35s;
+			-webkit-backface-visibility: hidden;
+			backface-visibility: hidden;
+			opacity: 0.3
+		}
+
+		.hp-cat-color:hover img {
+			opacity: 0.6;
+			filter: alpha(opacity=60);
+		}
+
+		.hp-category-img img {
+		    display: block;
+		}
+
+		.hp-category-text {
+		    position: absolute;
+		    top: 50%;
+		    left: 50%;
+		    transform: translate( -50%, -50% );
+		    text-align: center;
+		    color: white;
+		    font-weight: bold;
+		}
+
+		/* Smaller category blocks on mobile */
+
+		@media (max-width: 767.98px) {
+
+			.hp-category-block {
+				width: 85%;
+				margin: auto;
+			}
+		}
+
+	/** HP Featured Products **/
+
+		.solid-bottom-line {
+			border-bottom: 1px solid;
+			padding-top: 40px;
+		}
+
+		.solid-bottom-line .tb-h3-underline {
+			margin-bottom: 0px;
+		}
+
+		/* Smaller width for header on mobile devices */
+
+		@media (max-width: 767.98px) {
+			.solid-bottom-line {
+				width: 85%;
+				margin: auto;
+			}
+		}
+
+
+	/** HP Featured Brands **/
+
+		.brand-row {
+			padding-top: 40px;
+			padding-bottom: 40px;
+		}
+
+		.hp-brand-logos {
+			border-left: 1px solid;
+		}
+
+		.hp-brand-header {
+			text-align: right;
+			font-size: 60px;
+			text-transform: uppercase;
+		}
+
+		.hp-brand-image {
 			width: 85%;
 			margin: auto;
 		}
-	}
 
-/** Featured Products **/
+		.hp-brand-img-center {
+			padding-top: 20px;
+			padding-bottom: 20px;
+		}
 
-.solid-bottom-line {
-	border-bottom: 1px solid;
-	padding-top: 40px;
-}
+		.hp-brand-button {
+			padding-bottom: 40px;
+		}
 
-.solid-bottom-line .tb-h3-underline {
-	margin-bottom: 0px;
-}
+		@media (max-width: 767.98px) {
+			.brand-row {
+				width: 85%;
+				margin: auto;
+			}
 
-@media (max-width: 767.98px) {
-	.solid-bottom-line {
-		width: 85%;
-		margin: auto;
-	}
-}
+			.hp-brand-image {
+				width: 100%;
+				margin: auto;
+			}
 
+			.hp-brand-logos {
+				border-left: none;
+				padding-top: 40px;
+				border-top: 1px solid;
+			}
+		}
 
-/** Featured Brands **/
+	/** HP Email Capture **/
 
-.brand-row {
-	padding-top: 40px;
-	padding-bottom: 40px;
-}
+		.hp-email-background {
+			background-color: #343A40;
+			background-image: -webkit-linear-gradient(30deg, #343A40 50%, #D8D8D8 50%);
+		}
 
-.hp-brand-logos {
-	border-left: 1px solid;
-}
+		.hp-left-email {
+			padding: 55px;
+		}
 
-.hp-brand-header {
-	text-align: right;
-	font-size: 60px;
-	text-transform: uppercase;
-}
+		.hp-left-email h3 {
+			color: white;
+			text-transform: uppercase;
+		}
 
-.hp-brand-image {
-	width: 85%;
-	margin: auto;
-}
+		.hp-left-email .hp-social-icons {
+			padding-right: 15px;
+		}
 
-.hp-brand-img-center {
-	padding-top: 20px;
-	padding-bottom: 20px;
-}
+		.hp-left-email a {
+			color: #D8D8D8;
+		}
 
-.hp-brand-button {
-	padding-bottom: 40px;
-}
+		.hp-left-email i {
+			font-size: 35px;
+		}
 
-@media (max-width: 767.98px) {
-	.brand-row {
-		width: 85%;
-		margin: auto;
-	}
+		.tb-green {
+			color: #2ECC71;
+		}
 
-	.hp-brand-image {
-		width: 100%;
-		margin: auto;
-	}
+		.hp-right-email {
+			padding: 55px;
+		}
 
-	.hp-brand-logos {
-		border-left: none;
-		padding-top: 40px;
-		border-top: 1px solid;
-	}
-}
+		.hp-right-email p {
+			font-style: italic;
+		}
+
+		.hp-right-email .form-control {
+			border-radius: 0.15rem;
+		}
+
+		@media (max-width: 576px) {
+			.hp-left-email {
+				background-color: #343A40;
+			}
+
+			.hp-right-email {
+				background-color: #D8D8D8;
+			}
+		}
+
+	/** HP Featured Posts **/
+
+		.hp-article-img {
+		    position: relative;
+		    display: inline-block;
+		    padding-top: 20px;
+		}
+
+		.hp-article-color {
+			width: 100%;
+			height: 100%;
+			overflow: hidden;
+			position: relative;
+			text-align: center;
+			cursor: default;
+			background: #343a40;
+		}
+
+		.hp-article-color .hp-article-text {
+			width: 100%;
+			position: absolute;
+			overflow: hidden;
+			padding: 50px 20px;
+		}
+
+		.hp-article-color img {
+			display: block;
+			position: relative;
+			width: calc(100% + 20px);
+			opacity: 0.3;
+		}
+
+		.hp-article-img img {
+		    display: block;
+		}
+
+		.hp-article-text {
+		    position: absolute;
+		    top: 50%;
+		    left: 50%;
+		    transform: translate( -50%, -50% );
+		    text-align: center;
+		    color: white;
+		}
+
+		.hp-article-text {
+			text-align: left;
+		}
+
+		.hp-article-category {
+			width: fit-content;
+		}
+
+		.hp-article-category .hp-article-category-text {
+			background-color: #2ECC71;
+			padding-left: 5px;
+			padding-right: 5px;
+			border-radius: 0.15rem;
+		}
+
+		.hp-article-text h4 {
+			text-transform: uppercase;
+		}
+
+		.hp-article-txt-block a,
+		.hp-article-category a {
+			color: #FFFFFF;
+			-webkit-transition: color .2s linear;
+			-moz-transition: color .2s linear;
+			-ms-transition: color .2s linear;
+			-o-transition: color .2s linear;
+			transition: color .2s linear;
+
+		}
+
+		.hp-article-txt-block a:hover,
+		.hp-article-category a:hover {
+			color: #D8D8D8;
+			text-decoration: none;
+		}
+
+		.hp-article-button {
+			padding-top: 20px;
+		}
 
 
 /**** Contact Page ****/
