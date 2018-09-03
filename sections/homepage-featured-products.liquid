@@ -14,12 +14,22 @@
 		{% assign hp_collection = collections[section.settings.hp_product_collection] %}
 		{% for product in hp_collection.products limit: 4 %}
 			<div class="col-md-3">
-				<img class="img-fluid" src="{{ product.featured_image.src | img_url: '1920x' }}">
-				<span>{{ product.title }}</span>
-				<p>Model# {% for vari in product.variants %} {{ vari.sku }} {% endfor %} </p>
+				<a href="{{ product.url }}">
+					<img class="img-fluid" src="{{ product.featured_image.src | img_url: '500x500', crop: 'center' }}">
+				</a>
+				<br>
+				<a href="">
+					<p>{{ product.title }}</p>
+				</a>
+				{% comment %}
+					Prevent Caiman from showing SKU.
+				{% endcomment %}
+				{% if product.vendor != 'Caiman' %}
+					<p>SKU //{% for vari in product.variants %}{% if forloop.last == true %} <a href="{{ vari.url }}">{{ vari.sku }}</a>{% else %} <a href="{{ vari.url }}">{{ vari.sku }}</a>,{% endif %}{% endfor %}</p>
+				{% endif %}
 				<span class="shopify-product-reviews-badge" data-id="{{ product.id }}"></span>
 				<p><span>$</span> {{ product.price | money_without_currency }}</p>
-				
+				<a href="{{ product.url }}" class="btn btn-primary tb-button">Shop Now</a>
 			</div>
 		{% endfor %}
 		
