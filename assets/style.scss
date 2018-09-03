@@ -2,7 +2,10 @@ $color-primary: #2ECC71;
 $color-primary-hover: #229552;
 $color-white: #FFFFFF;
 $dark-text: #212529;
+$medium-text: #737373;
+$light-text: #D8D8D8;
 $dark-background: #343A40;
+$light-background: #D8D8D8;
 $radius-primary: 0.15rem;
 
 
@@ -80,7 +83,7 @@ $radius-primary: 0.15rem;
 
 	.subnav-icon a {
 	  text-decoration: none;
-	  color: #afafaf !important;
+	  color: $light-text !important;
 	}
 
 	.hvr-icon-fade:active .hvr-icon, 
@@ -115,7 +118,7 @@ $radius-primary: 0.15rem;
 
 		.navbar-light .navbar-nav .nav-link:focus, 
 		.navbar-light .navbar-nav .nav-link:hover {
-			color: #737373;
+			color: $medium-text;
 		}
 
 		.nav-link {
@@ -131,7 +134,7 @@ $radius-primary: 0.15rem;
 
 		.dropdown-item:focus,
 		.dropdown-item:hover {
-			color: #737373;
+			color: $medium-text;
 			background-color: $color-white;
 		}
 
@@ -202,7 +205,7 @@ $radius-primary: 0.15rem;
 		}
 
 		.overlay .closebtn:hover {
-		  color: #afafaf;
+		  color: $light-text;
 		}
 
 
@@ -242,7 +245,7 @@ $radius-primary: 0.15rem;
 		}
 
 		#search-browse-cat {
-			color: #afafaf;
+			color: $light-text;
 			font-weight: bold;
 		}
 
@@ -297,11 +300,11 @@ $radius-primary: 0.15rem;
 	}
 
 	.tb-bcrumb a:hover {
-		color: #737373;
+		color: $medium-text;
 	}
 
 	.breadcrumb-item.active {
-		color: #737373;
+		color: $medium-text;
 	}
 
 /**** Homepage ****/
@@ -454,11 +457,11 @@ $radius-primary: 0.15rem;
 
 		.hp-pd-vendor a,
 		.hp-pd-sku a {
-			color: #737373;
+			color: $medium-text;
 		}
 
 		.hp-pd-title a:hover {
-			color: #737373;
+			color: $medium-text;
 			text-decoration: none;
 		}
 
@@ -623,7 +626,7 @@ $radius-primary: 0.15rem;
 
 		.hp-email-background {
 			background-color: $dark-background;
-			background-image: -webkit-linear-gradient(30deg, $dark-background 50%, #D8D8D8 50%);
+			background-image: -webkit-linear-gradient(30deg, $dark-background 50%, $light-background 50%);
 		}
 
 		.hp-left-email {
@@ -640,7 +643,7 @@ $radius-primary: 0.15rem;
 		}
 
 		.hp-left-email a {
-			color: #D8D8D8;
+			color: $light-text;
 		}
 
 		.hp-left-email i {
@@ -665,7 +668,7 @@ $radius-primary: 0.15rem;
 			}
 
 			.hp-right-email {
-				background-color: #D8D8D8;
+				background-color: $light-background;
 			}
 		}
 
@@ -746,7 +749,7 @@ $radius-primary: 0.15rem;
 
 		.hp-article-txt-block a:hover,
 		.hp-article-category a:hover {
-			color: #D8D8D8;
+			color: $light-text;
 			text-decoration: none;
 		}
 
