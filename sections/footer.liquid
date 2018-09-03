@@ -1,6 +1,28 @@
 <style type="text/css">
 	.footer-social {
 		background-color: #D8D8D8;
+		color: #343A40;
+		padding-top: 10px;
+		padding-bottom: 10px;
+		margin-top: 25px;
+	}
+
+	.footer-social .footer-follow {
+		font-size: 20px;
+		text-transform: uppercase;
+		vertical-align: middle;
+	}
+
+	.footer-social a {
+		color: #343A40;
+		font-size: 30px;
+		padding-left: 13px;
+		vertical-align: middle;
+	}
+
+
+	.footer-main {
+		background-color: #343A40;
 	}
 </style>
 
@@ -9,7 +31,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
-					<span>Follow Us:</span>
+					<span class="footer-follow">Follow Us</span>
 					<span class="hvr-icon-fade"><a href="{{ settings.facebook_link }}"><i class="fab fa-facebook hvr-icon"></i></a></span>
 					<span class="hvr-icon-fade"><a href="{{ settings.instagram_link }}"><i class="fab fa-instagram hvr-icon"></i></a></span>
 					<span class="hvr-icon-fade"><a href="{{ settings.twitter_link }}"><i class="fab fa-twitter hvr-icon"></i></a></span>
@@ -18,4 +40,81 @@
 			</div>
 		</div>
 	</div>
+	<div class="footer-main">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-3">
+					<h5>{{ section.settings.footer_header_1 }}</h5>
+					<ul>
+						{% for link in linklists[section.settings.footer_linklist_1].links %}
+							<li><a href="{{ link.url }}">{{ link.title }}</a></li>
+						{% endfor %}
+					</ul>
+				</div>
+				<div class="col-md-3">
+					<h5>{{ section.settings.footer_header_2 }}</h5>
+					<ul>
+						{% for link in linklists[section.settings.footer_linklist_2].links %}
+							<li><a href="{{ link.url }}">{{ link.title }}</a></li>
+						{% endfor %}
+					</ul>
+				</div>
+				<div class="col-md-3">
+					<h5>{{ section.settings.footer_header_3 }}</h5>
+					<ul>
+						{% for link in linklists[section.settings.footer_linklist_3].links %}
+							<li><a href="{{ link.url }}">{{ link.title }}</a></li>
+						{% endfor %}
+					</ul>
+				</div>
+				<div class="col-md-3">
+					<h5>{{ section.settings.footer_header_4 }}</h5>
+				</div>
+			</div>
+		</div>
+	</div>
 </footer>
+
+
+{% schema %}
+{
+	"name": "Footer",
+	"settings": [
+	  {
+	    "type": "text",
+	    "id": "footer_header_1",
+	    "label": "Footer Header 1"
+	  },
+	  {
+	    "type": "link_list",
+        "id": "footer_linklist_1",
+        "label": "Footer Linklist 1"
+	  },
+	  {
+	    "type": "text",
+	    "id": "footer_header_2",
+	    "label": "Footer Header 2"
+	  },
+	  {
+	    "type": "link_list",
+        "id": "footer_linklist_2",
+        "label": "Footer Linklist 2"
+	  },
+	  {
+	    "type": "text",
+	    "id": "footer_header_3",
+	    "label": "Footer Header 3"
+	  },
+	  {
+	    "type": "link_list",
+        "id": "footer_linklist_3",
+        "label": "Footer Linklist 3"
+	  },
+	  {
+	    "type": "text",
+	    "id": "footer_header_4",
+	    "label": "Footer Header 4"
+	  }
+	]
+}
+{% endschema %}
