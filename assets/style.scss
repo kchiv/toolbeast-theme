@@ -425,7 +425,8 @@
 		/* Smaller width for header on mobile devices */
 
 		@media (max-width: 767.98px) {
-			.solid-bottom-line {
+			.solid-bottom-line,
+			.hp-product-block {
 				width: 85%;
 				margin: auto;
 			}
