@@ -1,34 +1,3 @@
-<style type="text/css">
-	.spr-badge[data-rating="0.0"] {
-    	visibility:hidden; display: none;
-	}
-
-	.hp-product-title a {
-		font-weight: bold;
-		font-size: 15px;
-	}
-
-	.hp-product-title a,
-	.hp-product-sku a {
-		color: #212529;
-	}
-
-	.hp-product-title a:hover,
-	.hp-product-sku a:hover {
-		color: #737373;
-		text-decoration: none;
-	}
-
-	.hp-product-sku {
-		font-size: 12px;
-	}
-
-	.hp-product-vendor {
-		font-size: 12px;
-	}
-
-</style>
-
 <!-- shop by product -->
 <div class="container">
 	<div class="row solid-bottom-line">
@@ -37,13 +6,20 @@
 	<div class="row">
 		{% assign hp_collection = collections[section.settings.hp_product_collection] %}
 		{% for product in hp_collection.products limit: 4 %}
-			<div class="col-md-3 hp-product-block">
-				<div class="hp-product-img">
+			<div class="col-md-3 hp-pd-block">
+				<div class="hp-product-img hp-overlay-reveal">
 					<a href="{{ product.url }}">
 						<img class="img-fluid" src="{{ product.featured_image.src | img_url: '500x500', crop: 'center' }}">
+						<div class="hp-pd-overlay-hidden">
+						  <div class="hp-pd-overlay-text">
+						    <div class="hp-pd-overlay-center">
+						    <span class="btn btn-primary tb-button">Shop Now</span>
+						    </div>
+						  </div>
+						</div>
 					</a>
 				</div>
-				<div class="hp-product-title">
+				<div class="hp-pd-title">
 					<span>
 						<a href="{{ product.url }}">{{ product.title }}</a>
 					</span>
@@ -52,11 +28,11 @@
 					Prevent Caiman from showing SKU.
 				{% endcomment %}
 				{% if product.vendor != 'Caiman' %}
-					<div class="hp-product-sku">
-						<span><strong>SKU //</strong>{% for vari in product.variants %}{% if forloop.last == true %} <a href="{{ vari.url }}">{{ vari.sku }}</a>{% else %} <a href="{{ vari.url }}">{{ vari.sku }}</a>,{% endif %}{% endfor %}</span>
+					<div class="hp-pd-sku">
+						<span><strong>SKU <span class="tb-green">//</span></strong>{% for vari in product.variants %}{% if forloop.last == true %} <a href="{{ vari.url }}">{{ vari.sku }}</a>{% else %} <a href="{{ vari.url }}">{{ vari.sku }}</a>,{% endif %}{% endfor %}</span>
 					</div>
 				{% endif %}
-				<div class="hp-product-vendor">
+				<div class="hp-pd-vendor">
 					{% comment %}
 						Looks up vendor for product.
 					{% endcomment %}
@@ -70,13 +46,13 @@
 						<a href="{{ vendor_url }}">{{ product.vendor }}</a>
 					</span>
 				</div>
-				<div class="hp-product-ratings">
+				<div class="hp-pd-ratings">
 					<span class="shopify-product-reviews-badge" data-id="{{ product.id }}"></span>
 				</div>
-				<div class="hp-product-price">
+				<div class="hp-pd-price">
 					<span>$</span> {{ product.price | money_without_currency }}
 				</div>
-				<div class="hp-product-button">
+				<div class="hp-pd-button">
 					<a href="{{ product.url }}" class="btn btn-primary tb-button">Shop Now</a>
 				</div>
 			</div>
