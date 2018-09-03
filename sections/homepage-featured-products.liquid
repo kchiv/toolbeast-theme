@@ -7,7 +7,7 @@
 		{% assign hp_collection = collections[section.settings.hp_product_collection] %}
 		{% for product in hp_collection.products limit: 4 %}
 			<div class="col-md-3 hp-pd-block">
-				<div class="hp-product-img hp-overlay-reveal">
+				<div class="hp-pd-img hp-overlay-reveal">
 					<a href="{{ product.url }}">
 						<img class="img-fluid" src="{{ product.featured_image.src | img_url: '500x500', crop: 'center' }}">
 						<div class="hp-pd-overlay-hidden">
