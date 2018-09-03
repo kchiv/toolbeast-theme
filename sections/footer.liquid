@@ -1,31 +1,3 @@
-<style type="text/css">
-	.footer-social {
-		background-color: #D8D8D8;
-		color: #343A40;
-		padding-top: 10px;
-		padding-bottom: 10px;
-		margin-top: 25px;
-	}
-
-	.footer-social .footer-follow {
-		font-size: 20px;
-		text-transform: uppercase;
-		vertical-align: middle;
-	}
-
-	.footer-social a {
-		color: #343A40;
-		font-size: 30px;
-		padding-left: 13px;
-		vertical-align: middle;
-	}
-
-
-	.footer-main {
-		background-color: #343A40;
-	}
-</style>
-
 <footer>
 	<div class="footer-social">
 		<div class="container">
@@ -43,32 +15,45 @@
 	<div class="footer-main">
 		<div class="container">
 			<div class="row">
-				<div class="col-md-3">
-					<h5>{{ section.settings.footer_header_1 }}</h5>
-					<ul>
+				<div class="col-lg-3">
+					<h5 class="tb-h-underline">{{ section.settings.footer_header_1 }}</h5>
+					<ul class="footer-linklist">
 						{% for link in linklists[section.settings.footer_linklist_1].links %}
 							<li><a href="{{ link.url }}">{{ link.title }}</a></li>
 						{% endfor %}
 					</ul>
 				</div>
-				<div class="col-md-3">
-					<h5>{{ section.settings.footer_header_2 }}</h5>
-					<ul>
+				<div class="col-lg-3">
+					<h5 class="tb-h-underline">{{ section.settings.footer_header_2 }}</h5>
+					<ul class="footer-linklist">
 						{% for link in linklists[section.settings.footer_linklist_2].links %}
 							<li><a href="{{ link.url }}">{{ link.title }}</a></li>
 						{% endfor %}
 					</ul>
 				</div>
-				<div class="col-md-3">
-					<h5>{{ section.settings.footer_header_3 }}</h5>
-					<ul>
+				<div class="col-lg-3">
+					<h5 class="tb-h-underline">{{ section.settings.footer_header_3 }}</h5>
+					<ul class="footer-linklist">
 						{% for link in linklists[section.settings.footer_linklist_3].links %}
 							<li><a href="{{ link.url }}">{{ link.title }}</a></li>
 						{% endfor %}
 					</ul>
 				</div>
-				<div class="col-md-3">
-					<h5>{{ section.settings.footer_header_4 }}</h5>
+				<div class="col-lg-3 my-auto footer-email">
+					<div class="footer-email-cta">
+						<span>{{ section.settings.footer_email_cap }}</span>
+					</div>
+					<form>
+					  <div class="form-group">
+					    <input type="email" class="form-control" placeholder="EMAIL ADDRESS">
+					  </div>
+					  <button type="submit" class="btn btn-primary tb-button">Sign Up</button>
+					</form>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12 text-center tb-copyright">
+					<span>Copyright © {{ "now" | date: "%Y" }} Tool Beast</span>
 				</div>
 			</div>
 		</div>
@@ -112,8 +97,8 @@
 	  },
 	  {
 	    "type": "text",
-	    "id": "footer_header_4",
-	    "label": "Footer Header 4"
+	    "id": "footer_email_cap",
+	    "label": "Footer Email Text"
 	  }
 	]
 }
