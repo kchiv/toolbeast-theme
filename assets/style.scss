@@ -1,5 +1,8 @@
 $color-primary: #2ECC71;
 $color-primary-hover: #229552;
+$color-white: #FFFFFF;
+$dark-text: #212529;
+$dark-background: #343A40;
 $radius-primary: 0.15rem;
 
 
@@ -23,16 +26,8 @@ $radius-primary: 0.15rem;
 
 		/* Green Underline Headers */
 
-		.tb-h1-underline {
-			border-bottom: 2px solid $color-primary;
-			display: inline-block;
-		}
-
-		.tb-h3-underline {
-			border-bottom: 2px solid $color-primary;
-			display: inline-block;
-		}
-
+		.tb-h1-underline,
+		.tb-h3-underline,
 		.tb-h4-underline {
 			border-bottom: 2px solid $color-primary;
 			display: inline-block;
@@ -42,7 +37,7 @@ $radius-primary: 0.15rem;
 
 		.tb-box-h3 {
 			text-transform: uppercase;
-			border: 3px solid #212529;
+			border: 3px solid $dark-text;
 			font-size: 1.4rem;
 			margin-top: 30px;
 			padding: 5px;
@@ -115,7 +110,7 @@ $radius-primary: 0.15rem;
 		/* Primary category styling  */
 
 		.navbar-light .navbar-nav .nav-link {
-			color: #212529;
+			color: $dark-text;
 		}
 
 		.navbar-light .navbar-nav .nav-link:focus, 
@@ -137,7 +132,7 @@ $radius-primary: 0.15rem;
 		.dropdown-item:focus,
 		.dropdown-item:hover {
 			color: #737373;
-			background-color: white;
+			background-color: $color-white;
 		}
 
 		/* Remove default bootstrap dropdown arrow */
@@ -195,7 +190,7 @@ $radius-primary: 0.15rem;
 		  position: inherit;
 		  font-size: 2rem;
 		  cursor: pointer;
-		  color: white;
+		  color: $color-white;
 		  transition: color .15s ease-in-out,
 					background-color .15s ease-in-out,
 					border-color .15s ease-in-out,
@@ -242,7 +237,7 @@ $radius-primary: 0.15rem;
 		  width: 50%;
 		  text-align: left;
 		  margin: auto;
-		  color: white;
+		  color: $color-white;
 		  padding-top: 15px;
 		}
 
@@ -252,7 +247,7 @@ $radius-primary: 0.15rem;
 		}
 
 		.search-cat-list a {
-			color: white;
+			color: $color-white;
 		}
 
 		.search-cat-list a:hover {
@@ -293,11 +288,11 @@ $radius-primary: 0.15rem;
 /**** Breadcrumb ****/
 
 	.tb-bcrumb {
-		background-color: #FFFFFF;
+		background-color: $color-white;
 	}
 
 	.tb-bcrumb a {
-		color: #212529;
+		color: $dark-text;
 		text-decoration: none;
 	}
 
@@ -321,7 +316,7 @@ $radius-primary: 0.15rem;
 			background-size: cover;
 			background-position: center;
 			height: 500px;
-			color: #FFFFFF;	
+			color: $color-white;	
 		}
 
 		/* Right justified content box */
@@ -383,7 +378,7 @@ $radius-primary: 0.15rem;
 			position: relative;
 			text-align: center;
 			cursor: default;
-			background: #343a40;
+			background: $dark-background;
 		}
 
 		.hp-cat-color .hp-category-text {
@@ -419,7 +414,7 @@ $radius-primary: 0.15rem;
 		    left: 50%;
 		    transform: translate( -50%, -50% );
 		    text-align: center;
-		    color: white;
+		    color: $color-white;
 		    font-weight: bold;
 		}
 
@@ -454,7 +449,7 @@ $radius-primary: 0.15rem;
 		}
 
 		.hp-pd-title a {
-			color: #212529;
+			color: $dark-text;
 		}
 
 		.hp-pd-vendor a,
@@ -469,7 +464,7 @@ $radius-primary: 0.15rem;
 
 		.hp-pd-vendor a:hover,
 		.hp-pd-sku a:hover {
-			color: #212529;
+			color: $dark-text;
 			text-decoration: none;
 		}
 
@@ -539,7 +534,7 @@ $radius-primary: 0.15rem;
 		  display: table;
 		  width: 100%;
 		  height: 100%;
-		  background-color: white; /* fallback for IE8 */
+		  background-color: $color-white;
 		  background-color: rgba(56,56,56, 0.2);
 		  color: #333;
 		  text-align: center;
@@ -627,8 +622,8 @@ $radius-primary: 0.15rem;
 	/** HP Email Capture **/
 
 		.hp-email-background {
-			background-color: #343A40;
-			background-image: -webkit-linear-gradient(30deg, #343A40 50%, #D8D8D8 50%);
+			background-color: $dark-background;
+			background-image: -webkit-linear-gradient(30deg, $dark-background 50%, #D8D8D8 50%);
 		}
 
 		.hp-left-email {
@@ -636,7 +631,7 @@ $radius-primary: 0.15rem;
 		}
 
 		.hp-left-email h3 {
-			color: white;
+			color: $color-white;
 			text-transform: uppercase;
 		}
 
@@ -666,7 +661,7 @@ $radius-primary: 0.15rem;
 
 		@media (max-width: 576px) {
 			.hp-left-email {
-				background-color: #343A40;
+				background-color: $dark-background;
 			}
 
 			.hp-right-email {
@@ -689,7 +684,7 @@ $radius-primary: 0.15rem;
 			position: relative;
 			text-align: center;
 			cursor: default;
-			background: #343a40;
+			background: $dark-background;
 		}
 
 		.hp-article-color .hp-article-text {
@@ -716,7 +711,7 @@ $radius-primary: 0.15rem;
 		    left: 50%;
 		    transform: translate( -50%, -50% );
 		    text-align: center;
-		    color: white;
+		    color: $color-white;
 		}
 
 		.hp-article-text {
@@ -740,7 +735,7 @@ $radius-primary: 0.15rem;
 
 		.hp-article-txt-block a,
 		.hp-article-category a {
-			color: #FFFFFF;
+			color: $color-white;
 			-webkit-transition: color .2s linear;
 			-moz-transition: color .2s linear;
 			-ms-transition: color .2s linear;
@@ -779,7 +774,7 @@ $radius-primary: 0.15rem;
 .contact-social-info span i {
 	padding-left: 15px;
 	font-size: 35px;
-	color: #212529;
+	color: $dark-text;
 }
 
 
@@ -791,14 +786,14 @@ input.shopify-challenge__button.btn {
 	background-color: $color-primary;
 	border-color: $color-primary;
 	border-radius: $radius-primary;
-	color: white;
+	color: $color-white;
 }
 
 input.shopify-challenge__button.btn:hover {
 	background-color: $color-primary-hover;
 	border-color: $color-primary-hover;
 	border-radius: $radius-primary;
-	color: white;
+	color: $color-white;
 }
 
 .success-text {
