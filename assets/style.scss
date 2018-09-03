@@ -1,16 +1,21 @@
+$color-primary: #2ECC71;
+$color-primary-hover: #229552;
+$radius-primary: 0.15rem;
+
+
 /**** Global Elements ****/
 
 	/** Buttons **/
 
 	.tb-button {
-		background-color: #2ECC71;
-		border-color: #2ECC71;
-		border-radius: 0.15rem;
+		background-color: $color-primary;
+		border-color: $color-primary;
+		border-radius: $radius-primary;
 	}
 
 	.tb-button:hover {
-		background-color: #229552;
-		border-color: #229552;
+		background-color: $color-primary-hover;
+		border-color: $color-primary-hover;
 
 	}
 
@@ -19,17 +24,17 @@
 		/* Green Underline Headers */
 
 		.tb-h1-underline {
-			border-bottom: 2px solid #2ECC71;
+			border-bottom: 2px solid $color-primary;
 			display: inline-block;
 		}
 
 		.tb-h3-underline {
-			border-bottom: 2px solid #2ECC71;
+			border-bottom: 2px solid $color-primary;
 			display: inline-block;
 		}
 
 		.tb-h4-underline {
-			border-bottom: 2px solid #2ECC71;
+			border-bottom: 2px solid $color-primary;
 			display: inline-block;
 		}
 
@@ -46,7 +51,7 @@
 	/** Colors **/
 
 		.tb-green {
-			color: #2ECC71;
+			color: $color-primary;
 		}
 
 
@@ -86,7 +91,7 @@
 	.hvr-icon-fade:active .hvr-icon, 
 	.hvr-icon-fade:focus .hvr-icon, 
 	.hvr-icon-fade:hover .hvr-icon{
-		color: #2ECC71;
+		color: $color-primary;
 	}
 
 
@@ -126,7 +131,7 @@
 
 		.dropdown-menu {
 			border: none;
-			border-radius: 0.15rem;
+			border-radius: $radius-primary;
 		}
 
 		.dropdown-item:focus,
@@ -141,7 +146,7 @@
 		}
 
 		.hvr-underline-reveal:before{
-			background: #2ECC71;
+			background: $color-primary;
 		}
 
 
@@ -214,18 +219,18 @@
 
 		.search-bar-form input,
 		.search-bar-form button {
-			border-radius: 0.15rem;
+			border-radius: $radius-primary;
 		}
 
 		.search-bar-form button {
-			background-color: #2ECC71;
-			border-color: #2ECC71;
+			background-color: $color-primary;
+			border-color: $color-primary;
 
 		}
 
 		.search-bar-form button:hover {
-			background-color: #229552;
-			border-color: #229552;
+			background-color: $color-primary-hover;
+			border-color: $color-primary-hover;
 
 		}
 
@@ -251,7 +256,7 @@
 		}
 
 		.search-cat-list a:hover {
-			color: #2ECC71;
+			color: $color-primary;
 			text-decoration: none;
 		}
 
@@ -279,7 +284,7 @@
 
 			.overlay-content,
 			.search-bar-cat {
-			  width: 70%;
+				width: 70%;
 			}
 
 		}
@@ -491,8 +496,8 @@
 		}
 
 		.hp-pd-block .tb-button:hover {
-			background-color: #2ECC71;
-			border-color: #2ECC71;
+			background-color: $color-primary;
+			border-color: $color-primary;
 		}
 
 		/* Product image hover overlay */
@@ -656,7 +661,7 @@
 		}
 
 		.hp-right-email .form-control {
-			border-radius: 0.15rem;
+			border-radius: $radius-primary;
 		}
 
 		@media (max-width: 576px) {
@@ -723,10 +728,10 @@
 		}
 
 		.hp-article-category .hp-article-category-text {
-			background-color: #2ECC71;
+			background-color: $color-primary;
 			padding-left: 5px;
 			padding-right: 5px;
-			border-radius: 0.15rem;
+			border-radius: $radius-primary;
 		}
 
 		.hp-article-text h4 {
@@ -759,7 +764,7 @@
 
 .contact-form .form-group .form-control,
 .contact-form .form-group .form-control {
-	border-radius: 0.15rem;
+	border-radius: $radius-primary;
 }
 
 .contact-social-info {
@@ -783,19 +788,19 @@
 }
 
 input.shopify-challenge__button.btn {
-	background-color: #2ECC71;
-	border-color: #2ECC71;
-	border-radius: 0.15rem;
+	background-color: $color-primary;
+	border-color: $color-primary;
+	border-radius: $radius-primary;
 	color: white;
 }
 
 input.shopify-challenge__button.btn:hover {
-	background-color: #229552;
-	border-color: #229552;
-	border-radius: 0.15rem;
+	background-color: $color-primary-hover;
+	border-color: $color-primary-hover;
+	border-radius: $radius-primary;
 	color: white;
 }
 
 .success-text {
-	color: #2ECC71;
+	color: $color-primary;
 }
