@@ -29,9 +29,7 @@ $radius-primary: 0.15rem;
 
 		/* Green Underline Headers */
 
-		.tb-h1-underline,
-		.tb-h3-underline,
-		.tb-h4-underline {
+		.tb-h-underline {
 			border-bottom: 2px solid $color-primary;
 			display: inline-block;
 		}
@@ -52,6 +50,11 @@ $radius-primary: 0.15rem;
 			color: $color-primary;
 		}
 
+	/** Forms **/
+
+		.form-control {
+			border-radius: $radius-primary;
+		}
 
 	/** Ratings & Reviews **/
 
@@ -288,6 +291,87 @@ $radius-primary: 0.15rem;
 		}
 
 
+/**** Footer ****/
+
+	.footer-social {
+		background-color: #D8D8D8;
+		color: #343A40;
+		padding-top: 10px;
+		padding-bottom: 10px;
+		margin-top: 25px;
+	}
+
+	.footer-social .footer-follow {
+		font-size: 20px;
+		text-transform: uppercase;
+		vertical-align: middle;
+	}
+
+	.footer-social a {
+		color: #343A40;
+		font-size: 30px;
+		padding-left: 13px;
+		vertical-align: middle;
+	}
+
+	.footer-main {
+		background-color: #343A40;
+		padding-top: 10px;
+		padding-bottom: 20px;
+	}
+
+	.footer-main .footer-linklist {
+		list-style: none;
+		max-width: none;
+		padding: 0px 0px 0px 5px;
+		margin: 0;
+	}
+
+	.footer-main h5 {
+		color: #FFFFFF;
+		padding-top: 20px;
+		text-transform: uppercase;
+		font-weight: bold;
+		font-size: 16px;
+	}
+
+	.footer-main .footer-linklist li {
+		margin-bottom: 5px;
+	}
+
+	.footer-main .footer-linklist li a {
+		color: #FFFFFF;
+		font-size: 14px;
+	}
+
+	.footer-main .footer-linklist li a:hover {
+		color: #D8D8D8;
+		text-decoration: none;
+	}
+
+	.footer-main .footer-email form input,
+	.footer-main .footer-email form button {
+		font-size: 12px;
+	}
+
+	.footer-main .footer-email .footer-email-cta {
+		margin-top: 15px;
+		margin-bottom: 15px;
+	}
+
+	.footer-main .footer-email span {
+		font-size: 14px;
+		font-style: italic;
+		color: #D8D8D8;
+	}
+
+	.tb-copyright {
+		color: #FFFFFF;
+		font-size: 12px;
+		margin-top: 30px
+	}
+
+
 /**** Breadcrumb ****/
 
 	.tb-bcrumb {
@@ -438,7 +522,7 @@ $radius-primary: 0.15rem;
 			padding-top: 40px;
 		}
 
-		.solid-bottom-line .tb-h3-underline {
+		.solid-bottom-line .tb-h-underline {
 			margin-bottom: 0px;
 		}
 
@@ -658,10 +742,6 @@ $radius-primary: 0.15rem;
 			font-style: italic;
 		}
 
-		.hp-right-email .form-control {
-			border-radius: $radius-primary;
-		}
-
 		@media (max-width: 576px) {
 			.hp-left-email {
 				background-color: $dark-background;
@@ -759,11 +839,6 @@ $radius-primary: 0.15rem;
 
 
 /**** Contact Page ****/
-
-.contact-form .form-group .form-control,
-.contact-form .form-group .form-control {
-	border-radius: $radius-primary;
-}
 
 .contact-social-info {
 	font-size: 20px;
