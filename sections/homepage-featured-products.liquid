@@ -13,23 +13,34 @@
 	<div class="row">
 		{% assign hp_collection = collections[section.settings.hp_product_collection] %}
 		{% for product in hp_collection.products limit: 4 %}
-			<div class="col-md-3">
-				<a href="{{ product.url }}">
-					<img class="img-fluid" src="{{ product.featured_image.src | img_url: '500x500', crop: 'center' }}">
-				</a>
-				<br>
-				<a href="">
-					<p>{{ product.title }}</p>
-				</a>
+			<div class="col-md-3 hp-product-block">
+				<div class="hp-product-img">
+					<a href="{{ product.url }}">
+						<img class="img-fluid" src="{{ product.featured_image.src | img_url: '500x500', crop: 'center' }}">
+					</a>
+				</div>
+				<div class="hp-product-title">
+					<a href="{{ product.url }}">
+						<span>{{ product.title }}</span>
+					</a>
+				</div>
 				{% comment %}
 					Prevent Caiman from showing SKU.
 				{% endcomment %}
 				{% if product.vendor != 'Caiman' %}
-					<p>SKU //{% for vari in product.variants %}{% if forloop.last == true %} <a href="{{ vari.url }}">{{ vari.sku }}</a>{% else %} <a href="{{ vari.url }}">{{ vari.sku }}</a>,{% endif %}{% endfor %}</p>
+					<div class="hp-product-sku">
+						<span>SKU //{% for vari in product.variants %}{% if forloop.last == true %} <a href="{{ vari.url }}">{{ vari.sku }}</a>{% else %} <a href="{{ vari.url }}">{{ vari.sku }}</a>,{% endif %}{% endfor %}</span>
+					</div>
 				{% endif %}
-				<span class="shopify-product-reviews-badge" data-id="{{ product.id }}"></span>
-				<p><span>$</span> {{ product.price | money_without_currency }}</p>
-				<a href="{{ product.url }}" class="btn btn-primary tb-button">Shop Now</a>
+				<div class="hp-product-ratings">
+					<span class="shopify-product-reviews-badge" data-id="{{ product.id }}"></span>
+				</div>
+				<div class="hp-product-price">
+					<span>$</span> {{ product.price | money_without_currency }}
+				</div>
+				<div class="hp-product-button">
+					<a href="{{ product.url }}" class="btn btn-primary tb-button">Shop Now</a>
+				</div>
 			</div>
 		{% endfor %}
 		
