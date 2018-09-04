@@ -21,7 +21,7 @@
   <div class="search-bar-cat">
     <div id="search-browse-cat">Browse Popular Categories:</div>
     <div class="search-cat-list">
-      {% for link in linklists.search-links.links %}
+      {% for link in linklists[section.settings.search_linklist].links %}
         {% if forloop.last == true %}
           <a href="{{ link.url }}">{{ link.title }}</a>
         {% else %}
@@ -41,8 +41,13 @@
       {
         "type": "link_list",
         "id": "main_linklist",
-        "label": "Menu",
+        "label": "Main Menu",
         "default": "main-menu"
+      },
+      {
+        "type": "link_list",
+        "id": "search_linklist",
+        "label": "Search Menu"
       }
     ]
   }
