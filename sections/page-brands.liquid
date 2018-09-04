@@ -1,0 +1,28 @@
+{% schema %}
+{
+  "name": "Brand List",
+  "blocks": [
+    {
+      "type": "select",
+      "name": "Add Brand",
+      "settings": [
+        {
+          "id": "brand_text",
+          "type": "text",
+          "label": "Brand Name"
+        },
+        {
+          "id": "brand_link",
+          "type": "url",
+       		"label": "Brand URL"
+        },
+        {
+          "id": "brand_img",
+          "type": "image_picker",
+          "label": "Brand Image"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
