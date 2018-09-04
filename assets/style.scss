@@ -1,7 +1,7 @@
 $color-primary: #2ECC71;
 $color-primary-hover: #229552;
 $color-white: #FFFFFF;
-$dark-text: #212529;
+$dark-text: #343A40;
 $medium-text: #737373;
 $light-text: #D8D8D8;
 $dark-background: #343A40;
@@ -32,6 +32,13 @@ $radius-primary: 0.15rem;
 		.tb-h-underline {
 			border-bottom: 2px solid $color-primary;
 			display: inline-block;
+			color: $dark-text;
+		}
+
+		.tb-h-underline-fff {
+			border-bottom: 2px solid $color-primary;
+			display: inline-block;
+			color: $color-white;
 		}
 
 		/* Black Border Box Headers */
@@ -39,6 +46,7 @@ $radius-primary: 0.15rem;
 		.tb-box-h3 {
 			text-transform: uppercase;
 			border: 3px solid $dark-text;
+			color: $dark-text;
 			font-size: 1.4rem;
 			margin-top: 30px;
 			padding: 5px;
@@ -294,8 +302,8 @@ $radius-primary: 0.15rem;
 /**** Footer ****/
 
 	.footer-social {
-		background-color: #D8D8D8;
-		color: #343A40;
+		background-color: $light-background;
+		color: $dark-text;
 		padding-top: 2px;
 		padding-bottom: 2px;
 		margin-top: 25px;
@@ -308,14 +316,14 @@ $radius-primary: 0.15rem;
 	}
 
 	.footer-social a {
-		color: #343A40;
+		color: $dark-text;
 		font-size: 30px;
 		padding-left: 13px;
 		vertical-align: middle;
 	}
 
 	.footer-main {
-		background-color: #343A40;
+		background-color: $dark-background;
 		padding-top: 10px;
 		padding-bottom: 20px;
 	}
@@ -328,7 +336,7 @@ $radius-primary: 0.15rem;
 	}
 
 	.footer-main h5 {
-		color: #FFFFFF;
+		color: $color-white;
 		padding-top: 20px;
 		text-transform: uppercase;
 		font-weight: bold;
@@ -340,12 +348,12 @@ $radius-primary: 0.15rem;
 	}
 
 	.footer-main .footer-linklist li a {
-		color: #FFFFFF;
+		color: $color-white;
 		font-size: 14px;
 	}
 
 	.footer-main .footer-linklist li a:hover {
-		color: #D8D8D8;
+		color: $light-text;
 		text-decoration: none;
 	}
 
@@ -362,11 +370,11 @@ $radius-primary: 0.15rem;
 	.footer-main .footer-email span {
 		font-size: 14px;
 		font-style: italic;
-		color: #D8D8D8;
+		color: $light-text;
 	}
 
 	.tb-copyright {
-		color: #FFFFFF;
+		color: $color-white;
 		font-size: 12px;
 		margin-top: 30px
 	}
@@ -672,13 +680,14 @@ $radius-primary: 0.15rem;
 		}
 
 		.hp-brand-logos {
-			border-left: 1px solid;
+			border-left: 1px solid $dark-text;
 		}
 
 		.hp-brand-header {
 			text-align: right;
 			font-size: 60px;
 			text-transform: uppercase;
+			color: $dark-text;
 		}
 
 		.hp-brand-image {
@@ -845,42 +854,67 @@ $radius-primary: 0.15rem;
 		}
 
 
-/**** Contact Page ****/
+/**** Pages ****/
 
-.contact-social-info {
-	font-size: 20px;
-	padding: 20px 0px 30px 0px;
-}
+	/** Contact Page **/
 
-.contact-social-info div {
-	padding-bottom: 10px;
-}
+	.contact-social-info {
+		font-size: 20px;
+		padding: 20px 0px 30px 0px;
+	}
 
-.contact-social-info span i {
-	padding-left: 15px;
-	font-size: 35px;
-	color: $dark-text;
-}
+	.contact-social-info div {
+		padding-bottom: 10px;
+	}
+
+	.contact-social-info span i {
+		padding-left: 15px;
+		font-size: 35px;
+		color: $dark-text;
+	}
+
+	.errors li {
+		color: red;
+	}
+
+	input.shopify-challenge__button.btn {
+		background-color: $color-primary;
+		border-color: $color-primary;
+		border-radius: $radius-primary;
+		color: $color-white;
+	}
+
+	input.shopify-challenge__button.btn:hover {
+		background-color: $color-primary-hover;
+		border-color: $color-primary-hover;
+		border-radius: $radius-primary;
+		color: $color-white;
+	}
+
+	.success-text {
+		color: $color-primary;
+	}
+
+	
+	/** Brand Page **/
+
+	.brand-p-block {
+		margin-top: 30px;
+	}
+
+	.brand-p-link {
+		margin-top: 20px;
+	}
+
+	.brand-p-link a {
+		color: $dark-text;
+		font-weight: bold;
+	}
+
+	.brand-p-link a:hover {
+		color: $medium-text;
+		text-decoration: none;
+	}
 
 
-.errors li {
-	color: red;
-}
 
-input.shopify-challenge__button.btn {
-	background-color: $color-primary;
-	border-color: $color-primary;
-	border-radius: $radius-primary;
-	color: $color-white;
-}
-
-input.shopify-challenge__button.btn:hover {
-	background-color: $color-primary-hover;
-	border-color: $color-primary-hover;
-	border-radius: $radius-primary;
-	color: $color-white;
-}
-
-.success-text {
-	color: $color-primary;
-}
