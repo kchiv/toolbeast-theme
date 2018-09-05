@@ -1,0 +1,50 @@
+<div class="pd-block">
+  <div class="pd-overlay-reveal">
+    <a href="{{ product.url }}">
+      <img class="img-fluid" src="{{ product.featured_image.src | img_url: '500x500', crop: 'center' }}">
+      <div class="pd-overlay-hidden">
+        <div class="pd-overlay-text">
+          <div class="pd-overlay-center">
+          <span class="btn btn-primary tb-button">Shop Now</span>
+          </div>
+        </div>
+      </div>
+    </a>
+  </div>
+  <div class="pd-title">
+    <span>
+      <a href="{{ product.url }}">{{ product.title }}</a>
+    </span>
+  </div>
+  {% comment %}
+    Prevent Caiman from showing SKU.
+  {% endcomment %}
+  {% if product.vendor != 'Caiman' %}
+    <div class="pd-sku">
+      <span><strong>SKU <span class="tb-green">//</span></strong>{% for vari in product.variants %}{% if forloop.last == true %} <a href="{{ vari.url }}">{{ vari.sku }}</a>{% else %} <a href="{{ vari.url }}">{{ vari.sku }}</a>,{% endif %}{% endfor %}</span>
+    </div>
+  {% endif %}
+  <div class="pd-vendor">
+    {% comment %}
+      Looks up vendor for product.
+    {% endcomment %}
+    {% assign product_vendor_handle = product.vendor | handle %}       
+    {% if collections[product_vendor_handle].handle == product_vendor_handle %}
+      {% assign vendor_url = collections[product_vendor_handle].url %}
+    {% else %}
+      {% assign vendor_url = product.vendor | url_for_vendor %}
+    {% endif %}
+    <span>
+      <a href="{{ vendor_url }}">{{ product.vendor }}</a>
+    </span>
+  </div>
+  <div class="pd-ratings">
+    <span class="shopify-product-reviews-badge" data-id="{{ product.id }}"></span>
+  </div>
+  <div class="pd-price">
+    <span>$</span> {{ product.price | money_without_currency }}
+  </div>
+  <div class="pd-button">
+    <a href="{{ product.url }}" class="btn btn-primary tb-button">Shop Now</a>
+  </div>
+</div>
