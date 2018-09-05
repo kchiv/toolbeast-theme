@@ -541,78 +541,78 @@ $radius-primary: 0.15rem;
 			margin-bottom: 0px;
 		}
 
-		.hp-pd-block {
+		.pd-block {
 			padding-top: 20px;
 			padding-bottom: 20px;
 		}
 
-		.hp-pd-title a {
+		.pd-title a {
 			font-weight: bold;
 		}
 
-		.hp-pd-title a {
+		.pd-title a {
 			color: $dark-text;
 		}
 
-		.hp-pd-vendor a,
-		.hp-pd-sku a {
+		.pd-vendor a,
+		.pd-sku a {
 			color: $medium-text;
 		}
 
-		.hp-pd-title a:hover {
+		.pd-title a:hover {
 			color: $medium-text;
 			text-decoration: none;
 		}
 
-		.hp-pd-vendor a:hover,
-		.hp-pd-sku a:hover {
+		.pd-vendor a:hover,
+		.pd-sku a:hover {
 			color: $dark-text;
 			text-decoration: none;
 		}
 
-		.hp-pd-title{
+		.pd-title{
 			padding-top: 5px;
 		}
 
-		.hp-pd-sku {
+		.pd-sku {
 			font-size: 12px;
 			padding-top: 5px;
 		}
 
-		.hp-pd-vendor {
+		.pd-vendor {
 			font-size: 12px;
 			padding-top: 5px;
 		}
 
-		.hp-pd-price {
+		.pd-price {
 			padding-top: 5px;
 		}
 
-		.hp-pd-button {
+		.pd-button {
 			display: none;
 		}
 
-		.hp-pd-block .tb-button:hover {
+		.pd-block .tb-button:hover {
 			background-color: $color-primary;
 			border-color: $color-primary;
 		}
 
 		/* Product image hover overlay */
 
-		.hp-overlay-reveal .hp-pd-overlay-hidden { 
+		.pd-overlay-reveal .pd-overlay-hidden { 
 			display: block !important; 
 			visibility: visible !important;
 		}
 
-		.hp-pd-block:hover .hp-overlay-reveal img { 
+		.pd-block:hover .pd-overlay-reveal img { 
 			opacity: 1; 
 		}
 
-		.hp-overlay-reveal { 
+		.pd-overlay-reveal { 
 			position: relative;
 		}
 
-		.hp-overlay-reveal .hp-pd-overlay-hidden { 
+		.pd-overlay-reveal .pd-overlay-hidden { 
 		  position: absolute; 
 		  z-index: -1;
 		  top: 0; 
@@ -625,12 +625,12 @@ $radius-primary: 0.15rem;
 		  transition: opacity 0.3s ease-in-out;  
 		}
 		
-		.hp-overlay-reveal:hover .hp-pd-overlay-hidden { 
+		.pd-overlay-reveal:hover .pd-overlay-hidden { 
 		  z-index: 100000;
 		  opacity: 1;    
 		}
 
-		.hp-overlay-reveal .hp-pd-overlay-text {
+		.pd-overlay-reveal .pd-overlay-text {
 		  position: absolute;
 		  top: 0;  
 		  display: table;
@@ -643,7 +643,7 @@ $radius-primary: 0.15rem;
 		  text-rendering: optimizeLegibility;
 		}
 
-		.hp-overlay-reveal .hp-pd-overlay-hidden .hp-pd-overlay-text .hp-pd-overlay-center {
+		.pd-overlay-reveal .pd-overlay-hidden .pd-overlay-text .pd-overlay-center {
 		  display: table-cell;
 		  vertical-align: middle;
 		}
@@ -652,20 +652,20 @@ $radius-primary: 0.15rem;
 
 		@media (max-width: 767.98px) {
 			.solid-bottom-line,
-			.hp-pd-block {
+			.pd-block {
 				width: 85%;
 				margin: auto;
 			}
 
-			.hp-pd-sku {
+			.pd-sku {
 				font-size: 15px;
 			}
 
-			.hp-pd-vendor {
+			.pd-vendor {
 				font-size: 15px;
 			}
 
-			.hp-pd-button {
+			.pd-button {
 				padding-top: 10px;
 				display: block;
 			}
