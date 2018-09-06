@@ -465,6 +465,7 @@ $radius-primary: 0.15rem;
 
 		.hp-category-block {
 			padding-top: 10px;
+			padding-bottom: 40px;
 		}
 
 		.hp-category-img {
@@ -534,7 +535,6 @@ $radius-primary: 0.15rem;
 
 		.solid-bottom-line {
 			border-bottom: 1px solid;
-			padding-top: 40px;
 		}
 
 		.solid-bottom-line .tb-h-underline {
@@ -917,4 +917,9 @@ $radius-primary: 0.15rem;
 	}
 
 
+/**** Pages ****/
 
+.cat-header {
+	font-size: 30px;
+	text-transform: uppercase;
+}
