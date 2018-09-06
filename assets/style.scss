@@ -917,9 +917,18 @@ $radius-primary: 0.15rem;
 	}
 
 
-/**** Pages ****/
+/**** Collections ****/
 
 .cat-header {
 	font-size: 30px;
 	text-transform: uppercase;
+}
+
+.collection-sort {
+	margin-top: 20px;
+}
+
+.collection-sort label {
+	margin-right: 10px;
+	font-size: 15px;
 }
