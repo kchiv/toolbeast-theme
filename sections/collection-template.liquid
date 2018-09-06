@@ -15,13 +15,18 @@
         </div>
       </div>
     </div>
+
     <div class="col-md-9">
       <div class="row solid-bottom-line">
         <h1 class="tb-h-underline cat-header">{{ collection.title }}</h1>
       </div>
-      <div class="row">
-        <p>test</p>
-      </div>
+      {% if section.settings.collection_sort_enable %}
+        <div class="row">
+          <div class="col-md-12 form-inline justify-content-end collection-sort">
+            <div id="sort-by-container" class="form-group"></div>
+          </div>
+        </div>
+      {% endif %}
       <div class="row">
         {% for product in collection.products %}
           <div class="col-md-4">
@@ -39,5 +44,20 @@
     </div>
   {% endif %}
 
-
 {% endpaginate %}
+
+
+
+{% schema %}
+{
+  "name": "Collection pages",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "collection_sort_enable",
+      "label": "Enable collection sorting",
+      "default": true
+    }
+  ]
+}
+{% endschema %}
