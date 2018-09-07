@@ -1,3 +1,26 @@
+<style type="text/css">
+  .collection-promo-banner {
+    background-color: #343A40;
+    color: #D8D8D8;
+    font-size: 14px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+  }
+</style>
+
+{% if section.settings.collection_promo_enable %}
+<div class="collection-promo-banner">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <span>{{ section.settings.collection_promo_text }}</span>
+      </div>
+    </div>
+  </div>
+</div>
+{% endif %}
+
+{% include 'breadcrumbs' %}
 {% paginate collection.products by 12 %}
 
 <div class="container">
@@ -34,15 +57,13 @@
           </div>
         {% endfor %}
       </div>
+      {% if paginate.pages > 1 %}
+        {% include 'pagination' %}
+      {% endif %}
     </div>
+
   </div>
 </div>
-
-  {% if paginate.pages > 1 %}
-    <div class="pagination text-center">
-      {{ paginate | default_pagination }}
-    </div>
-  {% endif %}
 
 {% endpaginate %}
 
@@ -55,8 +76,18 @@
     {
       "type": "checkbox",
       "id": "collection_sort_enable",
-      "label": "Enable collection sorting",
+      "label": "Enable Collection Sorting",
       "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "collection_promo_enable",
+      "label": "Enable Promo Banner"
+    },
+    {
+      "type": "text",
+      "id": "collection_promo_text",
+      "label": "Promo Banner Text"
     }
   ]
 }
