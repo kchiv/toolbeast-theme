@@ -1,0 +1,48 @@
+<div class="row">
+  <div class="col-md-12 text-center">
+    <div class="paginate">
+      {% if paginate.previous.is_link %}
+          <a href="{{ paginate.previous.url }}"><i class="fas fa-chevron-left"></i></a>
+      {% endif %}
+      {% for part in paginate.parts %}
+        {% if part.is_link %}
+          <a href="{{ part.url }}">{{ part.title }}</a>
+        {% else %}
+          {% if part.title == paginate.current_page %}
+            <a href="#" class="active">{{ part.title }}</a>
+          {% else %}
+            <span>{{ part.title }}</span>
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+      {% if paginate.next.is_link %}
+          <a href="{{ paginate.next.url }}"><i class="fas fa-chevron-right"></i></a>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+<style type="text/css">
+  .paginate {
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+
+  .paginate a,
+  .paginate span {
+    color: #343A40;
+    padding: 8px 16px;
+    text-decoration: none;
+    transition: background-color .3s;
+    font-weight: 600;
+  }
+
+  .paginate a.active {
+    background-color: #343A40;
+    color: #FFFFFF;
+  }
+
+  .paginate a:hover:not(.active) {
+    background-color: #D8D8D8;
+  }
+</style>
