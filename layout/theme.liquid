@@ -11,7 +11,7 @@
     {% if template == 'index' %}
       <title>{{ shop.name }} | {{ page_title }}</title>
     {% elsif template == 'product' %}
-      <title>{{ product.title }} |{% for prod_var in product.variants %}{% if forloop.last == true %} {{ prod_var.sku }} {% else %} {{ prod_var.sku }},{% endif %}{% endfor %}| {{ product.vendor }}</title>
+      <title>{{ product.title }} | {{ product.vendor }}</title>
     {% elsif template == '404' %}
       <title>Page Not Found | {{ shop.name }}</title>
     {% else %}
