@@ -25,21 +25,8 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-md-3">
-      <div class="row">
-        <div class="col-md-12">
-          <ul class="list-group">
-            <li class="list-group-item">Cras justo odio</li>
-            <li class="list-group-item">Dapibus ac facilisis in</li>
-            <li class="list-group-item">Morbi leo risus</li>
-            <li class="list-group-item">Porta ac consectetur ac</li>
-            <li class="list-group-item">Vestibulum at eros</li>
-          </ul>
-        </div>
-      </div>
-    </div>
 
-    <div class="col-md-9">
+    <div class="col-md-9 order-1 order-md-9">
       <div class="row solid-bottom-line">
         <h1 class="tb-h-underline cat-header">{{ collection.title }}</h1>
       </div>
@@ -74,6 +61,14 @@
       {% endif %}
     </div>
 
+    <div class="col-md-3 order-2">
+      <div class="row">
+        <div class="col-md-12">
+          {% include 'collection-sidebar' %}
+        </div>
+      </div>
+    </div>
+
   </div>
 </div>
 
@@ -99,6 +94,12 @@
       "type": "text",
       "id": "collection_promo_text",
       "label": "Promo Banner Text"
+    },
+    {
+      "type": "link_list",
+      "id": "cat_sidebar_linklist",
+      "label": "Category Links",
+      "default": "main-menu"
     }
   ]
 }
