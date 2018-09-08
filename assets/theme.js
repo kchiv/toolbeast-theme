@@ -21,7 +21,7 @@ $('.dropdown-toggle').focusout(function () {
 })
 
 
-
+// Collection sorting
 
 Shopify.queryParams = {};
 if (location.search.length) {
