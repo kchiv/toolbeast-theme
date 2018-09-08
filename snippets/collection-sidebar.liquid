@@ -1,5 +1,39 @@
 <div class="row">
 	<div class="col-md-12">
+		<div>
+			<h6>Categories</h6>
+		</div>
+		<ul class="list-group">
+			{% assign collection_handle = "collection-" | append: collection.handle %}
+				{% if linklists[collection_handle].links != blank %}
+					{% for link in linklists[collection_handle].links %}
+						<li class="list-group-item"><a href="{{ link.url }}">{{ link.title }}</a></li>
+					{% endfor %}
+				{% else %}
+					{% for link in linklists[section.settings.cat_sidebar_linklist].links %}
+						<li class="list-group-item"><a href="{{ link.url }}">{{ link.title }}</a></li>
+					{% endfor %}
+				{% endif %}
+		</ul>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-12">
+		<div>
+			<h6>Brands</h6>
+		</div>
+		<ul class="list-group">
+			{% for product_vendor in shop.vendors %}
+				<li class="list-group-item"><a href="/collections/{{ product_vendor | downcase | replace: ' ', '-' }}">{{ product_vendor }}</a></li>
+			{% endfor %}
+		</ul>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-12">
+		<div>
+			<h6>Featured Articles</h6>
+		</div>
 		<ul class="list-group">
 			{% assign collection_handle = "collection-" | append: collection.handle %}
 				{% if linklists[collection_handle].links != blank %}
