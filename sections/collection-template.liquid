@@ -46,7 +46,19 @@
       {% if section.settings.collection_sort_enable %}
         <div class="row">
           <div class="col-md-12 form-inline justify-content-end collection-sort">
-            <div id="sort-by-container" class="form-group"></div>
+            <div id="sort-by-container" class="form-group">
+              <label for="sort-by">Sort by</label> 
+              <select id="sort-by" class="form-control-sm">
+                <option value="manual">Featured</option>
+                <option value="price-ascending">Price: Low to High</option>
+                <option value="price-descending">Price: High to Low</option>
+                <option value="title-ascending">A-Z</option>
+                <option value="title-descending">Z-A</option>
+                <option value="created-ascending">Oldest to Newest</option>
+                <option value="created-descending">Newest to Oldest</option>
+                <option value="best-selling">Best Selling</option>
+              </select>
+            </div>
           </div>
         </div>
       {% endif %}
@@ -66,7 +78,6 @@
 </div>
 
 {% endpaginate %}
-
 
 
 {% schema %}
