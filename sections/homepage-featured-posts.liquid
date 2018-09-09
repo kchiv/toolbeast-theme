@@ -5,27 +5,7 @@
 	</div>
 </div>
 
-
-
-{% assign featuredBlogs = 'how-to,news,welding' | split:',' %}
-
-{% comment %}
-Set the featuredArticles variable to false by default.
-{% endcomment %}
-{% assign featuredArticles = false %}
-
-{% comment %}
-Grab the last 50 (default) articles from each Blog. Add the articles to the featureArticles variable.
-{% endcomment %}
-{% for featuredBlog in featuredBlogs %}
-	{% if blogs[featuredBlog].articles %}
-		{% if featuredArticles %}
-			{% assign featuredArticles = featuredArticles | concat:blogs[featuredBlog].articles %}
-		{% else %}
-			{% assign featuredArticles = blogs[featuredBlog].articles %}
-		{% endif %}
-	{% endif %}
-{% endfor %}
+{% include 'blog-loop' %}
 
 {% comment %}
 If featuredArticles is not false we should have articles to show.
