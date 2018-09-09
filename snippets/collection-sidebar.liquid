@@ -27,13 +27,17 @@
 		text-decoration: none;
 	}
 
+	.coll-sb-article .coll-sb-art-imgtext a {
+		text-transform: uppercase;
+	}
+
 	.coll-sb-art-imgtext img {
 		margin: 13px 0px;
 	}
 
-	.coll-sb-art-button a{
+	.coll-sb-art-button a {
 		font-size: 14px;
-		margin: 15px 0;
+		margin-top: 15px;
 	}
 
 </style>
@@ -70,28 +74,30 @@
 			</ul>
 		</div>
 	</div>
-	{% include 'blog-loop' %}
-	<div class="row">
-		<div class="col-md-12">
-			<div class="collection-sidebar-header">
-				<h6>Featured Articles</h6>
-			</div>
-			{% if featuredArticles %}
-				{% assign featuredArticles = featuredArticles | sort:'published_at' | reverse %}
-				{% for article in featuredArticles limit:2 %}
-					<div class="coll-sb-article">
-						<div class="coll-sb-art-imgtext">
-							<a href="{{ article.url }}">
-								<img class="img-fluid" src="{{ article.image.src | img_url: '500x300', crop: 'center' }}">
-								<span>{{ article.title | truncate: 70 }}</span>
-							</a>
+	{% if section.settings.collection_featured_post_enable %}
+		<div class="row">
+			<div class="col-md-12">
+				<div class="collection-sidebar-header">
+					<h6>Featured Articles</h6>
+				</div>
+				{% include 'blog-loop' %}
+				{% if featuredArticles %}
+					{% assign featuredArticles = featuredArticles | sort:'published_at' | reverse %}
+					{% for article in featuredArticles limit:2 %}
+						<div class="coll-sb-article">
+							<div class="coll-sb-art-imgtext">
+								<a href="{{ article.url }}">
+									<img class="img-fluid" src="{{ article.image.src | img_url: '500x300', crop: 'center' }}">
+									<div><span>{{ article.title | truncate: 65 }}</span></div>
+								</a>
+							</div>
 						</div>
+					{% endfor %}
 						<div class="coll-sb-art-button">
-							<a href="{{ article.url }}" class="btn btn-primary tb-button">See Post</a>
+							<a href="{{ section.settings.cat_sidebar_blog_link }}" class="btn btn-primary tb-button">See More</a>
 						</div>
-					</div>
-				{% endfor %}
-			{% endif %}
+				{% endif %}
+			</div>
 		</div>
-	</div>
+	{% endif %}
 </div>
