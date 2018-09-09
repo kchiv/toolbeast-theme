@@ -1,50 +1,79 @@
-<div class="row">
-	<div class="col-md-12">
-		<div>
-			<h6>Categories</h6>
+<style type="text/css">
+	.collection-sidebar-header {
+		background-color: #343A40;
+		padding: 10px 0px 4px 10px;
+	}
+
+	.collection-sidebar h6 {
+		text-transform: uppercase;
+		color: #FFFFFF;
+	}
+
+	.collection-sidebar .list-group-item {
+		border-right: none;
+		border-left: none;
+		border top: 1px solid #343A40;
+	}
+
+	.collection-sidebar a {
+		color: #343A40;
+		font-size: 14px;
+	}
+
+	.collection-sidebar a:hover {
+		color: #737373;
+		text-decoration: none;
+	}
+</style>
+<div class="collection-sidebar">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="collection-sidebar-header">
+				<h6>Categories</h6>
+			</div>
+			<ul class="list-group">
+				{% assign collection_handle = "collection-" | append: collection.handle %}
+					{% if linklists[collection_handle].links != blank %}
+						{% for link in linklists[collection_handle].links %}
+							<li class="list-group-item"><a href="{{ link.url }}">{{ link.title }}</a></li>
+						{% endfor %}
+					{% else %}
+						{% for link in linklists[section.settings.cat_sidebar_linklist].links %}
+							<li class="list-group-item"><a href="{{ link.url }}">{{ link.title }}</a></li>
+						{% endfor %}
+					{% endif %}
+			</ul>
 		</div>
-		<ul class="list-group">
-			{% assign collection_handle = "collection-" | append: collection.handle %}
-				{% if linklists[collection_handle].links != blank %}
-					{% for link in linklists[collection_handle].links %}
-						<li class="list-group-item"><a href="{{ link.url }}">{{ link.title }}</a></li>
-					{% endfor %}
-				{% else %}
-					{% for link in linklists[section.settings.cat_sidebar_linklist].links %}
-						<li class="list-group-item"><a href="{{ link.url }}">{{ link.title }}</a></li>
-					{% endfor %}
-				{% endif %}
-		</ul>
 	</div>
-</div>
-<div class="row">
-	<div class="col-md-12">
-		<div>
-			<h6>Brands</h6>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="collection-sidebar-header">
+				<h6>Brands</h6>
+			</div>
+			<ul class="list-group">
+				{% for product_vendor in shop.vendors %}
+					<li class="list-group-item"><a href="/collections/{{ product_vendor | downcase | replace: ' ', '-' }}">{{ product_vendor }}</a></li>
+				{% endfor %}
+			</ul>
 		</div>
-		<ul class="list-group">
-			{% for product_vendor in shop.vendors %}
-				<li class="list-group-item"><a href="/collections/{{ product_vendor | downcase | replace: ' ', '-' }}">{{ product_vendor }}</a></li>
-			{% endfor %}
-		</ul>
 	</div>
-</div>
-<div class="row">
-	<div class="col-md-12">
-		<div>
-			<h6>Featured Articles</h6>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="collection-sidebar-header">
+				<h6>Featured Articles</h6>
+			</div>
+			<ul class="list-group">
+				{% assign collection_handle = "collection-" | append: collection.handle %}
+					{% if linklists[collection_handle].links != blank %}
+						{% for link in linklists[collection_handle].links %}
+							<li class="list-group-item"><a href="{{ link.url }}">{{ link.title }}</a></li>
+						{% endfor %}
+					{% else %}
+						{% for link in linklists[section.settings.cat_sidebar_linklist].links %}
+							<li class="list-group-item"><a href="{{ link.url }}">{{ link.title }}</a></li>
+						{% endfor %}
+					{% endif %}
+			</ul>
 		</div>
-		<ul class="list-group">
-			{% assign collection_handle = "collection-" | append: collection.handle %}
-				{% if linklists[collection_handle].links != blank %}
-					{% for link in linklists[collection_handle].links %}
-						<li class="list-group-item"><a href="{{ link.url }}">{{ link.title }}</a></li>
-					{% endfor %}
-				{% else %}
-					{% for link in linklists[section.settings.cat_sidebar_linklist].links %}
-						<li class="list-group-item"><a href="{{ link.url }}">{{ link.title }}</a></li>
-					{% endfor %}
-				{% endif %}
-		</ul>
 	</div>
 </div>
