@@ -15,16 +15,29 @@
 		border top: 1px solid #343A40;
 	}
 
-	.collection-sidebar a {
+	.collection-sidebar li a,
+	.coll-sb-article .coll-sb-art-imgtext a {
 		color: #343A40;
 		font-size: 14px;
 	}
 
-	.collection-sidebar a:hover {
+	.collection-sidebar li a:hover,
+	.coll-sb-article .coll-sb-art-imgtext a:hover {
 		color: #737373;
 		text-decoration: none;
 	}
+
+	.coll-sb-art-imgtext img {
+		margin: 13px 0px;
+	}
+
+	.coll-sb-art-button a{
+		font-size: 14px;
+		margin: 15px 0;
+	}
+
 </style>
+
 <div class="collection-sidebar">
 	<div class="row">
 		<div class="col-md-12">
@@ -57,23 +70,28 @@
 			</ul>
 		</div>
 	</div>
+	{% include 'blog-loop' %}
 	<div class="row">
 		<div class="col-md-12">
 			<div class="collection-sidebar-header">
 				<h6>Featured Articles</h6>
 			</div>
-			<ul class="list-group">
-				{% assign collection_handle = "collection-" | append: collection.handle %}
-					{% if linklists[collection_handle].links != blank %}
-						{% for link in linklists[collection_handle].links %}
-							<li class="list-group-item"><a href="{{ link.url }}">{{ link.title }}</a></li>
-						{% endfor %}
-					{% else %}
-						{% for link in linklists[section.settings.cat_sidebar_linklist].links %}
-							<li class="list-group-item"><a href="{{ link.url }}">{{ link.title }}</a></li>
-						{% endfor %}
-					{% endif %}
-			</ul>
+			{% if featuredArticles %}
+				{% assign featuredArticles = featuredArticles | sort:'published_at' | reverse %}
+				{% for article in featuredArticles limit:2 %}
+					<div class="coll-sb-article">
+						<div class="coll-sb-art-imgtext">
+							<a href="{{ article.url }}">
+								<img class="img-fluid" src="{{ article.image.src | img_url: '500x300', crop: 'center' }}">
+								<span>{{ article.title | truncate: 70 }}</span>
+							</a>
+						</div>
+						<div class="coll-sb-art-button">
+							<a href="{{ article.url }}" class="btn btn-primary tb-button">See Post</a>
+						</div>
+					</div>
+				{% endfor %}
+			{% endif %}
 		</div>
 	</div>
 </div>
