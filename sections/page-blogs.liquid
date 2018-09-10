@@ -77,6 +77,15 @@
     text-decoration: none;
   }
 
+  .blogs-underline-header {
+    border-bottom: 1px solid #343A40;
+  }
+
+  .blogs-underline-header .tb-h-underline {
+    margin-bottom: 0;
+  }
+
+
   @media (max-width: 767.98px) {
     .pri-feat-blog-col {
       padding-right: 15px;
@@ -161,6 +170,23 @@
       </a>
     </div>
   </div>
+  {% for block in section.blocks %}
+    <div class="row">
+      <div class="col-md-12">
+        <div class="blogs-underline-header">
+          <h3 class="tb-h-underline">{{ blogs[block.settings.blog_obj].title }}</h3>
+          <span><a href="{{ blogs[block.settings.blog_obj].url }}">See all posts</a></span>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      {% for article in blogs[block.settings.blog_obj].articles %}
+        <div class="col-md-4">
+          {{ article.title }}
+        </div>
+      {% endfor %}
+    </div>
+  {% endfor %}
 </div>
 
 {% schema %}
@@ -181,6 +207,20 @@
       "type": "article",
       "id": "blog_featured_post_3",
       "label": "Featured Post 3"
+    }
+  ],
+  "name": "Brand List",
+  "blocks": [
+    {
+      "type": "select",
+      "name": "Blog Link Lists",
+      "settings": [
+        {
+          "type": "blog",
+          "id": "blog_obj",
+          "label": "Blog Object"
+        }
+      ]
     }
   ]
 }
