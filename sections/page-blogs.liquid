@@ -121,7 +121,7 @@
 
 </style>
 
-<div class="container">
+<div class="container-fluid">
   <div class="row">
     <div class="col-md-8 pri-feat-blog-col">
       <a href="{{ articles[section.settings.blog_featured_post_1].url }}">
@@ -170,12 +170,14 @@
       </a>
     </div>
   </div>
+</div>
+<div class="container">
   {% for block in section.blocks %}
     <div class="row">
       <div class="col-md-12">
         <div class="blogs-underline-header">
           <h3 class="tb-h-underline">{{ blogs[block.settings.blog_obj].title }}</h3>
-          <span><a href="{{ blogs[block.settings.blog_obj].url }}">See all posts</a></span>
+          <span><a href="{{ blogs[block.settings.blog_obj].url }}">See all posts <i class="fas fa-angle-right"></i></a></span>
         </div>
       </div>
     </div>
