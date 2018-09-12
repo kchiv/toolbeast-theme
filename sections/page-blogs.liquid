@@ -65,6 +65,10 @@
     text-align: left;
   }
 
+  .cat-blog-post-row {
+    margin-top: 40px;
+  }
+
   .feat-blog-header {
     text-transform: uppercase;
   }
@@ -101,6 +105,20 @@
 
   .feat-blog-cat-post-obj {
     margin-top: 20px;
+  }
+
+  .blog-thumb-title {
+    margin-top: 15px;
+    text-transform: uppercase;
+  }
+
+  .blog-thumb-title a {
+    color: #343A40;
+  }
+
+  .blog-thumb-title a:hover {
+    color: #737373;
+    text-decoration: none;
   }
 
   @media (max-width: 767.98px) {
@@ -190,6 +208,7 @@
 </div>
 <div class="container">
   {% for block in section.blocks %}
+  <div class="cat-blog-post-row">
     <div class="row">
       <div class="col-md-12">
         <div class="blogs-underline-header">
@@ -201,24 +220,28 @@
     <div class="row feat-blog-cat-post-row">
       {% for article in blogs[block.settings.blog_obj].articles %}
         <div class="col-md-4 feat-blog-cat-post-obj">
-          <div>
-            <a href="">
-              <img class="img-fluid" src="{{ article.image.src | img_url: '400x250', crop: 'center' }}">
+          <div class="blog-thumb-img">
+            <a href="{{ article.url }}">
+              <img class="img-fluid" src="{{ article.image.src | img_url: '550x400', crop: 'center' }}">
             </a>
           </div>
-          <div>
-            <a href="">{{ article.title | truncate: 60 }}</a>
+          <div class="blog-thumb-title">
+            <h5><a href="{{ article.url }}">{{ article.title | truncate: 80 }}</a></h5>
           </div>
-          <div>
+          <div class="blog-thumb-excerpt">
             {% if article.excerpt != blank %}
-              <p>{{ article.excerpt }}</p>
+              <p>{{ article.excerpt | strip_html | truncate: 140 }}</p>
             {% else %}
-              <p>{{ article.content | truncate: 60 }}</p>
+              <p>{{ article.content | strip_html | truncate: 140 }}</p>
             {% endif %}
+          </div>
+          <div class="blog-thumb-read-more">
+            <a href="{{ article.url }}" class="btn btn-primary tb-button">Read More</a>
           </div>
         </div>
       {% endfor %}
     </div>
+  </div>
   {% endfor %}
 </div>
 
