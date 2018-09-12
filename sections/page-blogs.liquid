@@ -71,6 +71,7 @@
 
   .feat-blog-header {
     text-transform: uppercase;
+    font-weight: bold;
   }
 
   .pri-feat-blog-col a:hover {
@@ -112,6 +113,10 @@
     text-transform: uppercase;
   }
 
+  .blog-thumb-title h5 {
+    font-weight: bold;
+  }
+
   .blog-thumb-title a {
     color: #343A40;
   }
@@ -119,6 +124,15 @@
   .blog-thumb-title a:hover {
     color: #737373;
     text-decoration: none;
+  }
+
+  .blog-thumb-pub-date {
+    margin-bottom: 5px;
+    font-size: 14px;
+  }
+
+  .blog-thumb-excerpt {
+    font-size: 15px;
   }
 
   @media (max-width: 767.98px) {
@@ -227,6 +241,9 @@
           </div>
           <div class="blog-thumb-title">
             <h5><a href="{{ article.url }}">{{ article.title | truncate: 80 }}</a></h5>
+          </div>
+          <div class="blog-thumb-pub-date">
+            <span><i class="fas fa-clock"></i> {{ article.published_at | date: "%B %d, %Y" }}</span>
           </div>
           <div class="blog-thumb-excerpt">
             {% if article.excerpt != blank %}
