@@ -85,6 +85,20 @@
     margin-bottom: 0;
   }
 
+  .blog-cat-link {
+    padding-left: 15px;
+    font-size: 15px;
+  }
+
+  .blog-cat-link a {
+    color: #343A40;
+  }
+
+  .blog-cat-link a:hover {
+    color: #737373;
+    text-decoration: none;
+  }
+
 
   @media (max-width: 767.98px) {
     .pri-feat-blog-col {
@@ -177,7 +191,7 @@
       <div class="col-md-12">
         <div class="blogs-underline-header">
           <h3 class="tb-h-underline">{{ blogs[block.settings.blog_obj].title }}</h3>
-          <span><a href="{{ blogs[block.settings.blog_obj].url }}">See all posts <i class="fas fa-angle-right"></i></a></span>
+          <span class="blog-cat-link"><a href="{{ blogs[block.settings.blog_obj].url }}">See all posts <i class="fas fa-angle-right"></i></a></span>
         </div>
       </div>
     </div>
