@@ -143,6 +143,14 @@
     margin-top: 30px;
   }
 
+  .blog-hp-cat-list-cat {
+    text-transform: uppercase;
+  }
+
+  .blog-hp-cat-list-margin {
+    margin: 0px 15px;
+  }
+
   @media (max-width: 767.98px) {
     .pri-feat-blog-col {
       padding-right: 15px;
@@ -237,9 +245,9 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12 text-center blog-hp-cat-list">
-      <h3 class="d-md-inline">Categories:</h3> 
+      <h4 class="d-md-inline blog-hp-cat-list-cat">Categories <span class="tb-green">//</span></h4>
         {% for link in linklists[section.settings.blog_hp_cat_list].links %}
-          <h4 class="d-md-inline" style="margin: 0px 15px;">
+          <h4 class="d-md-inline blog-hp-cat-list-margin">
             <a href="{{ link.url }}">{{ link.title }}</a>
           </h4>
         {% endfor %}
