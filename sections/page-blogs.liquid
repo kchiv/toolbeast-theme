@@ -66,7 +66,7 @@
   }
 
   .cat-blog-post-row {
-    margin-top: 40px;
+    margin-top: 30px;
   }
 
   .feat-blog-header {
@@ -135,6 +135,14 @@
     font-size: 15px;
   }
 
+  .blog-feat-header {
+    margin-bottom: 10px;
+  }
+
+  .blog-hp-cat-list {
+    margin-top: 30px;
+  }
+
   @media (max-width: 767.98px) {
     .pri-feat-blog-col {
       padding-right: 15px;
@@ -167,10 +175,16 @@
 
   }
 
-
 </style>
 
 <div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12 blog-feat-header">
+      <div class="blogs-underline-header">
+        <h3 class="tb-h-underline">Featured Posts</h3>
+      </div>
+    </div>
+  </div>
   <div class="row">
     <div class="col-md-8 pri-feat-blog-col">
       <a href="{{ articles[section.settings.blog_featured_post_1].url }}">
@@ -221,6 +235,16 @@
   </div>
 </div>
 <div class="container">
+  <div class="row">
+    <div class="col-md-12 text-center blog-hp-cat-list">
+      <h3 class="d-md-inline">Categories:</h3> 
+        {% for link in linklists[section.settings.blog_hp_cat_list].links %}
+          <h4 class="d-md-inline" style="margin: 0px 15px;">
+            <a href="{{ link.url }}">{{ link.title }}</a>
+          </h4>
+        {% endfor %}
+    </div>
+  </div>
   {% for block in section.blocks %}
   <div class="cat-blog-post-row">
     <div class="row">
@@ -280,9 +304,14 @@
       "type": "article",
       "id": "blog_featured_post_3",
       "label": "Featured Post 3"
+    },
+    {
+      "type": "link_list",
+      "id": "blog_hp_cat_list",
+      "label": "Blog Category List"
     }
   ],
-  "name": "Brand List",
+  "name": "Blog List",
   "blocks": [
     {
       "type": "select",
