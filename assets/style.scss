@@ -54,25 +54,25 @@ $radius-primary: 0.15rem;
 
 	/** Colors **/
 
-		.tb-green {
-			color: $color-primary;
-		}
+	.tb-green {
+		color: $color-primary;
+	}
 
 	/** Forms **/
 
-		.form-control {
-			border-radius: $radius-primary;
-		}
+	.form-control {
+		border-radius: $radius-primary;
+	}
 
 	/** Ratings & Reviews **/
 
-		.spr-badge {
-			font-size: 12px;
-		}
+	.spr-badge {
+		font-size: 12px;
+	}
 
-		.spr-badge[data-rating="0.0"] {
-    		visibility:hidden; display: none;
-		}
+	.spr-badge[data-rating="0.0"] {
+		visibility:hidden; display: none;
+	}
 
 
 /**** Sub Top Nav ****/
@@ -852,7 +852,228 @@ $radius-primary: 0.15rem;
 		}
 
 
+/**** Collections ****/
+
+.cat-header {
+	font-size: 30px;
+	text-transform: uppercase;
+}
+
+.collection-sort {
+	margin-top: 20px;
+}
+
+.collection-sort label {
+	margin-right: 10px;
+	font-size: 15px;
+}
+
+
+
 /**** Pages ****/
+
+	/** Blog Homepage **/
+
+		/** Headers **/
+
+		.blog-feat-header {
+			margin-bottom: 10px;
+		}
+
+		.blogs-underline-header {
+			border-bottom: 1px solid #343A40;
+		}
+
+		.blogs-underline-header .tb-h-underline {
+			margin-bottom: 0;
+		}
+
+		/** Featured Posts **/
+
+		.pri-feat-blog-col {
+			padding-right: 0px;
+		}
+
+		.sub-feat-blog-col {
+			padding-left: 4px;
+		}
+
+		.pri-feat-blog {
+			height:500px;
+			background-size:cover;
+			background-position:center;
+			background-repeat: no-repeat;
+			position: relative;
+			color: #FFFFFF;
+		}
+
+		.sub-feat-blog-top {
+			height:250px;
+			background-size:cover;
+			background-position:center;
+			background-repeat: no-repeat;
+			position: relative;
+			border-bottom: 2px solid #FFFFFF;
+			color: #FFFFFF;
+		}
+
+		.sub-feat-blog-bottom {
+			height:250px;
+			background-size:cover;
+			background-position:center;
+			background-repeat: no-repeat;
+			position: relative;
+			border-top: 2px solid #FFFFFF;
+			color: #FFFFFF;
+		}
+
+		.pri-feat-blog-back {
+			background: linear-gradient(to bottom, rgba(56,56,56,0), rgba(56,56,56,0.7) 100%);
+			width: 100%;
+			height: 500px;
+			display: table;
+			padding: 50px;
+		}
+
+		.sub-feat-blog-back {
+			background: linear-gradient(to bottom, rgba(56,56,56,0), rgba(56,56,56,0.7) 100%);
+			width: 100%;
+			height: 248px;
+			display: table;
+			padding: 15px;
+		}
+
+		.feat-blog-row {
+			display: table-row;
+		}
+
+		.feat-blog-cell {
+			display: table-cell;
+			vertical-align: bottom;
+			text-align: left;
+		}
+
+		.cat-blog-post-row {
+			margin-top: 30px;
+		}
+
+		.feat-blog-header {
+			text-transform: uppercase;
+			font-weight: bold;
+		}
+
+		.pri-feat-blog-col a:hover {
+			text-decoration: none;
+		}
+
+		.sub-feat-blog-col a:hover {
+			text-decoration: none;
+		}
+
+		/** Category List **/
+
+		.blog-hp-cat-list {
+			margin-top: 30px;
+		}
+
+		.blog-hp-cat-list-cat {
+			text-transform: uppercase;
+		}
+
+		.blog-hp-cat-list-margin {
+			margin: 15px 15px;
+		}
+
+		.blog-hp-cat-list-margin a {
+			color: #737373;
+		}
+
+		.blog-hp-cat-list-margin a:hover {
+			color: #343A40;
+			text-decoration: none;
+		}
+
+		/** Blog Post Row Blocks **/
+
+		.blog-cat-link {
+			padding-left: 15px;
+			font-size: 15px;
+		}
+
+		.blog-cat-link a {
+			color: #343A40;
+		}
+
+		.blog-cat-link a:hover {
+			color: #737373;
+			text-decoration: none;
+		}
+
+		.feat-blog-cat-post-obj {
+			margin-top: 20px;
+		}
+
+		.blog-thumb-title {
+			margin-top: 15px;
+			text-transform: uppercase;
+		}
+
+		.blog-thumb-title h5 {
+			font-weight: bold;
+		}
+
+		.blog-thumb-title a {
+			color: #343A40;
+		}
+
+		.blog-thumb-title a:hover {
+			color: #737373;
+			text-decoration: none;
+		}
+
+		.blog-thumb-pub-date {
+			margin-bottom: 5px;
+			font-size: 14px;
+		}
+
+		.blog-thumb-excerpt {
+			font-size: 15px;
+		}
+
+
+		/** Mobile View **/
+
+		@media (max-width: 767.98px) {
+			.pri-feat-blog-col {
+				padding-right: 15px;
+			}
+
+			.sub-feat-blog-col {
+				padding-left: 15px;
+			}
+
+			.pri-feat-blog {
+				height:250px;
+			}
+
+			.sub-feat-blog-top {
+				border-bottom: none;
+			}
+
+			.sub-feat-blog-bottom {
+				border-top: none;
+			}
+
+			.pri-feat-blog-back {
+				height: 250px;
+				padding: 15px;
+			}
+
+			.sub-feat-blog-back {
+				height: 250px;
+			}
+		}
+
 
 	/** Contact Page **/
 
@@ -915,18 +1136,3 @@ $radius-primary: 0.15rem;
 	}
 
 
-/**** Collections ****/
-
-.cat-header {
-	font-size: 30px;
-	text-transform: uppercase;
-}
-
-.collection-sort {
-	margin-top: 20px;
-}
-
-.collection-sort label {
-	margin-right: 10px;
-	font-size: 15px;
-}
