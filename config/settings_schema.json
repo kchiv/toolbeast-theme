@@ -57,6 +57,11 @@
         "type": "text",
         "id": "pinterest_link",
         "label": "Pinterest"
+      },
+      {
+        "type": "text",
+        "id": "promo_banner_text",
+        "label": "Promo Banner Text"
       }
     ]
   },
