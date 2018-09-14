@@ -73,7 +73,7 @@ $radius-primary: 0.15rem;
 
 	.paginate a,
 	.paginate span {
-		color: #343A40;
+		color: $dark-text;
 		padding: 8px 16px;
 		text-decoration: none;
 		transition: background-color .3s;
@@ -81,19 +81,19 @@ $radius-primary: 0.15rem;
 	}
 
 	.paginate a.active {
-		background-color: #343A40;
-		color: #FFFFFF;
+		background-color: $dark-background;
+		color: $color-white;
 	}
 
 	.paginate a:hover:not(.active) {
-		background-color: #D8D8D8;
+		background-color: $light-background;
 	}
 
 	/** Banners **/
 
 	.promo-banner {
-		background-color: #343A40;
-		color: #D8D8D8;
+		background-color: $dark-background;
+		color: $light-text;
 		font-size: 14px;
 		padding-bottom: 5px;
 		padding-top: 5px;
@@ -901,7 +901,7 @@ $radius-primary: 0.15rem;
 		}
 
 		.blogs-underline-header {
-			border-bottom: 1px solid #343A40;
+			border-bottom: 1px solid $dark-background;
 		}
 
 		.blogs-underline-header .tb-h-underline {
@@ -924,7 +924,7 @@ $radius-primary: 0.15rem;
 			background-position:center;
 			background-repeat: no-repeat;
 			position: relative;
-			color: #FFFFFF;
+			color: $color-white;
 		}
 
 		.sub-feat-blog-top {
@@ -933,8 +933,8 @@ $radius-primary: 0.15rem;
 			background-position:center;
 			background-repeat: no-repeat;
 			position: relative;
-			border-bottom: 2px solid #FFFFFF;
-			color: #FFFFFF;
+			border-bottom: 2px solid $color-white;
+			color: $color-white;
 		}
 
 		.sub-feat-blog-bottom {
@@ -943,8 +943,8 @@ $radius-primary: 0.15rem;
 			background-position:center;
 			background-repeat: no-repeat;
 			position: relative;
-			border-top: 2px solid #FFFFFF;
-			color: #FFFFFF;
+			border-top: 2px solid $color-white;
+			color: $color-white;
 		}
 
 		.pri-feat-blog-back {
@@ -1005,11 +1005,11 @@ $radius-primary: 0.15rem;
 		}
 
 		.blog-hp-cat-list-margin a {
-			color: #737373;
+			color: $medium-text;
 		}
 
 		.blog-hp-cat-list-margin a:hover {
-			color: #343A40;
+			color: $dark-text;
 			text-decoration: none;
 		}
 
@@ -1021,11 +1021,11 @@ $radius-primary: 0.15rem;
 		}
 
 		.blog-cat-link a {
-			color: #343A40;
+			color: $dark-text;
 		}
 
 		.blog-cat-link a:hover {
-			color: #737373;
+			color: $medium-text;
 			text-decoration: none;
 		}
 
@@ -1043,11 +1043,11 @@ $radius-primary: 0.15rem;
 		}
 
 		.blog-thumb-title a {
-			color: #343A40;
+			color: $dark-text;
 		}
 
 		.blog-thumb-title a:hover {
-			color: #737373;
+			color: $medium-text;
 			text-decoration: none;
 		}
 
@@ -1188,7 +1188,7 @@ $radius-primary: 0.15rem;
   }
 
   .collection-description a {
-    color: #2ECC71;
+    color: $color-primary;
   }
 
   .collection-description a:hover {
@@ -1206,19 +1206,19 @@ $radius-primary: 0.15rem;
   /** Collection Sidebar **/
 
   .collection-sidebar-header {
-    background-color: #343A40;
+    background-color: $dark-background;
     padding: 10px 0px 4px 10px;
   }
 
   .collection-sidebar h6 {
     text-transform: uppercase;
-    color: #FFFFFF;
+    color: $color-white;
   }
 
   .collection-sidebar .list-group-item {
     border-right: none;
     border-left: none;
-    border-top: 1px solid #343A40;
+    border-top: 1px solid $dark-background;
   }
 
   .collection-sidebar .list-group-item:hover {
@@ -1227,13 +1227,13 @@ $radius-primary: 0.15rem;
 
   .collection-sidebar li a,
   .coll-sb-article .coll-sb-art-imgtext a {
-    color: #343A40;
+    color: $dark-text;
     font-size: 14px;
   }
 
   .collection-sidebar li a:hover,
   .coll-sb-article .coll-sb-art-imgtext a:hover {
-    color: #737373;
+    color: $medium-text;
     text-decoration: none;
   }
 
