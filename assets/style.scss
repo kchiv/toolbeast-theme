@@ -1221,6 +1221,10 @@ $radius-primary: 0.15rem;
     border-top: 1px solid #343A40;
   }
 
+  .collection-sidebar .list-group-item:hover {
+    z-index: 0 !important;
+  }
+
   .collection-sidebar li a,
   .coll-sb-article .coll-sb-art-imgtext a {
     color: #343A40;
