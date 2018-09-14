@@ -1152,3 +1152,94 @@ $radius-primary: 0.15rem;
 		color: $medium-text;
 		text-decoration: none;
 	}
+
+
+
+  /**** Collections ****/
+
+  /** Collection Header **/
+
+  .cat-header {
+    font-size: 30px;
+    text-transform: uppercase;
+  }
+
+  /** Collection Sort **/
+
+  .collection-sort {
+    margin-top: 20px;
+  }
+
+  .collection-sort label {
+    margin-right: 10px;
+    font-size: 15px;
+  }
+
+  /** Collection Description **/
+
+  .collection-description {
+    padding: 10px 0px;
+  }
+
+  .collection-description h2 {
+    font-size: 28px;
+  }
+
+  .collection-description a {
+    color: #2ECC71;
+  }
+
+  .collection-description a:hover {
+    color: #229552;
+    text-decoration: none;
+  }
+
+  @media (max-width: 767.98px) {
+    .collection-description {
+      width: 85%;
+      margin: auto;
+    }
+  }
+
+  /** Collection Sidebar **/
+
+  .collection-sidebar-header {
+    background-color: #343A40;
+    padding: 10px 0px 4px 10px;
+  }
+
+  .collection-sidebar h6 {
+    text-transform: uppercase;
+    color: #FFFFFF;
+  }
+
+  .collection-sidebar .list-group-item {
+    border-right: none;
+    border-left: none;
+    border-top: 1px solid #343A40;
+  }
+
+  .collection-sidebar li a,
+  .coll-sb-article .coll-sb-art-imgtext a {
+    color: #343A40;
+    font-size: 14px;
+  }
+
+  .collection-sidebar li a:hover,
+  .coll-sb-article .coll-sb-art-imgtext a:hover {
+    color: #737373;
+    text-decoration: none;
+  }
+
+  .coll-sb-article .coll-sb-art-imgtext a {
+    text-transform: uppercase;
+  }
+
+  .coll-sb-art-imgtext img {
+    margin: 13px 0px;
+  }
+
+  .coll-sb-art-button a {
+    font-size: 14px;
+    margin-top: 15px;
+  }
