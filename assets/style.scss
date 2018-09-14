@@ -99,6 +99,26 @@ $radius-primary: 0.15rem;
 		padding-top: 5px;
 	}
 
+	/** Breadcrumb **/
+
+	.tb-bcrumb {
+		background-color: $color-white;
+		font-size: 14px;
+	}
+
+	.tb-bcrumb a {
+		color: $dark-text;
+		text-decoration: none;
+	}
+
+	.tb-bcrumb a:hover {
+		color: $medium-text;
+	}
+
+	.breadcrumb-item.active {
+		color: $medium-text;
+	}
+
 	/** Ratings & Reviews **/
 
 	.spr-badge {
@@ -422,24 +442,6 @@ $radius-primary: 0.15rem;
 	}
 
 
-/**** Breadcrumb ****/
-
-	.tb-bcrumb {
-		background-color: $color-white;
-	}
-
-	.tb-bcrumb a {
-		color: $dark-text;
-		text-decoration: none;
-	}
-
-	.tb-bcrumb a:hover {
-		color: $medium-text;
-	}
-
-	.breadcrumb-item.active {
-		color: $medium-text;
-	}
 
 /**** Homepage ****/
 
