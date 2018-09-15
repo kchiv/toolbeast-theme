@@ -10,6 +10,14 @@
   .sub-feat-blog-bottom {
     background-image: url('{{ articles[section.settings.blog_featured_post_3].image.src | img_url: '900x' }}');
   }
+
+  .rec-post-row {
+    margin-top: 35px;
+  }
+
+  .recommended-post-badge {
+    margin-top: 15px;
+  }
 </style>
 
 <div class="container">
@@ -73,10 +81,36 @@
         {% endfor %}
     </div>
   </div>
-  <div class="row">
-    <div class="col-md-12 blog-feat-header">
-      <div class="blogs-underline-header">
-        <h3 class="tb-h-underline">Recommended</h3>
+  <div class="row rec-post-row">
+    {% assign recommend_blog_post = articles[section.settings.recommended_blog_post] %}
+    <div class="col-lg-8 col-md-7 order-1 order-md-7 my-auto">
+      <div class="blog-thumb-img">
+        <a href="{{ recommend_blog_post.url }}">
+          <img class="img-fluid" src="{{ recommend_blog_post.image.src | img_url: '1920x', crop: 'center' }}">
+        </a>
+      </div>
+    </div>
+    <div class="col-lg-4 col-md-5 order-2 my-auto">
+      <div class="recommended-post-badge">
+        <div class="badge badge-primary tb-badge-secondary">Recommended</div>  
+      </div>
+      <div class="blog-thumb-title">
+        <h5>
+          <a href="{{ recommend_blog_post.url }}">{{ recommend_blog_post.title | truncate: 65 }}</a>
+        </h5>
+      </div>
+      <div class="blog-thumb-pub-date">
+        <span><i class="fas fa-clock"></i> {{ recommend_blog_post.published_at | date: "%B %d, %Y" }}</span>
+      </div>
+      <div class="blog-thumb-excerpt">
+        {% if recommend_blog_post.excerpt != blank %}
+          <p>{{ recommend_blog_post.excerpt | strip_html | truncate: 120 }}</p>
+        {% else %}
+          <p>{{ recommend_blog_post.content | strip_html | truncate: 120 }}</p>
+        {% endif %}
+      </div>
+      <div class="blog-thumb-read-more">
+        <a href="{{ recommend_blog_post.url }}" class="btn btn-primary tb-button-small">Read More</a>
       </div>
     </div>
   </div>
@@ -112,7 +146,7 @@
             {% endif %}
           </div>
           <div class="blog-thumb-read-more">
-            <a href="{{ article.url }}" class="btn btn-primary tb-button">Read More</a>
+            <a href="{{ article.url }}" class="btn btn-primary tb-button-small">Read More</a>
           </div>
         </div>
       {% endfor %}
