@@ -28,7 +28,7 @@ If featuredArticles is not false we should have articles to show.
 								{% assign article_cat_hand = article.handle | split:'/' %}
 								{% for blog_cat in featuredBlogs %}
 									{% if blogs[blog_cat].handle == article_cat_hand[0] %}
-									<p class="badge badge-primary hp-article-category-text">
+									<p class="badge badge-primary tb-badge-primary">
 										<a href="{{ blogs[blog_cat].url }}">{{ blogs[blog_cat].title }}</a>
 									</p>
 									{% endif %}
