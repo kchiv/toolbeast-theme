@@ -72,7 +72,7 @@
 </div>
 <div class="container">
   <div class="row">
-    <div class="col-md-12 text-center blog-hp-cat-list">
+    <div class="col-md-12 blog-hp-cat-list">
       <h4 class="d-md-inline blog-hp-cat-list-cat">Categories <span class="tb-green">//</span></h4>
         {% for link in linklists[section.settings.blog_hp_cat_list].links %}
           <h4 class="d-md-inline blog-hp-cat-list-margin">
@@ -91,9 +91,11 @@
       </div>
     </div>
     <div class="col-lg-4 col-md-5 order-2 my-auto">
+      {% comment %}
       <div class="recommended-post-badge">
         <div class="badge badge-primary tb-badge-secondary">Recommended</div>  
       </div>
+      {% endcomment %}
       <div class="blog-thumb-title">
         <h5>
           <a href="{{ recommend_blog_post.url }}">{{ recommend_blog_post.title | truncate: 65 }}</a>
