@@ -5,6 +5,7 @@ $dark-text: #343A40;
 $medium-text: #737373;
 $light-text: #D8D8D8;
 $dark-background: #343A40;
+$medium-background: #737373;
 $light-background: #D8D8D8;
 $radius-primary: 0.15rem;
 
@@ -23,6 +24,31 @@ $radius-primary: 0.15rem;
 		background-color: $color-primary-hover;
 		border-color: $color-primary-hover;
 
+	}
+
+	.tb-button-small {
+		background-color: $color-primary;
+		border-color: $color-primary;
+		border-radius: $radius-primary;
+		font-size: 14px;
+	}
+
+	.tb-button-small:hover {
+		background-color: $color-primary-hover;
+		border-color: $color-primary-hover;
+		font-size: 14px;
+	}
+
+	/** Badges **/
+
+	.tb-badge-primary {
+		background-color: $color-primary;
+		border-radius: 0.15rem;
+	}
+
+	.tb-badge-secondary {
+		background-color: $medium-background;
+		border-radius: 0.15rem;
 	}
 
 	/** Headers **/
@@ -857,10 +883,6 @@ $radius-primary: 0.15rem;
 
 		.hp-article-category {
 			width: fit-content;
-		}
-
-		.hp-article-category .hp-article-category-text {
-			background-color: $color-primary;
 		}
 
 		.hp-article-text h4 {
