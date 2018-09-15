@@ -14,13 +14,6 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-md-12 blog-feat-header">
-      <div class="blogs-underline-header">
-        <h3 class="tb-h-underline">Featured Posts</h3>
-      </div>
-    </div>
-  </div>
-  <div class="row">
     <div class="col-lg-8 col-md-6 pri-feat-blog-col">
       <a href="{{ articles[section.settings.blog_featured_post_1].url }}">
         <div class="pri-feat-blog">
@@ -80,6 +73,13 @@
         {% endfor %}
     </div>
   </div>
+  <div class="row">
+    <div class="col-md-12 blog-feat-header">
+      <div class="blogs-underline-header">
+        <h3 class="tb-h-underline">Recommended</h3>
+      </div>
+    </div>
+  </div>
   {% for block in section.blocks %}
   <div class="cat-blog-post-row">
     <div class="row">
@@ -123,7 +123,7 @@
 
 {% schema %}
 {
-  "name": "Blog Homepage",
+  "name": "Featured Blog Posts",
   "settings": [
     {
       "type": "article",
@@ -144,6 +144,11 @@
       "type": "link_list",
       "id": "blog_hp_cat_list",
       "label": "Blog Category List"
+    },
+    {
+      "type": "article",
+      "id": "recommended_blog_post",
+      "label": "Recommended Blog Post"
     }
   ],
   "name": "Blog List",
