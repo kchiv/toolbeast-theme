@@ -35,6 +35,10 @@
 	.blog-sidebar {
 		margin-top: 20px;
 	}
+
+	.tag-badge {
+		font-size: 13px;
+	}
 </style>
 
 <div class="dk-back">
@@ -142,7 +146,7 @@
 									<h6>Tags</h6>
 								</div>
 								{% for tag in blog.all_tags %}
-									<div class="badge badge-primary tb-badge-secondary">
+									<div class="badge badge-primary tb-badge-secondary tag-badge">
 										<a href="{{ blog.url }}/tagged/{{ tag.handle }}">{{ tag }}</a>
 									</div>
 								{% endfor %}
