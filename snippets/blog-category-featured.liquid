@@ -1,0 +1,38 @@
+{% for article in blog.articles %}
+	{% if forloop.first == true %}
+	<div class="row blog-category-feature-card">
+	    <div class="col-lg-8 col-md-7 order-1 order-md-7 my-auto blog-category-feature-img">
+	      <div class="blog-thumb-img">
+	        <a href="{{ article.url }}">
+	          <img class="img-fluid" src="{{ article.image.src | img_url: '1920x', crop: 'center' }}">
+	        </a>
+	      </div>
+	    </div>
+	    <div class="col-lg-4 col-md-5 order-2 my-auto">
+	      {% comment %}
+	      <div class="recommended-post-badge">
+	        <div class="badge badge-primary tb-badge-secondary">Recommended</div>  
+	      </div>
+	      {% endcomment %}
+	      <div class="blog-thumb-title">
+	        <h5>
+	          <a href="{{ article.url }}">{{ article.title | truncate: 65 }}</a>
+	        </h5>
+	      </div>
+	      <div class="blog-thumb-pub-date">
+	        <span><i class="fas fa-clock"></i> {{ article.published_at | date: "%B %d, %Y" }}</span>
+	      </div>
+	      <div class="blog-thumb-excerpt">
+	        {% if article.excerpt != blank %}
+	          <p>{{ article.excerpt | strip_html | truncate: 120 }}</p>
+	        {% else %}
+	          <p>{{ article.content | strip_html | truncate: 120 }}</p>
+	        {% endif %}
+	      </div>
+	      <div class="cat-feat-blog-thumb-read-more">
+	        <a href="{{ article.url }}" class="btn btn-primary tb-button-small">Read More</a>
+	      </div>
+	    </div>
+	 </div>
+	{% endif %}
+{% endfor %}
