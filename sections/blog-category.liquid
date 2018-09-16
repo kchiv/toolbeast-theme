@@ -31,6 +31,10 @@
 	.blog-cat-list {
 		margin-top: 20px;
 	}
+
+	.blog-sidebar {
+		margin-top: 20px;
+	}
 </style>
 
 <div class="dk-back">
@@ -119,10 +123,49 @@
 		    	{% endfor %}
 			</div>
 			<div class="col-lg-3">
-				<div class="row">
-					
+				<div class="tb-sidebar blog-sidebar">
+					<div class="row">
+						<div class="col-lg-12 col-md-6">
+							<div class="tb-sidebar-header">
+								<h6>Categories</h6>
+							</div>
+							<ul class="list-group">
+								{% for link in linklists[section.settings.blog_cat_sidebar_linklist].links %}
+									<li class="list-group-item"><a href="{{ link.url }}">{{ link.title }}</a></li>
+								{% endfor %}
+							</ul>
+						</div>
+
+						{% if blog.all_tags != blank %}
+							<div class="col-lg-12 col-md-6">
+								<div class="tb-sidebar-header">
+									<h6>Tags</h6>
+								</div>
+								{% for tag in blog.all_tags %}
+									<div class="badge badge-primary tb-badge-primary">
+										<a href="{{ blog.url }}/tagged/{{ tag.handle }}">{{ tag }}</a>
+									</div>
+								{% endfor %}
+							</div>
+						{% endif %}
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
+
+
+{% schema %}
+{
+  "name": "Blog Category Pages",
+  "settings": [
+    {
+      "type": "link_list",
+      "id": "blog_cat_sidebar_linklist",
+      "label": "Blog Category Links",
+      "default": "main-menu"
+    }
+  ]
+}
+{% endschema %}
