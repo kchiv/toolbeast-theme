@@ -1,0 +1,42 @@
+<div class="col-lg-9">
+{% for article in blog.articles %}
+	{% if forloop.index != 1 %}
+		<div class="row blog-cat-list">
+			<div class="col-md-12">
+				<div class="row">
+					<div class="col-md-6 my-auto">
+				        <a href="{{ article.url }}">
+				          <img class="img-fluid" src="{{ article.image.src | img_url: '950x630', crop: 'center' }}">
+				        </a>
+			    	</div>
+			    	<div class="col-md-6 my-auto">
+			    		  <div class="blog-thumb-title">
+					        <h6>
+					          <a href="{{ article.url }}">{{ article.title | truncate: 65 }}</a>
+					        </h6>
+					      </div>
+					      <div class="blog-thumb-pub-date">
+					        <span><i class="fas fa-clock"></i> {{ article.published_at | date: "%B %d, %Y" }}</span>
+					      </div>
+					      <div class="blog-thumb-excerpt">
+					        {% if article.excerpt != blank %}
+					          <p>{{ article.excerpt | strip_html | truncate: 120 }}</p>
+					        {% else %}
+					          <p>{{ article.content | strip_html | truncate: 120 }}</p>
+					        {% endif %}
+					      </div>
+					      <div class="cat-feat-blog-thumb-read-more">
+					        <a href="{{ article.url }}" class="btn btn-primary tb-button-small">Read More</a>
+					      </div>
+			    	</div>
+		    	</div>
+		    </div>
+		</div>
+	{% endif %}
+{% endfor %}
+{% if paginate.pages > 1 %}
+  <div class="row">
+    {% include 'pagination' %}
+  </div>
+{% endif %}
+</div>
