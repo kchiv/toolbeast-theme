@@ -1,0 +1,51 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+
+      <div id="accordion">
+        {% for block in section.blocks %}
+          <div class="card">
+            <div class="card-header" id="heading{{ forloop.index }}">
+              <h5 class="mb-0">
+                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapse{{ forloop.index }}" aria-expanded="true" aria-controls="collapse{{ forloop.index }}">
+                  {{ block.settings.title }}
+                </button>
+              </h5>
+            </div>
+            <div id="collapse{{ forloop.index }}" class="collapse" aria-labelledby="heading{{ forloop.index }}" data-parent="#accordion">
+              <div class="card-body">
+                {{ block.settings.description_faq }}
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+{% schema %}
+{
+  "name": "FAQ List",
+  "blocks": [
+    {
+      "type": "select",
+      "name": "FAQ",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "title",
+          "label": "FAQ Title"
+        },
+        {
+          "type": "textarea",
+          "id": "description_faq",
+          "label": "FAQ Description"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
