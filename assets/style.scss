@@ -46,9 +46,39 @@ $radius-primary: 0.15rem;
 		border-radius: 0.15rem;
 	}
 
+	.tb-badge-primary a {
+		color: $color-white;
+		-webkit-transition: color .2s linear;
+		-moz-transition: color .2s linear;
+		-ms-transition: color .2s linear;
+		-o-transition: color .2s linear;
+		transition: color .2s linear;
+	}
+
+	.tb-badge-primary a:hover {
+		color: $light-text;
+		text-decoration: none;
+	}
+
 	.tb-badge-secondary {
 		background-color: $medium-background;
 		border-radius: 0.15rem;
+	}
+
+	.tb-badge-primary a,
+	.tb-badge-secondary a {
+		color: $color-white;
+		-webkit-transition: color .2s linear;
+		-moz-transition: color .2s linear;
+		-ms-transition: color .2s linear;
+		-o-transition: color .2s linear;
+		transition: color .2s linear;
+	}
+
+	.tb-badge-primary a:hover,
+	.tb-badge-secondary a:hover {
+		color: $light-text;
+		text-decoration: none;
 	}
 
 	/** Headers **/
@@ -889,8 +919,7 @@ $radius-primary: 0.15rem;
 			text-transform: uppercase;
 		}
 
-		.hp-article-txt-block a,
-		.hp-article-category a {
+		.hp-article-txt-block a {
 			color: $color-white;
 			-webkit-transition: color .2s linear;
 			-moz-transition: color .2s linear;
@@ -900,8 +929,7 @@ $radius-primary: 0.15rem;
 
 		}
 
-		.hp-article-txt-block a:hover,
-		.hp-article-category a:hover {
+		.hp-article-txt-block a:hover {
 			color: $light-text;
 			text-decoration: none;
 		}
