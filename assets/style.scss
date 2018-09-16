@@ -1231,33 +1231,34 @@ $radius-primary: 0.15rem;
 
   /** Collection Sidebar **/
 
-  .collection-sidebar-header {
+  .tb-sidebar-header {
     background-color: $dark-background;
     padding: 10px 0px 4px 10px;
   }
 
-  .collection-sidebar h6 {
+  .tb-sidebar h6 {
     text-transform: uppercase;
     color: $color-white;
   }
 
-  .collection-sidebar .list-group-item {
+  .tb-sidebar .list-group-item {
     border-right: none;
     border-left: none;
     border-top: 1px solid $dark-background;
+    border-bottom: 1px solid $dark-background;
   }
 
-  .collection-sidebar .list-group-item:hover {
+  .tb-sidebar .list-group-item:hover {
     z-index: 0 !important;
   }
 
-  .collection-sidebar li a,
+  .tb-sidebar li a,
   .coll-sb-article .coll-sb-art-imgtext a {
     color: $dark-text;
     font-size: 14px;
   }
 
-  .collection-sidebar li a:hover,
+  .tb-sidebar li a:hover,
   .coll-sb-article .coll-sb-art-imgtext a:hover {
     color: $medium-text;
     text-decoration: none;
