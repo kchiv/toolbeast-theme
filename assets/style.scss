@@ -186,6 +186,17 @@ $radius-primary: 0.15rem;
 	}
 
 
+/**** Global Styling ****/
+
+	/** Padding **/
+
+	.no-lr-padding {
+		padding-left: 0;
+		padding-right: 0;
+	}
+
+
+
 /**** Sub Top Nav ****/
 
 
@@ -1327,7 +1338,7 @@ $radius-primary: 0.15rem;
 
 	.blog-category-feature-card {
 		background-color: #FFFFFF;
-		box-shadow: 0px 2px 18px 0px rgba(0,0,0,0.5);
+		// box-shadow: 0px 2px 18px 0px rgba(0,0,0,0.5);
 	}
 
 	.blog-category-feature-img {
