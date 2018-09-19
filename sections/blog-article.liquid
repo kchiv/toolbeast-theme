@@ -1,13 +1,57 @@
 <style type="text/css">
-  .blog-article-hero {
-    background-image: url({{ article.image.src | img_url: '1920x' }});
-  }
-</style>
+	.blog-article-hero {
+		background-image: url({{ article.image.src | img_url: '1920x' }});
+	}
 
+	.blog-article-hero {
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: center;
+		height: 500px;
+		color: #FFFFFF;	
+	}
+
+	.single-text {
+		height: 500px;
+		display: table;
+		padding: 100px;
+		background: rgba(56,56,56,0.5);
+	}
+
+	.single-row {
+		display: table-row;
+	}
+
+	.single-cell {
+		display: table-cell;
+		vertical-align: middle;
+	}
+
+	.single-cell h1 {
+		text-transform: uppercase;
+		font-weight: bold;
+	}
+</style>
 <div class="blog-article-hero">
 	<div class="container-fluid">
 		<div class="row">
-			
+			<div class="col-12 text-center single-text">
+				<div class="single-row">
+					<div class="single-cell">
+						<h1>{{ article.title }}</h1>
+						<div>
+							<span><i class="fas fa-clock"></i> {{ article.published_at | date: "%b %d, %Y" }}</span>
+							<span class="tb-green">//</span>
+							<span><a href="{{ blog.url }}">{{ blog.title }}</a></span>
+						</div>
+						<div>
+							<span>Share</span>
+							<span><i class="fab fa-facebook"></i></span>
+							<span><i class="fab fa-twitter"></i></span>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>
