@@ -144,16 +144,16 @@
 {% include 'blog-loop' %}
 <div class="container">
 	<div class="row">
-	{% if featuredArticles %}
-		{% assign featuredArticles = featuredArticles | sort:'published_at' | reverse %}
+		{% if featuredArticles %}
+			{% assign featuredArticles = featuredArticles | sort:'published_at' | reverse %}
 
-		{% comment %}
-		Now a quick example of showing the latest 2 articles from our master article list
-		{% endcomment %}
+			{% comment %}
+			Now a quick example of showing the latest 2 articles from our master article list
+			{% endcomment %}
 
-		{% for article in featuredArticles limit:4 %}
-			<div class="col-md-6 hp-article-img">
-				<div class="hp-article-color">
+			{% for article in featuredArticles limit:4 %}
+				<div class="col-md-6 hp-article-img">
+					<div class="hp-article-color">
 						<img class="img-fluid" src="{{ article.image.src | img_url: '500x300', crop: 'center' }}">
 						<div class="hp-article-text">
 							<div class="hp-article-category">
@@ -173,9 +173,9 @@
 									<p><i class="fas fa-clock"></i> {{ article.published_at | date: "%b %d, %Y" }}</p>
 							</div>
 						</div>
+					</div>
 				</div>
-			</div>
-		{% endfor %}
-
-	{% endif %}
+			{% endfor %}
+		{% endif %}
+	</div>
 </div>
