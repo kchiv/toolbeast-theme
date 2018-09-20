@@ -1326,7 +1326,7 @@ $radius-primary: 0.15rem;
 		display: block;
 		position: absolute;
 		width: 100%;
-		background: linear-gradient(to top right, #D8D8D8, #343A40);
+		background: linear-gradient(to top right, rgba(216, 216, 216, 1), rgba(52, 58, 64, 1));
 		height: 250px;
 		z-index: -1;
 	}
