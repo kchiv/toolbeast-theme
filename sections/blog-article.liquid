@@ -168,9 +168,9 @@
 							</div>
 							<div class="hp-article-txt-block">
 								<a href="{{ article.url }}">
-									<h4 class="hp-article_title">{{ article.title | truncate: 70 }}</h4>
+									<h5 class="hp-article_title">{{ article.title | truncate: 100 }}</h5>
 								</a>
-									<p><i class="fas fa-clock"></i> {{ article.published_at | date: "%b %d, %Y" }}</p>
+									<p style="font-size: 12px;"><i class="fas fa-clock"></i> {{ article.published_at | date: "%b %d, %Y" }}</p>
 							</div>
 						</div>
 					</div>
