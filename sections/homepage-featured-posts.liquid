@@ -36,9 +36,9 @@ If featuredArticles is not false we should have articles to show.
 							</div>
 							<div class="related-article-txt-block">
 								<a href="{{ article.url }}">
-									<h4 class="related-article-title">{{ article.title | truncate: 70 }}</h4>
+									<h5 class="related-article-title">{{ article.title | truncate: 70 }}</h5>
 								</a>
-									<p><i class="fas fa-clock"></i> {{ article.published_at | date: "%b %d, %Y" }}</p>
+									<p class="related-article-pubdate"><i class="fas fa-clock"></i> {{ article.published_at | date: "%b %d, %Y" }}</p>
 							</div>
 						</div>
 				</div>

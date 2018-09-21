@@ -902,7 +902,7 @@ $radius-primary: 0.15rem;
 			display: block;
 			position: relative;
 			width: calc(100% + 20px);
-			opacity: 0.3;
+			opacity: 0.5;
 		}
 
 		.related-article-img img {
@@ -926,7 +926,7 @@ $radius-primary: 0.15rem;
 			width: fit-content;
 		}
 
-		.related-article-text h4 {
+		.related-article-txt-block h5 {
 			text-transform: uppercase;
 		}
 
@@ -943,6 +943,10 @@ $radius-primary: 0.15rem;
 		.related-article-txt-block a:hover {
 			color: $light-text;
 			text-decoration: none;
+		}
+
+		.related-article-pubdate {
+			font-size: 12px;
 		}
 
 		.related-article-button {
