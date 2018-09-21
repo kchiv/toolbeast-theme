@@ -76,6 +76,59 @@
 		margin-top: 40px;
 	}
 
+	.blog-article-body img,
+	.blog-article-body p,
+	.blog-article-body ul,
+	.blog-article-body ol,
+	.blog-article-body h1,
+	.blog-article-body h2,
+	.blog-article-body h3,
+	.blog-article-body h4,
+	.blog-article-body h5,
+	.blog-article-body h6 {
+		margin-top: 15px;
+		margin-bottom: 15px;
+	}
+
+	.blog-article-bottom-share {
+		font-size: 25px;
+		vertical-align: middle;
+	}
+
+	.blog-article-bottom-share .fa-facebook {
+		color: #3B5998;
+	}
+
+	.blog-article-bottom-share .fa-twitter {
+		color: #1DA1F2;
+	}
+
+	.blog-article-bottom-share .fa-pinterest {
+		color: #BD081C;
+	}
+
+	.blog-article-bottom-share .fa-linkedin {
+		color: #0077B5;
+	}
+
+	.blog-article-bottom-share a {
+		padding-left: 10px;
+		font-size: 30px;
+		vertical-align: middle;
+	}
+
+	.blog-article-bottom-share .fa-facebook:hover,
+	.blog-article-bottom-share .fa-twitter:hover,
+	.blog-article-bottom-share .fa-pinterest:hover,
+	.blog-article-bottom-share .fa-linkedin:hover {
+		color: #737373;
+		-webkit-transition: color .2s linear;
+		-moz-transition: color .2s linear;
+		-ms-transition: color .2s linear;
+		-o-transition: color .2s linear;
+		transition: color .2s linear;
+	}
+
 	@media (max-width: 767.98px) {
 		.blog-article-hero-overlay {
 			height: 550px;
@@ -100,7 +153,20 @@
 		.blog-article-body h5,
 		.blog-article-body h6 {
 			width: 80%;
-			margin: 0 auto;
+			margin: auto;
+		}
+
+		.blog-article-body p,
+		.blog-article-body ul,
+		.blog-article-body ol,
+		.blog-article-body h1,
+		.blog-article-body h2,
+		.blog-article-body h3,
+		.blog-article-body h4,
+		.blog-article-body h5,
+		.blog-article-body h6 {
+			margin-top: 15px;
+			margin-bottom: 15px;
 		}
 	}
 </style>
@@ -133,9 +199,27 @@
 		<div class="col-12">
 			<div class="blog-article-body">
 				{{ article.content }}
+					<p class="blog-article-bottom-share">
+						<span>Share</span>
+						<span class="tb-green">//</span>
+						<span><a href=""><i class="fab fa-facebook"></i></a></span>
+						<span><a href=""><i class="fab fa-twitter"></i></a></span>
+						<span><a href=""><i class="fab fa-pinterest"></i></a></span>
+						<span><a href=""><i class="fab fa-linkedin"></i></a></span>
+					</p>
+				{% if article.tags != blank %}
+					<p>
+						Tags:
+						{% for tag in article.tags %}
+							<span class="badge badge-primary tb-badge-secondary tag-badge">
+								<a href="{{ blog.url }}/tagged/{{ tag.handle }}">{{ tag }}</a>
+							</span>
+						{% endfor %}
+					</p>
+				{% endif %}
 			</div>
 		</div>
-	</div>
+	</div>	
 </div>
 
 {% include 'blog-article-related' %}
