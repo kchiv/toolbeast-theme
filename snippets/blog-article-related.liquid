@@ -4,7 +4,7 @@
 		{% if featuredArticles %}
 			{% if template contains 'article' %}
 				{% assign featuredArticles = featuredArticles | sort:'tags' | reverse %}
-				{% for article in featuredArticles limit:4 %}
+				{% for article in featuredArticles limit:2 %}
 					<div class="col-md-6 related-article-img">
 						<div class="related-article-color">
 							<img class="img-fluid" src="{{ article.image.src | img_url: '500x300', crop: 'center' }}">
