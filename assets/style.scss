@@ -875,13 +875,13 @@ $radius-primary: 0.15rem;
 
 	/** HP Featured Posts **/
 
-		.hp-article-img {
+		.related-article-img {
 		    position: relative;
 		    display: inline-block;
 		    padding-top: 20px;
 		}
 
-		.hp-article-color {
+		.related-article-color {
 			width: 100%;
 			height: 100%;
 			overflow: hidden;
@@ -891,25 +891,25 @@ $radius-primary: 0.15rem;
 			background: $dark-background;
 		}
 
-		.hp-article-color .hp-article-text {
+		.related-article-color .related-article-text {
 			width: 100%;
 			position: absolute;
 			overflow: hidden;
 			padding: 50px 20px;
 		}
 
-		.hp-article-color img {
+		.related-article-color img {
 			display: block;
 			position: relative;
 			width: calc(100% + 20px);
 			opacity: 0.3;
 		}
 
-		.hp-article-img img {
+		.related-article-img img {
 		    display: block;
 		}
 
-		.hp-article-text {
+		.related-article-text {
 		    position: absolute;
 		    top: 50%;
 		    left: 50%;
@@ -918,19 +918,19 @@ $radius-primary: 0.15rem;
 		    color: $color-white;
 		}
 
-		.hp-article-text {
+		.related-article-text {
 			text-align: left;
 		}
 
-		.hp-article-category {
+		.related-article-category {
 			width: fit-content;
 		}
 
-		.hp-article-text h4 {
+		.related-article-text h4 {
 			text-transform: uppercase;
 		}
 
-		.hp-article-txt-block a {
+		.related-article-txt-block a {
 			color: $color-white;
 			-webkit-transition: color .2s linear;
 			-moz-transition: color .2s linear;
@@ -940,12 +940,12 @@ $radius-primary: 0.15rem;
 
 		}
 
-		.hp-article-txt-block a:hover {
+		.related-article-txt-block a:hover {
 			color: $light-text;
 			text-decoration: none;
 		}
 
-		.hp-article-button {
+		.related-article-button {
 			padding-top: 20px;
 		}
 
