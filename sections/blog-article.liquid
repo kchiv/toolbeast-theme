@@ -37,11 +37,11 @@
 		padding-right: 10px;
 	}
 
-	.blog-article-cat a {
+	.blog-article-cat-com a {
 		color: #FFFFFF;
 	}
 
-	.blog-article-cat a:hover {
+	.blog-article-cat-com a:hover {
 		text-decoration: none;
 		color: #D8D8D8;
 		-webkit-transition: color .2s linear;
@@ -180,9 +180,9 @@
 						<div class="blog-article-pubdate-cat">
 							<span class="blog-article-pubdate"><i class="fas fa-clock"></i> {{ article.published_at | date: "%b %d, %Y" }}</span>
 							<span class="tb-green blog-article-pubdate-cat-sep">//</span>
-							<span class="blog-article-cat"><a href="{{ blog.url }}">{{ blog.title }}</a></span>
+							<span class="blog-article-cat-com"><a href="{{ blog.url }}">{{ blog.title }}</a></span>
 							<span class="tb-green blog-article-pubdate-cat-sep">//</span>
-							<span><a href="{{ blog.url }}">Comments</a></span>
+							<span class="blog-article-cat-com"><a href="{{ blog.url }}">Comments</a></span>
 						</div>
 						<div class="blog-article-social">
 							<span><a href=""><i class="fab fa-facebook"></i></a></span>
