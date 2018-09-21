@@ -20,11 +20,11 @@ If featuredArticles is not false we should have articles to show.
 		{% endcomment %}
 
 		{% for article in featuredArticles limit:2 %}
-			<div class="col-md-6 hp-article-img">
-				<div class="hp-article-color">
+			<div class="col-md-6 related-article-img">
+				<div class="related-article-color">
 						<img class="img-fluid" src="{{ article.image.src | img_url: '500x300', crop: 'center' }}">
-						<div class="hp-article-text">
-							<div class="hp-article-category">
+						<div class="related-article-text">
+							<div class="related-article-category">
 								{% assign article_cat_hand = article.handle | split:'/' %}
 								{% for blog_cat in featuredBlogs %}
 									{% if blogs[blog_cat].handle == article_cat_hand[0] %}
@@ -34,9 +34,9 @@ If featuredArticles is not false we should have articles to show.
 									{% endif %}
 								{% endfor %}
 							</div>
-							<div class="hp-article-txt-block">
+							<div class="related-article-txt-block">
 								<a href="{{ article.url }}">
-									<h4 class="hp-article_title">{{ article.title | truncate: 70 }}</h4>
+									<h4 class="related-article-title">{{ article.title | truncate: 70 }}</h4>
 								</a>
 									<p><i class="fas fa-clock"></i> {{ article.published_at | date: "%b %d, %Y" }}</p>
 							</div>
@@ -47,7 +47,7 @@ If featuredArticles is not false we should have articles to show.
 
 	{% endif %}
 	</div>
-	<div class="row hp-article-button">
+	<div class="row related-article-button">
 		<div class="col-md-12 text-center">
 			<a href="{{ section.settings.hp_articles_btn_url }}" class="btn btn-primary tb-button">{{ section.settings.hp_articles_btn_text }}</a>
 		</div>
