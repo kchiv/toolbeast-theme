@@ -43,41 +43,39 @@ $radius-primary: 0.15rem;
 
 	.tb-badge-primary {
 		background-color: $color-primary;
+		-webkit-transition: background-color .2s linear;
+		-moz-transition: background-color .2s linear;
+		-ms-transition: background-color .2s linear;
+		-o-transition: background-color .2s linear;
+		transition: background-color .2s linear;
 		border-radius: 0.15rem;
 	}
 
-	.tb-badge-primary a {
-		color: $color-white;
-		-webkit-transition: color .2s linear;
-		-moz-transition: color .2s linear;
-		-ms-transition: color .2s linear;
-		-o-transition: color .2s linear;
-		transition: color .2s linear;
-	}
-
-	.tb-badge-primary a:hover {
-		color: $light-text;
-		text-decoration: none;
+	.tb-badge-primary:hover {
+		background-color: $color-primary-hover;
 	}
 
 	.tb-badge-secondary {
 		background-color: $medium-background;
+		-webkit-transition: background-color .2s linear;
+		-moz-transition: background-color .2s linear;
+		-ms-transition: background-color .2s linear;
+		-o-transition: background-color .2s linear;
+		transition: background-color .2s linear;
 		border-radius: 0.15rem;
+	}
+
+	.tb-badge-secondary:hover {
+		background-color: $dark-background;
 	}
 
 	.tb-badge-primary a,
 	.tb-badge-secondary a {
 		color: $color-white;
-		-webkit-transition: color .2s linear;
-		-moz-transition: color .2s linear;
-		-ms-transition: color .2s linear;
-		-o-transition: color .2s linear;
-		transition: color .2s linear;
 	}
 
 	.tb-badge-primary a:hover,
 	.tb-badge-secondary a:hover {
-		color: $light-text;
 		text-decoration: none;
 	}
 
