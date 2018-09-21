@@ -145,7 +145,7 @@
 <div class="container">
 	<div class="row">
 		{% if featuredArticles %}
-			{% assign featuredArticles = featuredArticles | sort:'published_at' | reverse %}
+			{% assign featuredArticles = featuredArticles | sort:'tags' | reverse %}
 
 			{% comment %}
 			Now a quick example of showing the latest 2 articles from our master article list
