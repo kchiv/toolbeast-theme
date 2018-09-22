@@ -129,6 +129,11 @@
 		transition: color .2s linear;
 	}
 
+	.blog-article-comments {
+		margin-top: 10px;
+		margin-bottom: 10px;
+	}
+
 	@media (max-width: 767.98px) {
 		.blog-article-hero-overlay {
 			height: 550px;
@@ -182,7 +187,7 @@
 							<span class="tb-green blog-article-pubdate-cat-sep">//</span>
 							<span class="blog-article-cat-com"><a href="{{ blog.url }}">{{ blog.title }}</a></span>
 							<span class="tb-green blog-article-pubdate-cat-sep">//</span>
-							<span class="blog-article-cat-com"><a href="{{ blog.url }}">Comments</a></span>
+							<span class="blog-article-cat-com"><a href="{{ article.url }}#disqus_thread">Comments</a></span>
 						</div>
 						<div class="blog-article-social">
 							<span><a href=""><i class="fab fa-facebook"></i></a></span>
@@ -223,5 +228,32 @@
 		</div>
 	</div>	
 </div>
+<div class="container">
+	<div class="row">
+		<div class="col-12 blog-article-comments">
+			<div id="disqus_thread"></div>
+		</div>
+	</div>
+</div>
 
+<div class="container-fluid">
+	<div class="row justify-content-center">
+	  <h3 class="tb-box-h3">Related Articles</h3>
+	</div>
+</div>
 {% include 'blog-article-related' %}
+
+<script>
+var disqus_config = function () {
+this.page.url = 'https://tool-beast-dev.myshopify.com{{ article.url }}';  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = {{ article.id }}; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://tool-beast-dev.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<script id="dsq-count-scr" src="//tool-beast-dev.disqus.com/count.js" async></script>
