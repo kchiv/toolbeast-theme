@@ -9,31 +9,7 @@
 </section>
 
 
-{% comment %}
-<div id="myOverlay" class="overlay">
-  <div class="overlay-content">
-    <span class="closebtn" title="Close Overlay"><i class="fas fa-times"></i></span>
-    <div class="search-bar-form">
-      <form class="form-inline" action="GET">
-        <input class="form-control mr-auto" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-primary" type="submit"><i class="fas fa-search"></i> Search</button>
-      </form>
-    </div>
-  </div>
-  <div class="search-bar-cat">
-    <div id="search-browse-cat">Browse Popular Categories:</div>
-    <div class="search-cat-list">
-      {% for link in linklists[section.settings.search_linklist].links %}
-        {% if forloop.last == true %}
-          <a href="{{ link.url }}">{{ link.title }}</a>
-        {% else %}
-          <a href="{{ link.url }}">{{ link.title }}</a>, 
-        {% endif %}
-      {% endfor %}
-    </div>
-  </div>
-</div>
-{% endcomment %}
+
 
 <style type="text/css">
   .modal-content {
@@ -69,13 +45,31 @@
       </div>
       <div class="modal-body">
         <form>
-                    <div class="input-group mb-3">
-                      <input type="text" class="form-control" placeholder="Search for products" aria-label="Search for products" aria-describedby="basic-addon2">
-                      <div class="input-group-append">
-                        <button class="btn btn-primary tb-button" type="button"><i class="fas fa-search"></i> Search</button>
-                      </div>
-                    </div>
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search for products" aria-label="Search for products" aria-describedby="basic-addon2">
+            <div class="input-group-append">
+              <button class="btn btn-primary tb-button" type="button"><i class="fas fa-search"></i> Search</button>
+            </div>
+          </div>
         </form>
+      </div>
+      <div class="modal-footer">
+          <div class="row search-bar-cat">
+              <div class="col-12">
+                <div id="search-browse-cat">Popular Categories:</div>
+              </div>
+              <div class="col-12">
+                <div class="search-cat-list">
+                  {% for link in linklists[section.settings.search_linklist].links %}
+                    {% if forloop.last == true %}
+                      <a href="{{ link.url }}">{{ link.title }}</a>
+                    {% else %}
+                      <a href="{{ link.url }}">{{ link.title }}</a>, 
+                    {% endif %}
+                  {% endfor %}
+                </div>
+              </div>
+          </div>    
       </div>
     </div>
   </div>
