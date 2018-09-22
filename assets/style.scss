@@ -390,35 +390,6 @@ $radius-primary: 0.15rem;
 		}
 
 
-	/* Mobile view */
-
-		/* Search form mobile */
-
-		@media (max-width: 991.98px) { 
-			.form-control {
-				width: 70% !important;
-			}
-		}
-
-		/* Search form and category links mobile */
-
-		@media (max-width: 767.98px) { 
-			.form-control {
-				width: 100% !important;
-			}
-
-			.search-bar-form button {
-				margin-top: 4%;
-			}
-
-			.overlay-content,
-			.search-bar-cat {
-				width: 70%;
-			}
-
-		}
-
-
 /**** Footer ****/
 
 	.footer-social {
