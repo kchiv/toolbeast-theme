@@ -52,7 +52,7 @@
             <h3 class="font-italic"><span class="tb-h-underline">0</span> results for your search</h3>
             {% include 'search-browse-links' %}
           {% else %}
-            <h3 class="font-italic">"{{ search.terms }}" returned <span class="tb-h-underline">{{ search.results_count }}</span> results</h3>
+            <h3 class="font-italic">"{{ search.terms }}" returned <span class="tb-h-underline">{{ search.results_count }}</span> {{ search.results_count | pluralize: 'result', 'results' }}</h3>
           {% endif %}
         {% else %}
           {% include 'search-browse-links' %}
