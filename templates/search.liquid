@@ -78,12 +78,13 @@
       </div>
     {% endif %}
 
-</div>
 
-{% if paginate.pages > 1 %}
-  <div class="row">
-    {% include 'pagination' %}
-  </div>
-{% endif %}
+    {% if paginate.pages > 1 %}
+      <div class="row">
+        {% include 'pagination' %}
+      </div>
+    {% endif %}
+
+</div>
 
 {% endpaginate %}
