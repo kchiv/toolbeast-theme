@@ -288,7 +288,34 @@ $radius-primary: 0.15rem;
 		}
 
 
-/** Site Search **/
+/**** Site Search Modal ****/
+
+	/** Site Search Modal **/
+
+	.modal-content {
+		background-color: transparent;
+		border: none;
+	}
+
+	.modal-header {
+		border-bottom: none;
+	}
+
+	.modal-footer {
+		border-top: none;
+	}
+
+	.close {
+		text-shadow: none;
+		color: #FFFFFF;
+	}
+
+	.close:not(:disabled):not(.disabled):focus, 
+	.close:not(:disabled):not(.disabled):hover {
+		color: #737373;
+	}
+
+	/** Site Search Popular Category **/
 
 	.search-bar-cat {
 		color: $color-white;

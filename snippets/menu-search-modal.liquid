@@ -1,0 +1,39 @@
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true"><i class="fas fa-times"></i></span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="/search" method="get">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search" name="q" aria-label="Search for products" aria-describedby="basic-addon2">
+            <div class="input-group-append">
+              <button class="btn btn-primary tb-button" type="submit"><i class="fas fa-search"></i> Search</button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+          <div class="row search-bar-cat">
+              <div class="col-12">
+                <div id="search-browse-cat">Popular Categories:</div>
+              </div>
+              <div class="col-12">
+                <div class="search-cat-list">
+                  {% for link in linklists[section.settings.search_linklist].links %}
+                    {% if forloop.last == true %}
+                      <a href="{{ link.url }}">{{ link.title }}</a>
+                    {% else %}
+                      <a href="{{ link.url }}">{{ link.title }}</a>, 
+                    {% endif %}
+                  {% endfor %}
+                </div>
+              </div>
+          </div>    
+      </div>
+    </div>
+  </div>
+</div>
