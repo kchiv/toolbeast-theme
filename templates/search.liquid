@@ -1,31 +1,59 @@
-{% paginate search.results by 10 %}
+<style type="text/css">
+  .search-page-filter-badge {
+    background-color: #737373;
+    border: #737373;
+    color: #FFFFFF;
+  }
+</style>
+
+{% paginate search.results by 8 %}
 
 <div class="container">
 
     <div class="row">
       <div class="col-md-12">
-        {% if search.performed %}
-          {% if search.results_count == 0 %}
-            <h1>There weren't any results</h1>
-          {% else %}
-            <h1>There were results</h1>
-          {% endif %}
-        {% else %}
-          <h1>Search</h1>
-        {% endif %}
+        <h1 class="tb-h-underline">Search</h1>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12 mb-4 mt-2">
+        <form action="/search" method="get">
+          <div class="form-row">
+                <div class="col-md-6 mb-2">
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <label class="input-group-text search-page-filter-badge" for="inputGroupSelect02">Filter by</label>
+                    </div>
+                    <select class="custom-select" id="inputGroupSelect02" name="type">
+                      <option value="product" selected="selected">Products</option>
+                      <option value="article">Articles</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="col-md-6 mb-2">
+                  <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search" name="q" aria-label="Search for products" aria-describedby="basic-addon2" value="{{ search.terms | escape }}">
+                    <div class="input-group-append">
+                      <button class="btn btn-primary tb-button" type="submit"><i class="fas fa-search"></i> Search</button>
+                    </div>
+                  </div>
+                </div>
+          </div>
+        </form>
       </div>
     </div>
 
     <div class="row">
       <div class="col-md-12">
-        <form action="/search" method="get">
-          <div class="input-group">
-            <input type="text" class="form-control" placeholder="Search" name="q" aria-label="Search for products" aria-describedby="basic-addon2">
-            <div class="input-group-append">
-              <button class="btn btn-primary tb-button" type="submit"><i class="fas fa-search"></i> Search</button>
-            </div>
-          </div>
-        </form>
+        {% if search.performed %}
+          {% if search.results_count == 0 %}
+            <h2>There weren't any results for your search</h2>
+          {% else %}
+            <h2>"{{ search.terms }}" returned {{ search.results_count }} results</h2>
+          {% endif %}
+        {% endif %}
       </div>
     </div>
 
@@ -42,37 +70,17 @@
     {% if search.types contains 'article' %}
       <div class="row">
         {% for article in search.results %}
-          <div class="col-md-3">
-                <div class="col-md-6 my-auto">
-                <a href="{{ article.url }}">
-                  <img class="img-fluid" src="{{ article.image.src | img_url: '950x630', crop: 'center' }}">
-                </a>
-            </div>
-            <div class="col-md-6 my-auto">
-                <div class="blog-thumb-title">
-                  <h6>
-                    <a href="{{ article.url }}">{{ article.title | truncate: 65 }}</a>
-                  </h6>
-                </div>
-                <div class="blog-thumb-pub-date">
-                  <span><i class="fas fa-clock"></i> {{ article.published_at | date: "%b %d, %Y" }}</span>
-                </div>
-                <div class="blog-thumb-excerpt">
-                  {% if article.excerpt != blank %}
-                    <p>{{ article.excerpt | strip_html | truncate: 120 }}</p>
-                  {% else %}
-                    <p>{{ article.content | strip_html | truncate: 120 }}</p>
-                  {% endif %}
-                </div>
-                <div class="cat-feat-blog-thumb-read-more">
-                  <a href="{{ article.url }}" class="btn btn-primary tb-button-small">Read More</a>
-                </div>
-            </div>
-          </div>
+          {% include 'blog-article-thumb' %}
         {% endfor %}
       </div>
     {% endif %}
 
 </div>
+
+{% if paginate.pages > 1 %}
+  <div class="row">
+    {% include 'pagination' %}
+  </div>
+{% endif %}
 
 {% endpaginate %}
