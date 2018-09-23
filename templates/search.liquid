@@ -49,10 +49,13 @@
       <div class="col-md-12">
         {% if search.performed %}
           {% if search.results_count == 0 %}
-            <h2>There weren't any results for your search</h2>
+            <h3 class="font-italic"><span class="tb-h-underline">0</span> results for your search</h3>
+            {% include 'search-browse-links' %}
           {% else %}
-            <h2>"{{ search.terms }}" returned {{ search.results_count }} results</h2>
+            <h3 class="font-italic">"{{ search.terms }}" returned <span class="tb-h-underline">{{ search.results_count }}</span> results</h3>
           {% endif %}
+        {% else %}
+          {% include 'search-browse-links' %}
         {% endif %}
       </div>
     </div>
