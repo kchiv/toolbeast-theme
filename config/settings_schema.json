@@ -89,5 +89,20 @@
         "label": "Mailing Address"
       }
     ]
+  },
+  {
+    "name": "Search Page",
+    "settings": [
+      {
+        "type": "link_list",
+        "id": "search_product_category_linklist",
+        "label": "Product Categories"
+      },
+      {
+        "type": "link_list",
+        "id": "search_blog_category_linklist",
+        "label": "Blog Categories"
+      }
+    ]
   }
 ]
