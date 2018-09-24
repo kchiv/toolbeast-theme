@@ -33,6 +33,8 @@
         {% elsif template == 'article' %}
           <li class="breadcrumb-item">{{ blog.title | link_to: blog.url }}</li>
           <li class="breadcrumb-item active" aria-current="page">{{ article.title }}</li>
+        {% elsif template == 'search' %}
+          <li class="breadcrumb-item active" aria-current="page">Search</li>
         {% else %}
          <li class="breadcrumb-item active" aria-current="page">{{ page_title }}</li>
         {% endif %}
