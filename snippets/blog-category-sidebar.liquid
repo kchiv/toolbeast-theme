@@ -1,6 +1,24 @@
 <div class="col-lg-3">
 	<div class="tb-sidebar blog-sidebar">
 		<div class="row">
+
+			<div class="col-lg-12 col-md-6">
+				<div class="tb-sidebar-header">
+					<h6>Search</h6>
+				</div>
+				<div class="mb-4 mt-4">
+					<form action="/search" method="get">
+			          <div class="input-group align-middle">
+			            <input type="hidden" name="type" value="article">
+			            <input type="text" class="form-control" placeholder="Search" name="q" aria-label="Search" aria-describedby="basic-addon2">
+			            <div class="input-group-append">
+			              <button class="btn btn-primary tb-button" type="submit"><i class="fas fa-search"></i></button>
+			            </div>
+			          </div>
+			        </form>
+		       	</div>
+			</div>
+
 			<div class="col-lg-12 col-md-6">
 				<div class="tb-sidebar-header">
 					<h6>Categories</h6>
