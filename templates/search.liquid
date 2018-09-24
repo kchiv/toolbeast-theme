@@ -4,6 +4,15 @@
     border: #737373;
     color: #FFFFFF;
   }
+
+  .search-browse a {
+    color: #737373;
+  }
+
+  .search-browse a:hover {
+    color: #343A40;
+    text-decoration: none;
+  }
 </style>
 
 {% paginate search.results by 8 %}
@@ -46,7 +55,7 @@
     </div>
 
     <div class="row">
-      <div class="col-md-12">
+      <div class="col-md-12 search-browse">
         {% if search.performed %}
           {% if search.results_count == 0 %}
             <h3 class="font-italic"><span class="tb-h-underline">0</span> results for your search</h3>
