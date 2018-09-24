@@ -288,7 +288,7 @@ $radius-primary: 0.15rem;
 		}
 
 
-/**** Site Search Modal ****/
+/**** Search ****/
 
 	/** Site Search Modal **/
 
@@ -315,7 +315,7 @@ $radius-primary: 0.15rem;
 		color: #737373;
 	}
 
-	/** Site Search Popular Category **/
+	/** Site Search Modal Popular Category **/
 
 	.search-bar-cat {
 		color: $color-white;
@@ -332,6 +332,23 @@ $radius-primary: 0.15rem;
 
 	.search-cat-list a:hover {
 		color: $color-primary;
+		text-decoration: none;
+	}
+
+	/** Search Page **/
+
+	.search-page-filter-badge {
+		background-color: #737373;
+		border: #737373;
+		color: #FFFFFF;
+	}
+
+	.search-browse a {
+		color: #737373;
+	}
+
+	.search-browse a:hover {
+		color: #343A40;
 		text-decoration: none;
 	}
 
