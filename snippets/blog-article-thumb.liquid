@@ -1,23 +1,23 @@
 <div class="col-md-4 feat-blog-cat-post-obj">
-          <div class="blog-thumb-img">
-            <a href="{{ article.url }}">
-              <img class="img-fluid" src="{{ article.image.src | img_url: '550x400', crop: 'center' }}">
-            </a>
-          </div>
-          <div class="blog-thumb-title">
-            <h5><a href="{{ article.url }}">{{ article.title | truncate: 80 }}</a></h5>
-          </div>
-          <div class="blog-thumb-pub-date">
-            <span><i class="fas fa-clock"></i> {{ article.published_at | date: "%B %d, %Y" }}</span>
-          </div>
-          <div class="blog-thumb-excerpt">
-            {% if article.excerpt != blank %}
-              <p>{{ article.excerpt | strip_html | truncate: 140 }}</p>
-            {% else %}
-              <p>{{ article.content | strip_html | truncate: 140 }}</p>
-            {% endif %}
-          </div>
-          <div class="blog-thumb-read-more">
-            <a href="{{ article.url }}" class="btn btn-primary tb-button-small">Read More</a>
-          </div>
-        </div>
+  <div class="blog-thumb-img">
+    <a href="{{ article.url }}">
+      <img class="img-fluid" src="{{ article.image.src | img_url: '550x400', crop: 'center' }}">
+    </a>
+  </div>
+  <div class="blog-thumb-title">
+    <h5><a href="{{ article.url }}">{{ article.title | truncate: 80 }}</a></h5>
+  </div>
+  <div class="blog-thumb-pub-date">
+    <span><i class="fas fa-clock"></i> {{ article.published_at | date: "%b %d, %Y" }}</span>
+  </div>
+  <div class="blog-thumb-excerpt">
+    {% if article.excerpt != blank %}
+      <p>{{ article.excerpt | strip_html | truncate: 140 }}</p>
+    {% else %}
+      <p>{{ article.content | strip_html | truncate: 140 }}</p>
+    {% endif %}
+  </div>
+  <div class="blog-thumb-read-more">
+    <a href="{{ article.url }}" class="btn btn-primary tb-button-small">Read More</a>
+  </div>
+</div>
