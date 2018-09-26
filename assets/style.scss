@@ -1030,6 +1030,16 @@ $radius-primary: 0.15rem;
 			text-decoration: none;
 		}
 
+		/** Recommended Post **/
+
+		.rec-post-row {
+			margin-top: 35px;
+		}
+
+		.recommended-post-badge {
+			margin-top: 15px;
+		}
+
 		/** Category List **/
 
 		.blog-hp-cat-list,
@@ -1217,6 +1227,44 @@ $radius-primary: 0.15rem;
 
 	.brand-p-link a:hover {
 		color: $medium-text;
+		text-decoration: none;
+	}
+
+	/** FAQ Page **/
+
+	.faq-sidebar-h5 {
+		color: #737373;
+	}
+
+	.faq-sidebar-h5 a {
+		color: #343A40;
+	}
+
+	.faq-sidebar-h5 a:hover {
+		color: #737373;
+		text-decoration: none;
+	}
+
+	.faq-accordion .card {
+		border: none;
+	}
+
+	.faq-accordion .fa {
+		color: #2ECC71;
+	}
+
+	.faq-accordion [data-toggle="collapse"] .fa:before {  
+		content: "\f077";
+	}
+
+	.faq-accordion [data-toggle="collapse"].collapsed .fa:before {
+		content: "\f078";
+	}
+
+	.faq-accordion button,
+	.faq-accordion button:hover,
+	.faq-accordion button:focus {
+		color: #343A40;
 		text-decoration: none;
 	}
 
