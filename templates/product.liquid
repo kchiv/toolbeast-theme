@@ -1,16 +1,30 @@
+<style type="text/css">
+	.product-h1 {
+		text-transform: uppercase;
+		font-weight: bold;
+		font-size: 25px;
+	}
+</style>
+
 {% include 'breadcrumbs' %}
 
-<h2>{{ product.title }}</h2>
-{{ product.description }}
-<form action="/cart/add" method="post" enctype="multipart/form-data">
-	<select name="id">
-		{% for variant in product.variants %}
-			{% if variant.available == true %}
-				<option value="{{variant.id}}"> {{ variant.title }} for {{ variant.price | money_with_currency }}</option>
-			{% else %}
-				<option disabled="disabled"> {{ variant.title }} - sold out!</option>
-			{% endif %}
-		{% endfor %}
-	</select>
-	<input type="submit" name="add" id="add" value="Add to Cart" class="button">
-</form>
+<div class="container">
+	<div class="row solid-bottom-line">
+		<h1 class="tb-h-underline product-h1">{{ product.title }}</h1>
+	</div>
+	<div class="row">
+		{{ product.description }}
+		<form action="/cart/add" method="post" enctype="multipart/form-data">
+			<select name="id">
+				{% for variant in product.variants %}
+					{% if variant.available == true %}
+						<option value="{{variant.id}}"> {{ variant.title }} for {{ variant.price | money_with_currency }}</option>
+					{% else %}
+						<option disabled="disabled"> {{ variant.title }} - sold out!</option>
+					{% endif %}
+				{% endfor %}
+			</select>
+			<input type="submit" name="add" id="add" value="Add to Cart" class="button">
+		</form>
+	</div>
+</div>
