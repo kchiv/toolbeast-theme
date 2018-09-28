@@ -1,4 +1,8 @@
 <style type="text/css">
+	.product-header-bottom-line {
+		border-bottom: 1px solid;
+	}
+
 	.product-h1 {
 		text-transform: uppercase;
 		font-weight: bold;
@@ -9,8 +13,17 @@
 {% include 'breadcrumbs' %}
 
 <div class="container">
-	<div class="row solid-bottom-line">
-		<h1 class="tb-h-underline product-h1">{{ product.title }}</h1>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="product-header-bottom-line">
+				<h1 class="tb-h-underline product-h1 mb-0">{{ product.title }}</h1>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<h6 class="mt-2">{{ product.vendor }}</h6>
+		</div>
 	</div>
 	<div class="row">
 		{{ product.description }}
