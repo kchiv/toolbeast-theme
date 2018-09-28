@@ -26,6 +26,11 @@
 		</div>
 	</div>
 	<div class="row">
+		<div class="col-md-8">
+			<img class="img-fluid" src="{{ product.featured_image.src | img_url: '500x500', crop: 'center' }}">
+		</div>
+	</div>
+	<div class="row">
 		{{ product.description }}
 		<form action="/cart/add" method="post" enctype="multipart/form-data">
 			<select name="id">
