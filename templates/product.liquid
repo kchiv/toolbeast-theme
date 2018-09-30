@@ -29,6 +29,17 @@
 		<div class="col-md-8">
 			<img class="img-fluid" src="{{ product.featured_image.src | img_url: '500x500', crop: 'center' }}">
 		</div>
+		<div class="col-md-4">
+			{% assign price_list = product.price | money | split: '.' %}
+			{% for price in price_list %}
+				{% if forloop.last != true %}
+					<span>{{ price | slice: 0 }}</span>
+					<span>{{ price | remove: "$" }}</span>
+				{% else %}
+					<span>{{ price }}</span>
+				{% endif %}
+			{% endfor %}
+		</div>
 	</div>
 	<div class="row">
 		{{ product.description }}
