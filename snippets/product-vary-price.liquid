@@ -1,0 +1,21 @@
+<div class="product-price">
+	{% assign price_list_min = product.price_min | money | split: '.' %}
+	{% for price in price_list_min %}
+		{% if forloop.last != true %}
+			<span class="price-super dollar-sign align-text-bottom"><strong>{{ price | slice: 0 }}</strong></span>
+			<span class="price-large"><strong>{{ price | remove: "$" }}</strong></span>
+		{% else %}
+			<span class="price-super price-decimal align-text-bottom"><strong>{{ price }}</strong></span>
+		{% endif %}
+	{% endfor %}
+	<span>-</span>
+	{% assign price_list_max = product.price_max | money | split: '.' %}
+	{% for price in price_list_max %}
+		{% if forloop.last != true %}
+			<span class="price-super dollar-sign align-text-bottom"><strong>{{ price | slice: 0 }}</strong></span>
+			<span class="price-large"><strong>{{ price | remove: "$" }}</strong></span>
+		{% else %}
+			<span class="price-super price-decimal align-text-bottom"><strong>{{ price }}</strong></span>
+		{% endif %}
+	{% endfor %}
+</div>
