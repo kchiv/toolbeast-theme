@@ -42,7 +42,11 @@
     <span class="shopify-product-reviews-badge" data-id="{{ product.id }}"></span>
   </div>
   <div class="pd-price">
-    <span>$</span> {{ product.price | money_without_currency }}
+    {% if product.price_varies %}
+      {% include 'product-vary-price' %}
+    {% else %}
+      {% include 'product-single-price' %}
+    {% endif %}
   </div>
   <div class="pd-button">
     <a href="{{ product.url }}" class="btn btn-primary tb-button">Shop Now</a>
