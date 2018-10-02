@@ -182,6 +182,24 @@ $radius-primary: 0.15rem;
 		color: $medium-text;
 	}
 
+	/** Product Price **/
+
+	.product-price .price-large {
+		font-size: 18px;
+	}
+
+	.product-price .price-super {
+		font-size: 14px;
+	}
+
+	.product-price .dollar-sign {
+		margin-right: -3px;
+	}
+
+	.product-price .price-decimal {
+		margin-left: -3px;
+	}
+
 	/** Ratings & Reviews **/
 
 	.spr-badge {
