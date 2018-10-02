@@ -1,11 +1,5 @@
-<div class="product-price">
-	{% assign price_list = product.price | money | split: '.' %}
-	{% for price in price_list %}
-		{% if forloop.last != true %}
-			<span class="price-super dollar-sign align-text-bottom"><strong>{{ price | slice: 0 }}</strong></span>
-			<span class="price-large"><strong>{{ price | remove: "$" }}</strong></span>
-		{% else %}
-			<span class="price-super price-decimal align-text-bottom"><strong>{{ price }}</strong></span>
-		{% endif %}
-	{% endfor %}
-</div>
+{% if template contains 'product' %}
+	<span class="pd-page-price"><strong>{{ product.price | money }}</strong></span>
+{% else %}
+	<span>{{ product.price | money }}</span>
+{% endif %}
