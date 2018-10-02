@@ -8,10 +8,6 @@
 		font-weight: bold;
 		font-size: 25px;
 	}
-
-	.product-price span {
-		font-size: 21px;
-	}
 </style>
 
 {% include 'breadcrumbs' %}
@@ -34,17 +30,7 @@
 			<img class="img-fluid" src="{{ product.featured_image.src | img_url: '500x500', crop: 'center' }}">
 		</div>
 		<div class="col-md-4">
-			<div class="product-price">
-				{% assign price_list = product.price | money | split: '.' %}
-				{% for price in price_list %}
-					{% if forloop.last != true %}
-						<sup><strong>{{ price | slice: 0 }}</strong></sup>
-						<span><strong>{{ price | remove: "$" }}</strong></span>
-					{% else %}
-						<sup><strong>{{ price }}</strong></sup>
-					{% endif %}
-				{% endfor %}
-			</div>
+			{% include 'product-single-price' %}
 		</div>
 	</div>
 	<div class="row">
