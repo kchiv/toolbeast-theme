@@ -12,6 +12,20 @@
 	.pd-page-price {
 		font-size: 18px;
 	}
+
+	.pd-pg-write-review a {
+		color: #737373;
+		-webkit-transition: color .2s linear;
+		-moz-transition: color .2s linear;
+		-ms-transition: color .2s linear;
+		-o-transition: color .2s linear;
+		transition: color .2s linear;
+	}
+
+	.pd-pg-write-review a:hover {
+		color: #343A40;
+		text-decoration: none;
+	}
 </style>
 
 {% include 'breadcrumbs' %}
@@ -34,7 +48,21 @@
 			<img class="img-fluid" src="{{ product.featured_image.src | img_url: '500x500', crop: 'center' }}">
 		</div>
 		<div class="col-md-4">
-			{% include 'product-single-price' %}
+			<div class="row">
+				<div class="col-md-12">
+					{% include 'product-single-price' %}
+				</div>
+				<div class="col-md-12">
+					<div class="pd-pg-ratings">
+						<div class="d-inline-block">
+							<span class="shopify-product-reviews-badge" data-id="{{ product.id }}"></span>
+						</div>
+						<div class="d-inline-block">
+							<span class="pd-pg-write-review"><a href="">Write a Review</a></span>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 	<div class="row">
