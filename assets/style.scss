@@ -191,10 +191,12 @@ $radius-primary: 0.15rem;
 	.pd-pg-ratings .spr-badge {
 		font-size: 17px;
 		padding-right: 10px;
+		display: inline-block;
 	}
 
 	.spr-badge[data-rating="0.0"] {
-		visibility:hidden; display: none;
+		visibility:hidden;
+		display: none;
 	}
 
 
