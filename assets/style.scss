@@ -184,8 +184,13 @@ $radius-primary: 0.15rem;
 
 	/** Ratings & Reviews **/
 
-	.spr-badge {
+	.pd-ratings .spr-badge {
 		font-size: 12px;
+	}
+
+	.pd-pg-ratings .spr-badge {
+		font-size: 17px;
+		padding-right: 10px;
 	}
 
 	.spr-badge[data-rating="0.0"] {
