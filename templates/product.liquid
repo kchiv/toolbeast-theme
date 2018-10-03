@@ -45,39 +45,17 @@
 	</div>
 	<div class="row">
 		<div class="col-md-8">
-			<img class="img-fluid" src="{{ product.featured_image.src | img_url: '500x500', crop: 'center' }}">
+			<div class="row">
+				{% include 'product-left-column' %}
+			</div>
 		</div>
 		<div class="col-md-4">
 			<div class="row">
-				<div class="col-md-12">
-					{% include 'product-single-price' %}
-				</div>
-				<div class="col-md-12">
-					<div class="pd-pg-ratings">
-						<div class="d-inline-block">
-							<span class="shopify-product-reviews-badge" data-id="{{ product.id }}"></span>
-						</div>
-						<div class="d-inline-block">
-							<span class="pd-pg-write-review"><a href="">Write a Review</a></span>
-						</div>
-					</div>
-				</div>
+				{% include 'product-right-column' %}
 			</div>
 		</div>
 	</div>
 	<div class="row">
 		{{ product.description }}
-		<form action="/cart/add" method="post" enctype="multipart/form-data">
-			<select name="id">
-				{% for variant in product.variants %}
-					{% if variant.available == true %}
-						<option value="{{variant.id}}"> {{ variant.title }} for {{ variant.price | money_with_currency }}</option>
-					{% else %}
-						<option disabled="disabled"> {{ variant.title }} - sold out!</option>
-					{% endif %}
-				{% endfor %}
-			</select>
-			<input type="submit" name="add" id="add" value="Add to Cart" class="button">
-		</form>
 	</div>
 </div>
