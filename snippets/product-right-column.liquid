@@ -3,28 +3,31 @@
 </div>
 <div class="col-md-12 mt-2">
 	<div class="pd-pg-ratings">
-		<div class="d-inline-block">
 			<span class="shopify-product-reviews-badge" data-id="{{ product.id }}"></span>
-		</div>
 		<div class="d-inline-block">
 			<span class="pd-pg-write-review"><a href="">Write a Review</a></span>
 		</div>
 	</div>
 </div>
+
 {% if product.has_only_default_variant == false %}
-<div class="col-md-12 mt-2">
-	<span></span>
-	<form action="/cart/add" method="post" enctype="multipart/form-data">
-		<select name="id">
-			{% for variant in product.variants %}
-				{% if variant.available == true %}
-					<option value="{{variant.id}}"> {{ variant.title }} for {{ variant.price | money_with_currency }}</option>
-				{% else %}
-					<option disabled="disabled"> {{ variant.title }} - sold out!</option>
-				{% endif %}
-			{% endfor %}
-		</select>
-		<input type="submit" name="add" id="add" value="Add to Cart" class="button">
-	</form>	
-</div>
+	<div class="col-md-12 mt-2">
+		<form action="/cart/add" method="post" enctype="multipart/form-data">
+			<div class="form-group row">
+				<label class="col-md-2">Size</label>
+				<div class="col-md-10">
+					<select name="id">
+						{% for variant in product.variants %}
+							{% if variant.available == true %}
+								<option value="{{variant.id}}"> {{ variant.title }} for {{ variant.price | money_with_currency }}</option>
+							{% else %}
+								<option disabled="disabled"> {{ variant.title }} - sold out!</option>
+							{% endif %}
+						{% endfor %}
+					</select>
+				</div>
+			</div>
+			<input type="submit" name="add" id="add" value="Add to Cart" class="button">
+		</form>	
+	</div>
 {% endif %}
