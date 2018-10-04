@@ -10,16 +10,16 @@
 	</div>
 </div>
 
-{% if product.has_only_default_variant == false %}
-	<div class="col-md-12 mt-2">
-		<form action="/cart/add" method="post" enctype="multipart/form-data">
+<div class="col-md-12 mt-2">
+	<form action="/cart/add" method="post" enctype="multipart/form-data">
+		{% if product.has_only_default_variant == false %}
 			<div class="form-group row">
-				<label class="col-md-2">Size</label>
+				<label class="col-md-2 col-form-label">Size</label>
 				<div class="col-md-10">
-					<select name="id">
+					<select name="id" class="custom-select">
 						{% for variant in product.variants %}
 							{% if variant.available == true %}
-								<option value="{{variant.id}}"> {{ variant.title }} for {{ variant.price | money_with_currency }}</option>
+								<option value="{{variant.id}}"> {{ variant.title }}</option>
 							{% else %}
 								<option disabled="disabled"> {{ variant.title }} - sold out!</option>
 							{% endif %}
@@ -27,7 +27,7 @@
 					</select>
 				</div>
 			</div>
-			<input type="submit" name="add" id="add" value="Add to Cart" class="button">
-		</form>	
-	</div>
-{% endif %}
+		{% endif %}
+		<button type="submit" name="add" id="add" class="btn btn-primary tb-button">Add to Cart</button>
+	</form>	
+</div>
