@@ -1,5 +1,22 @@
-<div class="col-md-12">
-	{% include 'product-single-price' %}
+<style type="text/css">
+	.pd-page-sku {
+		font-size: 13px;
+	}
+</style>
+
+<div class="col-md-12 mt-3">
+	<div class="row">
+		<div class="col-md-6 col-sm-6 col-6">
+			{% include 'product-single-price' %}
+		</div>
+		<div class="col-md-6 col-sm-6 col-6 text-right my-auto">
+			<div class="pd-page-sku">
+				<span><strong>SKU</strong></span>
+				<span class="tb-green">//</span>
+				<span>{{ product.first_available_variant.sku }}</span>
+			</div>
+		</div>
+	</div>
 </div>
 <div class="col-md-12 mt-2">
 	<div class="pd-pg-ratings">
