@@ -44,7 +44,13 @@
 	</div>
 	<div class="row">
 		<div class="col-md-12">
-			<h6 class="mt-2">{{ product.vendor }}</h6>
+			{% assign product_vendor_handle = product.vendor | handle %}       
+			{% if collections[product_vendor_handle].handle == product_vendor_handle %}
+				{% assign vendor_url = collections[product_vendor_handle].url %}
+			{% else %}
+				{% assign vendor_url = product.vendor | url_for_vendor %}
+			{% endif %}
+			<h6 class="mt-2"><a href="{{ vendor_url }}">{{ product.vendor }}</a></h6>
 		</div>
 	</div>
 	<div class="row">
