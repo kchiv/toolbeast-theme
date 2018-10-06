@@ -18,7 +18,7 @@
 		</div>
 	</div>
 </div>
-<div class="col-md-12 mt-2">
+<div class="col-md-12 mt-4">
 	<div class="pd-pg-ratings">
 			<span class="shopify-product-reviews-badge" data-id="{{ product.id }}"></span>
 		<div class="d-inline-block">
@@ -27,12 +27,12 @@
 	</div>
 </div>
 
-<div class="col-md-12 mt-2">
+<div class="col-md-12">
 	<form action="/cart/add" method="post" enctype="multipart/form-data">
 		{% if product.has_only_default_variant == false %}
-			<div class="form-group row">
-				<label class="col-3 col-form-label">Size</label>
-				<div class="col-8">
+			<div class="form-group row mt-4">
+				<label class="col-md-3 col-sm-2 col-2 col-form-label">Size</label>
+				<div class="col-md-9 col-sm-8 col-10">
 					<select name="id" class="custom-select">
 						{% for variant in product.variants %}
 							{% if variant.available == true %}
@@ -45,9 +45,9 @@
 				</div>
 			</div>
 		{% endif %}
-		<div class="form-group row">
-			<label class="col-3 col-form-label">Quantity</label>
-			<div class="col-8">
+		<div class="form-group row mt-4">
+			<label class="col-md-3 col-sm-2 col-2 col-form-label">Quantity</label>
+			<div class="col-md-9 col-sm-8 col-10">
 				<div class="input-group number-spinner">
 					<span class="input-group-btn">
 						<button class="btn btn-default" data-dir="dwn" type="button">
@@ -63,6 +63,14 @@
 				</div>
 			</div>
 		</div>
-		<button type="submit" name="add" id="add" class="btn btn-primary tb-button">Add to Cart</button>
+		<div class="form-group row mt-4">
+			<div class="col-md-12">
+				<button type="submit" name="add" id="add" class="btn btn-primary tb-button">Add to Cart</button>
+			</div>
+		</div>
 	</form>	
+</div>
+
+<div class="col-md-12 mt-2">
+	<div class="solid-bottom-line"></div>
 </div>
