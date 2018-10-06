@@ -39,6 +39,14 @@ $radius-primary: 0.15rem;
 		font-size: 14px;
 	}
 
+		/** Button - Bootstrap Override **/
+
+		.btn:focus,
+		.btn:active {
+			outline: none !important;
+			box-shadow: none;
+		}
+
 	/** Badges **/
 
 	.tb-badge-primary {
