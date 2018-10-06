@@ -35,7 +35,7 @@ $('#sort-by').on('change', function() {
   });
 
 
-
+// Smooth scroll to anchor point
 // Select all links with hashes
 $('a[href*="#"]')
   // Remove links that don't actually link to anything
@@ -72,3 +72,23 @@ $('a[href*="#"]')
       }
     }
   });
+
+
+
+// Quantity selector on PD pages
+$(document).on('click', '.number-spinner button', function () {    
+  var btn = $(this),
+    oldValue = btn.closest('.number-spinner').find('input').val().trim(),
+    newVal = 0;
+  
+  if (btn.attr('data-dir') == 'up') {
+    newVal = parseInt(oldValue) + 1;
+  } else {
+    if (oldValue > 1) {
+      newVal = parseInt(oldValue) - 1;
+    } else {
+      newVal = 1;
+    }
+  }
+  btn.closest('.number-spinner').find('input').val(newVal);
+});
