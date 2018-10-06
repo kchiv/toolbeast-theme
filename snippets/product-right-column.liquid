@@ -14,8 +14,8 @@
 	<form action="/cart/add" method="post" enctype="multipart/form-data">
 		{% if product.has_only_default_variant == false %}
 			<div class="form-group row">
-				<label class="col-md-2 col-form-label">Size</label>
-				<div class="col-md-10">
+				<label class="col-3 col-form-label">Size</label>
+				<div class="col-8">
 					<select name="id" class="custom-select">
 						{% for variant in product.variants %}
 							{% if variant.available == true %}
@@ -28,6 +28,24 @@
 				</div>
 			</div>
 		{% endif %}
+		<div class="form-group row">
+			<label class="col-3 col-form-label">Quantity</label>
+			<div class="col-8">
+				<div class="input-group number-spinner">
+					<span class="input-group-btn">
+						<button class="btn btn-default" data-dir="dwn" type="button">
+							<i class="fas fa-minus"></i>
+						</button>
+					</span>
+					<input type="text" class="form-control text-center" value="1">
+					<span class="input-group-btn">
+						<button class="btn btn-default" data-dir="up" type="button">
+							<i class="fas fa-plus"></i>
+						</button>
+					</span>
+				</div>
+			</div>
+		</div>
 		<button type="submit" name="add" id="add" class="btn btn-primary tb-button">Add to Cart</button>
 	</form>	
 </div>
