@@ -13,7 +13,8 @@
 		font-size: 18px;
 	}
 
-	.pd-pg-write-review a {
+	.pd-pg-write-review a,
+	.pd-pg-vendor a {
 		color: #737373;
 		-webkit-transition: color .2s linear;
 		-moz-transition: color .2s linear;
@@ -22,7 +23,8 @@
 		transition: color .2s linear;
 	}
 
-	.pd-pg-write-review a:hover {
+	.pd-pg-write-review a:hover,
+	.pd-pg-vendor a:hover {
 		color: #343A40;
 		text-decoration: none;
 	}
@@ -48,7 +50,7 @@
 			{% else %}
 				{% assign vendor_url = product.vendor | url_for_vendor %}
 			{% endif %}
-			<h6 class="mt-2"><a href="{{ vendor_url }}">{{ product.vendor }}</a></h6>
+			<h6 class="mt-2 pd-pg-vendor"><a href="{{ vendor_url }}">{{ product.vendor }}</a></h6>
 		</div>
 	</div>
 	<div class="row">
