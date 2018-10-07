@@ -1,1 +1,36 @@
-{{ product.description }}
+<style type="text/css">
+	.pd-pg-desc h2 {
+		font-size: 25px;
+	}
+
+	.pd-pg-desc h3 {
+		font-size: 22px;
+	}
+
+	.pd-pg-desc h4 {
+		font-size: 19px;
+	}
+
+	.pd-pg-desc h5 {
+		font-size: 17px;
+	}
+
+	.pd-pg-desc h6 {
+		font-size: 15px;
+	}
+</style>
+
+<div class="row">
+	<div class="col-md-12 mt-4">
+		<div class="product-header-bottom-line">
+			<h3 class="tb-h-underline mb-0 text-uppercase">Product Overview</h3>
+		</div>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-12 mt-4 pd-pg-desc">
+		<div class="row">
+			{{ product.description }}
+		</div>
+	</div>
+</div>
