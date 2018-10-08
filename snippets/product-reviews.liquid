@@ -1,7 +1,18 @@
+<style type="text/css">
+	.spr-container {
+		border: none;
+	}
+</style>
+
 <div class="row">
 	<div class="col-md-12 mt-4">
 		<div class="product-header-bottom-line">
 			<h3 class="tb-h-underline mb-0 text-uppercase">Customer Reviews</h3>
 		</div>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-12">
+		<div id="shopify-product-reviews" data-id="{{product.id}}">{{ product.metafields.spr.reviews }}</div>
 	</div>
 </div>
