@@ -13,47 +13,40 @@
 			{% assign exclusions = 'frontpage,all' | split: ',' %}
 			{% assign found_a_collection = false %}
 			{% if collection.all_products_count > 1 %}
-			  {% unless exclusions contains collection.handle %}
-			    {% assign found_a_collection = true %}
-			  {% endunless %}
+				{% unless exclusions contains collection.handle %}
+					{% assign found_a_collection = true %}
+				{% endunless %}
 			{% endif %}
 			{% unless found_a_collection %}
-			  {% for c in product.collections %}
-			    {% unless exclusions contains c.handle or c.all_products_count < 2 %}
-			      {% assign found_a_collection = true %}
-			      {% assign collection = c %}
-			      {% break %}
-			    {% endunless %}
-			  {% endfor %}
+				{% for c in product.collections %}
+					{% unless exclusions contains c.handle or c.all_products_count < 1 %}
+						{% assign found_a_collection = true %}
+						{% assign collection = c %}
+						{% break %}
+					{% endunless %}
+				{% endfor %}
 			{% endunless %}
 
-
 			{% if found_a_collection %}
-
-			  {% assign current_product = product %}
-
-
-
-			    {% for product in collection.products %}
-			      {% unless product.handle == current_product.handle %}
-			         {% unless same_vendor and current_product.vendor != product.vendor %}
-			           {% unless same_type and current_product.type != product.type %}
-			           <div class="col-lg-3 col-md-6 col-sm-6">
-			    		{% include 'product-grid-item' %}
-			    		</div>
-
-			             {% assign counter = counter | plus: 1 %}
-			           {% endunless %}
-			        {% endunless %}
-			      {% endunless %}
-			    {% endfor %}
-
-
-
-
-			     
+				{% assign current_product = product %}
+				{% assign counter = 0 %}
+				{% for product in collection.products %}
+					{% unless product.handle == current_product.handle %}
+						{% unless same_vendor and current_product.vendor != product.vendor %}
+							{% unless same_type and current_product.type != product.type %}
+								{% assign counter = counter | plus: 1 %}
+								{% if counter < 5 %}
+									<div class="col-lg-3 col-md-6 col-sm-6">
+										{% include 'product-grid-item' %}
+									</div>
+								{% else %}
+									{% break %}
+								{% endif %}
+							{% endunless %}
+						{% endunless %}
+					{% endunless %}
+				{% endfor %}
 			{% endif %}
-
 
 		</div>
 	</div>
