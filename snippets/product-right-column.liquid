@@ -77,9 +77,9 @@
 	<form action="/cart/add" method="post" enctype="multipart/form-data">
 		{% if product.has_only_default_variant == false %}
 			<div class="form-group row mt-4">
-				<label class="col-md-3 col-sm-2 col-2 col-form-label font-weight-bold">Size</label>
+				<label class="col-md-3 col-sm-2 col-2 col-form-label font-weight-bold" for="size">Size</label>
 				<div class="col-md-9 col-sm-8 col-10">
-					<select name="id" class="custom-select">
+					<select name="id" class="custom-select" id="size">
 						{% for variant in product.variants %}
 							{% if variant.available == true %}
 								<option value="{{variant.id}}"> {{ variant.title }}</option>
@@ -92,7 +92,7 @@
 			</div>
 		{% endif %}
 		<div class="form-group row mt-4">
-			<label class="col-md-3 col-sm-2 col-2 col-form-label font-weight-bold">Quantity</label>
+			<label class="col-md-3 col-sm-2 col-2 col-form-label font-weight-bold" for="quantity">Quantity</label>
 			<div class="col-md-9 col-sm-8 col-10">
 				<div class="input-group number-spinner">
 					<span class="input-group-btn">
@@ -100,7 +100,7 @@
 							<i class="fas fa-minus"></i>
 						</button>
 					</span>
-					<input type="text" class="form-control text-center" value="1">
+					<input class="form-control text-center" type="number" id="quantity" name="quantity" value="1" min="1">
 					<span class="input-group-btn">
 						<button class="btn btn-default" data-dir="up" type="button">
 							<i class="fas fa-plus"></i>
