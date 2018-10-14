@@ -55,7 +55,7 @@
 </style>
 
 <div class="col-md-12 mt-3 pd-pg-price">
-	{% include 'product-single-price' %}
+	<span>{{ product.selected_or_first_available_variant.price | money }}</span>
 </div>
 <div class="col-md-12 mt-2">
 	<div class="pd-page-sku">
