@@ -1,3 +1,91 @@
+{% comment %}
 <div class="col-md-12 text-center">
 	<img class="img-fluid" src="{{ product.selected_or_first_available_variant.featured_image.src | default: product.featured_image.src | img_url: '500x500', crop: 'center' }}">
 </div>
+{% endcomment %}
+
+
+
+<div class="col-md-12 text-center">
+	<div class="single-product-images">
+		{% for image in product.images %}
+			<div data-thumb="{{ image.src | img_url: '1000x1000', crop: 'center' }}">
+				<img class="img-fluid" src="{{ image.src | img_url: '500x500', crop: 'center' }}">
+			</div>
+		{% endfor %}
+	</div>
+</div>
+
+
+
+
+
+<style type="text/css">
+	.slick-prev:before, .slick-next:before {
+  color: #2980b9;
+  opacity: 100;
+}
+
+.slick-next, .slick-next:focus {
+  right: 0px;
+  background: #fff;
+  width: 40px;
+  padding: 35px 0;
+  top: 40%;
+}
+
+.slick-prev, .slick-prev:focus {
+  left: 0px;
+  background: #fff;
+  width: 40px;
+  padding: 35px 0;
+  z-index: 1;
+  top: 40%;
+}
+
+
+.slick-next:hover, .slick-prev:hover {
+  background: #000;
+}
+
+.slick-next:before, .slick-prev:before {
+  color: #555;
+  content: "\f054";
+  line-height: 0;
+  font-family: "FontAwesome";
+}
+
+.slick-next:hover:before {
+  color: #fff;
+  content: "\f054";
+  line-height: 0;
+  font-family: "FontAwesome";
+}
+
+.slick-prev:before {
+  color: #555;
+  content: "\f053";
+  font-family: "FontAwesome";
+}
+
+.slick-prev:hover:before {
+  color: #fff;
+  content: "\f053";
+  line-height: 0;
+  font-family: "FontAwesome";
+}
+
+.slick-slide {
+  outline: none;
+}
+
+.slick-dots {
+  position: inherit;
+  margin-top: 10px;
+  margin-left: 0;
+  bottom: 0;
+}
+.slick-dots li {
+  width: 80px;
+}
+</style>
