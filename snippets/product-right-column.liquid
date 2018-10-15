@@ -61,7 +61,7 @@
 	<div class="pd-page-sku">
 		<span><strong>SKU</strong></span>
 		<span class="tb-green">//</span>
-		<span>{{ product.selected_or_first_available_variant.sku }}</span>
+		<span class="variant-sku">{{ product.selected_or_first_available_variant.sku }}</span>
 	</div>
 </div>
 <div class="col-md-12 mt-2">
@@ -79,7 +79,7 @@
 			<div class="form-group row mt-4">
 				<label class="col-md-3 col-sm-2 col-2 col-form-label font-weight-bold">Size</label>
 				<div class="col-md-9 col-sm-8 col-10">
-					<select name="id" class="custom-select product-form__variants no-js" id="ProductSelect-{{ section.id }}">
+					<select name="id" class="custom-select product-single__variants" id="ProductSelect-{{ section.id }}">
 						{% for variant in product.variants %}
 							{% if variant.available %}
 								<option {% if variant == product.selected_or_first_available_variant %}selected="selected"{% endif %} value="{{variant.id}}">
