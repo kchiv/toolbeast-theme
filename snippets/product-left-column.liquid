@@ -5,7 +5,7 @@
 {% endcomment %}
 
 
-
+{%comment%}
 <div class="col-md-12 text-center">
 	<div class="single-product-images">
 		{% for image in product.images %}
@@ -15,12 +15,61 @@
 		{% endfor %}
 	</div>
 </div>
+{%endcomment%}
 
 
+<div class="col-md-12 text-center mb-4 mt-4">
+	<div class="row justify-content-center">
+		<div class="col-lg-8 col-md-12">
+			<div class="slider-for">
+				{% for image in product.images %}
+					<img class="img-fluid" src="{{ image.src | img_url: '500x500', crop: 'center' }}">
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+</div>
 
+{% if product.images.size > 1 %}
+<div class="col-md-12 text-center">
+	<div class="row justify-content-center">
+		<div class="col-10">
+			<div class="slider-nav">
+				{% for image in product.images %}
+					<img class="img-fluid" src="{{ image.src | img_url: '500x500', crop: 'center' }}">
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+</div>
+{% endif %}
 
 
 <style type="text/css">
+.slick-prev::before {
+    font-family: "Font Awesome 5 Free";
+    content: "\f104";
+    font-weight: 900;
+    font-size: 25px;
+    color: #343A40;
+}  
+.slick-next::before {
+    font-family: "Font Awesome 5 Free";
+    content:  "\f105";
+    font-weight: 900;
+    font-size: 25px;        
+    color: #343A40;
+}    
+
+.slider-nav .slick-slide {
+	margin-left: 10px;
+	margin-right: 10px;
+}
+</style>
+
+
+
+<!-- <style type="text/css">
 	.slick-prev:before, .slick-next:before {
   color: #2980b9;
   opacity: 100;
@@ -88,4 +137,4 @@
 .slick-dots li {
   width: 80px;
 }
-</style>
+</style> -->
