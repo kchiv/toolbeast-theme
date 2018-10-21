@@ -54,6 +54,10 @@
 	}
 </style>
 
+<script type="text/javascript">
+	window.product = {{ product | json }} || {};
+</script>
+
 <div class="col-md-12 mt-3 pd-pg-price">
 	<span>{{ product.selected_or_first_available_variant.price | money }}</span>
 </div>
@@ -75,11 +79,12 @@
 
 <div class="col-md-12">
 	<form action="/cart/add" method="post" enctype="multipart/form-data">
+		{% comment %}
 		{% if product.has_only_default_variant == false %}
 			<div class="form-group row mt-4">
 				<label class="col-md-3 col-sm-2 col-2 col-form-label font-weight-bold">Size</label>
-				<div class="col-md-9 col-sm-8 col-10">
-					<select name="id" class="custom-select product-single__variants" id="ProductSelect-{{ section.id }}">
+				<div class="col-md-9 col-sm-8 col-10 product-category">
+					<select name="id" class="custom-select product-single__variants" id="ProductSelect-{{ section.id }}" data-index="option1">
 						{% for variant in product.variants %}
 							{% if variant.available %}
 								<option {% if variant == product.selected_or_first_available_variant %}selected="selected"{% endif %} value="{{variant.id}}">
@@ -93,6 +98,24 @@
 				</div>
 			</div>
 		{% endif %}
+		{% endcomment %}
+		{% if product.has_only_default_variant == false %}
+			{% for product_option in product.options_with_values %}
+				<div class="form-group row mt-4 product-category">
+					<label class="col-md-3 col-sm-2 col-2 col-form-label font-weight-bold">{{ product_option.name }}</label>
+					<div class="col-md-9 col-sm-8 col-10">
+						<select class="custom-select" data-index="option{{forloop.index}}">
+							{% for value in product_option.values %}
+								<option value="{{ value | escape }}" {% if product_option.selected_value == value %} selected="selected" {% endif %}>
+										{{ value }}
+								</option>
+							{% endfor %}
+						</select>
+					</div>
+				</div>
+			{% endfor %}
+		{% endif %}
+		<!-- endtest -->
 		<div class="form-group row mt-4">
 			<label class="col-md-3 col-sm-2 col-2 col-form-label font-weight-bold" for="quantity">Quantity</label>
 			<div class="col-md-9 col-sm-8 col-10">
@@ -113,6 +136,7 @@
 		</div>
 		<div class="form-group row mt-4">
 			<div class="col-md-12 pd-page-add-cart-btn">
+				<input type="hidden" name="id" id="variant-id" value={{ product.variants.first.id }}>
 				<button type="submit" name="add" id="add" class="btn btn-primary tb-button">Add to Cart</button>
 			</div>
 		</div>
