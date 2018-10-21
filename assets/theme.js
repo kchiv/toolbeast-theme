@@ -113,6 +113,8 @@ $('.slider-nav').slick({
 
 
 
+// Variant drop down appends URL parameter
+// and changes product values in DOM
 function getVariantFromOptions() {
   let variantArr = []
   $(".product-category select").map(function(i, el) {
@@ -152,8 +154,11 @@ $('.product-category select').on('change', function() {
   var oldMoney = found.price.toString();
   var newMoney = "$" + oldMoney.slice(0, -2) +"."+oldMoney.slice(-2);
   $('#variant-id').val(found.id)
+  // Update price value
   $('.pd-pg-price').text(newMoney)
+  // Update SKU value
   $('.variant-sku').text(found.sku)
+  // Update selected image
   if (found.featured_image !== null) {
     $('.slider-for').slick('slickGoTo',found.featured_image.position - 1);
   }
