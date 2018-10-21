@@ -153,4 +153,5 @@ $('.product-category select').on('change', function() {
   var newMoney = "$" + oldMoney.slice(0, -2) +"."+oldMoney.slice(-2);
   $('#variant-id').val(found.id)
   $('.pd-pg-price').text(newMoney)
+  $('.variant-sku').text(found.sku)
 });
