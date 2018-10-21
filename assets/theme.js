@@ -154,4 +154,7 @@ $('.product-category select').on('change', function() {
   $('#variant-id').val(found.id)
   $('.pd-pg-price').text(newMoney)
   $('.variant-sku').text(found.sku)
+  if (found.featured_image !== null) {
+    $('.slider-for').slick('slickGoTo',found.featured_image.position - 1);
+  }
 });
