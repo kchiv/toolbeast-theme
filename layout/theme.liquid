@@ -54,5 +54,22 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
     {{ 'theme.js' | asset_url | script_tag }}
+    <script>  
+      if(Storage !== undefined) {
+
+        {% if template contains 'collection' %}
+          sessionStorage.collection = "{{ collection.url }}";
+        {% endif %}
+
+        {% if template contains 'product' %}
+          sessionStorage.collection = "{{ collection.url }}";
+        {% endif %}
+
+        {% if template contains 'cart' %}
+          document.getElementById("continue-shopping").href = sessionStorage.collection;
+        {% endif %}
+
+        }
+    </script>
   </body>
 </html>
