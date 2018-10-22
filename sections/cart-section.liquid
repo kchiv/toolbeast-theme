@@ -24,24 +24,112 @@
 
 <div class="container">
 	<div class="row">
+		<div class="col-lg-7 col-md-6 text-center">
+			<span>Product Description</span>
+		</div>
+		<div class="col-lg-3 col-md-4 text-center">
+			<span>Quantity</span>
+		</div>
+		<div class="col-lg-2 col-md-2 text-center">
+			<span>Price</span>
+		</div>
+	</div>
+	<form method="post">
+		{% for line_item in cart.items %}
+			<div class="row">
+				<div class="col-md-12 border-bottom mb-4 mt-4">
+					<div class="row mb-4">
+						<div class="col-lg-7 col-md-6 col-sm-12 col-12 my-auto">
+							<div class="row">
+								<div class="col-md-6 col-sm-6 col-6 mb-4 text-center">
+									<img class="img-fluid" src="{{ line_item.image | product_img_url: '150x150', crop: 'center' }}">
+								</div>
+								<div class="col-md-6 col-sm-6 col-6 my-auto pb-4">
+									{{ line_item.title }}
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-3 col-md-4 col-sm-6 col-7 my-auto">
+							<div class="input-group number-spinner">
+								<span class="input-group-btn">
+									<button class="btn btn-default" data-dir="dwn" type="button">
+										<i class="fas fa-minus"></i>
+									</button>
+								</span>
+								<input class="form-control text-center" type="number" id="quantity" name="updates[]" value="{{ line_item.quantity }}" min="0" pattern="[0-9]*">
+								<span class="input-group-btn">
+									<button class="btn btn-default" data-dir="up" type="button">
+										<i class="fas fa-plus"></i>
+									</button>
+								</span>
+							</div>
+						</div>
+						<div class="col-lg-2 col-md-2 col-sm-6 col-5 my-auto">
+							<div class="row">
+								<div class="col-md-8 col-sm-8 col-8 text-center">
+									{{ line_item.final_price | money }}
+								</div>
+								<div class="col-md-4 col-sm-4 col-4 text-center">
+									<a href="/cart/change?line={{forloop.index}}&quantity=0" rel="{{ line_item.id }}"><i class="fas fa-times"></i></a>
+								</div>
+							</div>
+						</div>		
+					</div>
+				</div>
+			</div>
+		{% endfor %}
+		<div class="row">
+			<div class="col-md-12">
+				<span>SUBTOTAL <strong>{{ cart.total_price | money }}</strong></span>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<input type="submit" name="update" value="Update">
+				<input type="submit" name="checkout" value="Checkout">
+			</div>
+		</div>
+	</form>
+</div>
+
+{% comment %}
+<div class="container">
+	<div class="row">
 		<div class="col-md-12">
 			<form method="post">
 				<table class="table">
 				  <thead class="thead-dark">
 				    <tr>
-				      <th scope="col"></th>
-				      <th scope="col">Product</th>
-				      <th scope="col">Quantity</th>
-				      <th scope="col">Price</th>
-				      <th scope="col"></th>
+				      <th scope="col" class="w-35">Product</th>
+				      <th scope="col" class="w-35">Quantity</th>
+				      <th scope="col" class="w-15">Price</th>
+				      <th scope="col" class="w-15"></th>
 				    </tr>
 				  </thead>
 				  <tbody>
 				  	{% for line_item in cart.items %}
 				    <tr>
-				      <td><img class="img-fluid" src="{{ line_item.image | product_img_url: '150x150', crop: 'center' }}"></td>
-				      <td>{{ line_item.title }}</td>
-				      <td>Otto</td>
+				      <td>
+				      <img class="img-fluid" src="{{ line_item.image | product_img_url: '150x150', crop: 'center' }}">
+				      {{ line_item.title }}
+				  	  </td>
+				      <td>
+				      	
+				<div class="input-group number-spinner">
+					<span class="input-group-btn">
+						<button class="btn btn-default" data-dir="dwn" type="button">
+							<i class="fas fa-minus"></i>
+						</button>
+					</span>
+					<input class="form-control text-center" type="number" id="quantity" name="updates[]" value="{{ line_item.quantity }}" min="0" pattern="[0-9]*">
+					<span class="input-group-btn">
+						<button class="btn btn-default" data-dir="up" type="button">
+							<i class="fas fa-plus"></i>
+						</button>
+					</span>
+				</div>
+
+				      </td>
 				      <td>{{ line_item.final_price | money }}</td>
 				      <td><a href="/cart/change?line={{forloop.index}}&quantity=0" rel="{{ line_item.id }}"><i class="fas fa-times"></i></a></td>
 				    </tr>
@@ -57,3 +145,4 @@
 		</div>
 	</div>
 </div>
+{% endcomment %}
