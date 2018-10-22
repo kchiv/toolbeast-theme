@@ -43,6 +43,21 @@
 		transition: color .2s linear;
 	}
 
+	.number-spinner button {
+		background: none;
+	}
+
+	/* For Firefox */
+	input[type='number'] {
+		-moz-appearance:textfield;
+	}
+	/* Webkit browsers like Safari and Chrome */
+	input[type=number]::-webkit-inner-spin-button,
+	input[type=number]::-webkit-outer-spin-button {
+		-webkit-appearance: none;
+		margin: 0;
+	}
+
 	@media (max-width: 767.98px) {
 		.pd-page-add-cart-btn {
 			text-align: center;
