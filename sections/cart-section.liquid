@@ -1,3 +1,59 @@
-{% for line_item in cart.items %}
-<img src="{{ line_item.image | product_img_url: '500x500' }}">
-{% endfor %}
+{% comment %}
+	<img src="{{ line_item.image | product_img_url: '500x500' }}">
+	<a href="{{ line_item.url }}">{{ line_item.title }}</a>
+			<div class="form-group row mt-4">
+			<label class="col-md-3 col-sm-2 col-2 col-form-label font-weight-bold" for="quantity">Quantity</label>
+			<div class="col-md-9 col-sm-8 col-10">
+				<div class="input-group number-spinner">
+					<span class="input-group-btn">
+						<button class="btn btn-default" data-dir="dwn" type="button">
+							<i class="fas fa-minus"></i>
+						</button>
+					</span>
+					<input class="form-control text-center" type="number" id="quantity" name="updates[]" value="{{ line_item.quantity }}" min="0" pattern="[0-9]*">
+					<span class="input-group-btn">
+						<button class="btn btn-default" data-dir="up" type="button">
+							<i class="fas fa-plus"></i>
+						</button>
+					</span>
+				</div>
+			</div>
+		</div>
+{% endcomment %}
+
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<form method="post">
+				<table class="table">
+				  <thead class="thead-dark">
+				    <tr>
+				      <th scope="col"></th>
+				      <th scope="col">Product</th>
+				      <th scope="col">Quantity</th>
+				      <th scope="col">Price</th>
+				      <th scope="col"></th>
+				    </tr>
+				  </thead>
+				  <tbody>
+				  	{% for line_item in cart.items %}
+				    <tr>
+				      <td><img class="img-fluid" src="{{ line_item.image | product_img_url: '150x150', crop: 'center' }}"></td>
+				      <td>{{ line_item.title }}</td>
+				      <td>Otto</td>
+				      <td>{{ line_item.final_price | money }}</td>
+				      <td><a href="/cart/change?line={{forloop.index}}&quantity=0" rel="{{ line_item.id }}"><i class="fas fa-times"></i></a></td>
+				    </tr>
+				    {% endfor %}
+				    <tr>
+				        <td align="right" colspan="4">SUBTOTAL <strong>{{ cart.total_price | money }}</strong></td>
+				    </tr>
+				  </tbody>
+				</table>
+				<input type="submit" name="update" value="Update">
+				<input type="submit" name="checkout" value="Checkout">
+			</form>
+		</div>
+	</div>
+</div>
