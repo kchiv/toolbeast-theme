@@ -1,51 +1,43 @@
-{% comment %}
-	<img src="{{ line_item.image | product_img_url: '500x500' }}">
-	<a href="{{ line_item.url }}">{{ line_item.title }}</a>
-			<div class="form-group row mt-4">
-			<label class="col-md-3 col-sm-2 col-2 col-form-label font-weight-bold" for="quantity">Quantity</label>
-			<div class="col-md-9 col-sm-8 col-10">
-				<div class="input-group number-spinner">
-					<span class="input-group-btn">
-						<button class="btn btn-default" data-dir="dwn" type="button">
-							<i class="fas fa-minus"></i>
-						</button>
-					</span>
-					<input class="form-control text-center" type="number" id="quantity" name="updates[]" value="{{ line_item.quantity }}" min="0" pattern="[0-9]*">
-					<span class="input-group-btn">
-						<button class="btn btn-default" data-dir="up" type="button">
-							<i class="fas fa-plus"></i>
-						</button>
-					</span>
-				</div>
-			</div>
-		</div>
-{% endcomment %}
+<style type="text/css">
+	.cart-grid-header {
+		background: #343A40;
+	}
+
+	.cart-grid-header span {
+		color: #ffffff;
+		font-size: 18px;
+	}
+</style>
 
 
 <div class="container">
 	<div class="row">
-		<div class="col-lg-7 col-md-6 text-center">
-			<span>Product Description</span>
-		</div>
-		<div class="col-lg-3 col-md-4 text-center">
-			<span>Quantity</span>
-		</div>
-		<div class="col-lg-2 col-md-2 text-center">
-			<span>Price</span>
+		<div class="col-md-12 d-none d-md-block cart-grid-header py-2">
+			<div class="row">
+				<div class="col-lg-7 col-md-6 text-center">
+					<span>Product Description</span>
+				</div>
+				<div class="col-lg-3 col-md-4 text-center">
+					<span>Quantity</span>
+				</div>
+				<div class="col-lg-1 col-md-1 text-center">
+					<span>Price</span>
+				</div>
+			</div>
 		</div>
 	</div>
 	<form method="post">
 		{% for line_item in cart.items %}
 			<div class="row">
-				<div class="col-md-12 border-bottom mb-4 mt-4">
+				<div class="col-md-12 border-bottom mb-2 mt-4">
 					<div class="row mb-4">
-						<div class="col-lg-7 col-md-6 col-sm-12 col-12 my-auto">
+						<div class="col-lg-7 col-md-6 col-sm-12 col-12 my-md-auto mb-sm-4 mb-4">
 							<div class="row">
-								<div class="col-md-6 col-sm-6 col-6 mb-4 text-center">
+								<div class="col-md-6 col-sm-6 col-6 my-auto text-center">
 									<img class="img-fluid" src="{{ line_item.image | product_img_url: '150x150', crop: 'center' }}">
 								</div>
-								<div class="col-md-6 col-sm-6 col-6 my-auto pb-4">
-									{{ line_item.title }}
+								<div class="col-md-6 col-sm-6 col-6 my-auto">
+									<a href="{{ line_item.url }}">{{ line_item.title }}</a>
 								</div>
 							</div>
 						</div>
@@ -64,16 +56,12 @@
 								</span>
 							</div>
 						</div>
-						<div class="col-lg-2 col-md-2 col-sm-6 col-5 my-auto">
-							<div class="row">
-								<div class="col-md-8 col-sm-8 col-8 text-center">
-									{{ line_item.final_price | money }}
-								</div>
-								<div class="col-md-4 col-sm-4 col-4 text-center">
-									<a href="/cart/change?line={{forloop.index}}&quantity=0" rel="{{ line_item.id }}"><i class="fas fa-times"></i></a>
-								</div>
-							</div>
-						</div>		
+						<div class="col-lg-1 col-md-1 col-sm-3 col-3 text-center my-auto">
+							{{ line_item.final_price | money }}
+						</div>	
+						<div class="col-lg-1 col-md-1 col-sm-3 col-2 text-center my-auto">
+							<a href="/cart/change?line={{forloop.index}}&quantity=0" rel="{{ line_item.id }}"><i class="fas fa-times fa-lg"></i></a>
+						</div>	
 					</div>
 				</div>
 			</div>
@@ -91,58 +79,3 @@
 		</div>
 	</form>
 </div>
-
-{% comment %}
-<div class="container">
-	<div class="row">
-		<div class="col-md-12">
-			<form method="post">
-				<table class="table">
-				  <thead class="thead-dark">
-				    <tr>
-				      <th scope="col" class="w-35">Product</th>
-				      <th scope="col" class="w-35">Quantity</th>
-				      <th scope="col" class="w-15">Price</th>
-				      <th scope="col" class="w-15"></th>
-				    </tr>
-				  </thead>
-				  <tbody>
-				  	{% for line_item in cart.items %}
-				    <tr>
-				      <td>
-				      <img class="img-fluid" src="{{ line_item.image | product_img_url: '150x150', crop: 'center' }}">
-				      {{ line_item.title }}
-				  	  </td>
-				      <td>
-				      	
-				<div class="input-group number-spinner">
-					<span class="input-group-btn">
-						<button class="btn btn-default" data-dir="dwn" type="button">
-							<i class="fas fa-minus"></i>
-						</button>
-					</span>
-					<input class="form-control text-center" type="number" id="quantity" name="updates[]" value="{{ line_item.quantity }}" min="0" pattern="[0-9]*">
-					<span class="input-group-btn">
-						<button class="btn btn-default" data-dir="up" type="button">
-							<i class="fas fa-plus"></i>
-						</button>
-					</span>
-				</div>
-
-				      </td>
-				      <td>{{ line_item.final_price | money }}</td>
-				      <td><a href="/cart/change?line={{forloop.index}}&quantity=0" rel="{{ line_item.id }}"><i class="fas fa-times"></i></a></td>
-				    </tr>
-				    {% endfor %}
-				    <tr>
-				        <td align="right" colspan="4">SUBTOTAL <strong>{{ cart.total_price | money }}</strong></td>
-				    </tr>
-				  </tbody>
-				</table>
-				<input type="submit" name="update" value="Update">
-				<input type="submit" name="checkout" value="Checkout">
-			</form>
-		</div>
-	</div>
-</div>
-{% endcomment %}
