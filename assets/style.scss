@@ -31,6 +31,23 @@ $radius-primary: 0.15rem;
 		border-color: $color-primary-hover;
 	}
 
+	.tb-button-secondary {
+		background-color: $medium-background;
+		border-color: $medium-background;
+		border-radius: $radius-primary;
+	}
+
+	.tb-button-secondary:hover {
+		background-color: $dark-background;
+		border-color: $dark-background;
+	}
+
+	.tb-button-secondary:not(:disabled):not(.disabled).active,
+	.tb-button-secondary:not(:disabled):not(.disabled):active {
+		background-color: $dark-background;
+		border-color: $dark-background;
+	}
+
 	.tb-button-small {
 		background-color: $color-primary;
 		border-color: $color-primary;
