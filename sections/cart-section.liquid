@@ -1,0 +1,3 @@
+{% for line_item in cart.items %}
+<img src="{{ line_item.image | product_img_url: '500x500' }}">
+{% endfor %}
