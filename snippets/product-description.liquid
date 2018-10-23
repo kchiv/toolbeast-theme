@@ -44,8 +44,8 @@
 <div class="row">
 	<div class="col-md-12 mt-4 pd-pg-desc">
 		<div class="row">
-			{% if product.description contains 'shortdescription' %}
-				{{ product.description | split: 'shortdescription' | last }}
+			{% if product.description contains 'shortdescriptionend' %}
+				{{ product.description | split: 'shortdescriptionend' | last }}
 			{% else %}
 				{{ product.description }}
 			{% endif %}

@@ -1,5 +1,5 @@
-{% if product.description contains 'shortdescription' %}
+{% if product.description contains 'shortdescriptionend' %}
 <div class="col-md-12 mt-3">
-	{{ product.description | split: 'shortdescription' | first }}
+	{{ product.description | split: 'shortdescriptionend' | first }}
 </div>
 {% endif %}
