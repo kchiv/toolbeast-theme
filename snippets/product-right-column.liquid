@@ -92,6 +92,8 @@
 	</div>
 </div>
 
+{% include 'product-short-description' %}
+
 <div class="col-md-12">
 	<form action="/cart/add" method="post" enctype="multipart/form-data">
 		{% comment %}
@@ -116,7 +118,7 @@
 		{% endcomment %}
 		{% if product.has_only_default_variant == false %}
 			{% for product_option in product.options_with_values %}
-				<div class="form-group row mt-4 product-category">
+				<div class="form-group row mt-3 product-category">
 					<label class="col-md-3 col-sm-2 col-2 col-form-label font-weight-bold">{{ product_option.name }}</label>
 					<div class="col-md-9 col-sm-8 col-10">
 						<select class="custom-select" data-index="option{{forloop.index}}">
