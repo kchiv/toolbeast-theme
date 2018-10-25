@@ -37,76 +37,83 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-12 my-4 text-center">
-			<h5 class="mb-4">You have <strong>{{ cart.item_count }} {{ cart.item_count | pluralize: 'item', 'items' }}</strong> in your cart</h5>
-			<a id="prev-category" href="" class="btn btn-primary tb-button cart-continue" title="Continue Shopping">Continue Shopping</a>
+			{% if cart.item_count > 0 %}
+				<h5 class="mb-4">You have <strong>{{ cart.item_count }} {{ cart.item_count | pluralize: 'item', 'items' }}</strong> in your cart</h5>
+				<a id="prev-category" href="" class="btn btn-primary tb-button cart-continue" title="Continue Shopping">Continue Shopping</a>
+			{% else %}
+				<h4 class="mb-5 mt-4">Your cart is currently empty</h4>
+				<a id="prev-category" href="" class="btn btn-primary tb-button cart-continue" title="Continue Shopping">Continue Shopping</a>
+			{% endif %}
 		</div>
 	</div>
-	<div class="row">
-		<div class="col-md-12 d-none d-md-block cart-grid-header py-2">
-			<div class="row">
-				<div class="col-lg-7 col-md-6 text-center">
-					<span>Product Description</span>
-				</div>
-				<div class="col-lg-3 col-md-4 text-center">
-					<span>Quantity</span>
-				</div>
-				<div class="col-lg-1 col-md-1 text-center">
-					<span>Price</span>
-				</div>
-			</div>
-		</div>
-	</div>
-	<form method="post">
-		{% for line_item in cart.items %}
-			<div class="row">
-				<div class="col-md-12 border-bottom mb-2 mt-4">
-					<div class="row mb-4">
-						<div class="col-lg-7 col-md-6 col-sm-12 col-12 my-md-auto mb-sm-4 mb-4">
-							<div class="row">
-								<div class="col-md-6 col-sm-6 col-6 my-auto text-center">
-									<a href="{{ line_item.url }}"><img class="img-fluid" src="{{ line_item.image | product_img_url: '150x150', crop: 'center' }}"></a>
-								</div>
-								<div class="col-md-6 col-sm-6 col-6 my-auto">
-									<a href="{{ line_item.url }}" class="cart-links">{{ line_item.title }}</a>
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-3 col-md-4 col-sm-6 col-7 my-auto">
-							<div class="input-group number-spinner">
-								<span class="input-group-btn">
-									<button class="btn btn-default cart-links" data-dir="dwn" type="button">
-										<i class="fas fa-minus"></i>
-									</button>
-								</span>
-								<input class="form-control text-center" type="number" id="quantity" name="updates[]" value="{{ line_item.quantity }}" min="0" pattern="[0-9]*">
-								<span class="input-group-btn">
-									<button class="btn btn-default cart-links" data-dir="up" type="button">
-										<i class="fas fa-plus"></i>
-									</button>
-								</span>
-							</div>
-						</div>
-						<div class="col-lg-1 col-md-1 col-sm-3 col-3 text-center my-auto">
-							{{ line_item.final_price | money }}
-						</div>	
-						<div class="col-lg-1 col-md-1 col-sm-3 col-2 text-center my-auto">
-							<a href="/cart/change?line={{forloop.index}}&quantity=0" rel="{{ line_item.id }}" class="cart-links"><i class="fas fa-times fa-lg"></i></a>
-						</div>	
+	{% if cart.item_count > 0 %}
+		<div class="row">
+			<div class="col-md-12 d-none d-md-block cart-grid-header py-2">
+				<div class="row">
+					<div class="col-lg-7 col-md-6 text-center">
+						<span>Product Description</span>
+					</div>
+					<div class="col-lg-3 col-md-4 text-center">
+						<span>Quantity</span>
+					</div>
+					<div class="col-lg-1 col-md-1 text-center">
+						<span>Price</span>
 					</div>
 				</div>
 			</div>
-		{% endfor %}
-		<div class="row">
-			<div class="col-md-12 mt-4 text-right">
-				<span class="cart-subtotal">SUBTOTAL <strong>{{ cart.total_price | money }}</strong></span>
-				<p><em><small>*Does not include shipping</small></em></p>
-			</div>
 		</div>
-		<div class="row">
-			<div class="col-md-12 mt-2 text-right">
-				<input type="submit" name="update" value="Update Cart" class="btn btn-primary tb-button-secondary mr-2 cart-update">
-				<input type="submit" name="checkout" value="Checkout" class="btn btn-primary tb-button cart-checkout">
+		<form method="post">
+			{% for line_item in cart.items %}
+				<div class="row">
+					<div class="col-md-12 border-bottom mb-2 mt-4">
+						<div class="row mb-4">
+							<div class="col-lg-7 col-md-6 col-sm-12 col-12 my-md-auto mb-sm-4 mb-4">
+								<div class="row">
+									<div class="col-md-6 col-sm-6 col-6 my-auto text-center">
+										<a href="{{ line_item.url }}"><img class="img-fluid" src="{{ line_item.image | product_img_url: '150x150', crop: 'center' }}"></a>
+									</div>
+									<div class="col-md-6 col-sm-6 col-6 my-auto">
+										<a href="{{ line_item.url }}" class="cart-links">{{ line_item.title }}</a>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-3 col-md-4 col-sm-6 col-7 my-auto">
+								<div class="input-group number-spinner">
+									<span class="input-group-btn">
+										<button class="btn btn-default cart-links" data-dir="dwn" type="button">
+											<i class="fas fa-minus"></i>
+										</button>
+									</span>
+									<input class="form-control text-center" type="number" id="quantity" name="updates[]" value="{{ line_item.quantity }}" min="0" pattern="[0-9]*">
+									<span class="input-group-btn">
+										<button class="btn btn-default cart-links" data-dir="up" type="button">
+											<i class="fas fa-plus"></i>
+										</button>
+									</span>
+								</div>
+							</div>
+							<div class="col-lg-1 col-md-1 col-sm-3 col-3 text-center my-auto">
+								{{ line_item.final_price | money }}
+							</div>	
+							<div class="col-lg-1 col-md-1 col-sm-3 col-2 text-center my-auto">
+								<a href="/cart/change?line={{forloop.index}}&quantity=0" rel="{{ line_item.id }}" class="cart-links"><i class="fas fa-times fa-lg"></i></a>
+							</div>	
+						</div>
+					</div>
+				</div>
+			{% endfor %}
+			<div class="row">
+				<div class="col-md-12 mt-4 text-right">
+					<span class="cart-subtotal">SUBTOTAL <strong>{{ cart.total_price | money }}</strong></span>
+					<p><em><small>*Does not include shipping</small></em></p>
+				</div>
 			</div>
-		</div>
-	</form>
+			<div class="row">
+				<div class="col-md-12 mt-2 text-right">
+					<input type="submit" name="update" value="Update Cart" class="btn btn-primary tb-button-secondary mr-2 cart-update">
+					<input type="submit" name="checkout" value="Checkout" class="btn btn-primary tb-button cart-checkout">
+				</div>
+			</div>
+		</form>
+	{% endif %}
 </div>
