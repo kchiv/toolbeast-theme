@@ -1,3 +1,6 @@
 {% include 'page-header', title: 'Shopping Cart' %}
 
 {% section 'cart-section' %}
+{% if cart.item_count < 1 %}
+	{% include 'search-browse-links' %}
+{% endif %}
