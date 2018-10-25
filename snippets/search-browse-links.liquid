@@ -1,4 +1,4 @@
-<div class="mb-4 mt-4 text-center">
+<div class="mb-5 mt-5 text-center">
   <h4>Browse Product Categories</h4>
     {% for link in linklists[settings.search_product_category_linklist].links %}
       {% if forloop.last == true %}
@@ -8,13 +8,15 @@
       {% endif %}
     {% endfor %}
 </div>
-<div class="mb-4 text-center">
-  <h4>Browse Blog Categories</h4>
-    {% for link in linklists[settings.search_blog_category_linklist].links %}
-      {% if forloop.last == true %}
-        <a href="{{ link.url }}">{{ link.title }}</a>
-      {% else %}
-        <a href="{{ link.url }}">{{ link.title }}</a>, 
-      {% endif %}
-    {% endfor %}
-</div>
+{% if template contains '404' %}
+  <div class="mb-4 text-center">
+    <h4>Browse Blog Categories</h4>
+      {% for link in linklists[settings.search_blog_category_linklist].links %}
+        {% if forloop.last == true %}
+          <a href="{{ link.url }}">{{ link.title }}</a>
+        {% else %}
+          <a href="{{ link.url }}">{{ link.title }}</a>, 
+        {% endif %}
+      {% endfor %}
+  </div>
+{% endif %}
