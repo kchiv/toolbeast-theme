@@ -1434,6 +1434,45 @@ $radius-primary: 0.15rem;
 	    margin-top: 15px;
 	  }
 
+/**** Product ****/
+	
+	/** Product Description **/
+
+	.pd-pg-desc h2 {
+		font-size: 25px;
+	}
+
+	.pd-pg-desc h3 {
+		font-size: 22px;
+	}
+
+	.pd-pg-desc h4 {
+		font-size: 19px;
+	}
+
+	.pd-pg-desc h5 {
+		font-size: 17px;
+	}
+
+	.pd-pg-desc h6 {
+		font-size: 15px;
+	}
+
+	.pd-pg-desc a {
+		color: #2ECC71;
+		-webkit-transition: color .2s linear;
+		-moz-transition: color .2s linear;
+		-ms-transition: color .2s linear;
+		-o-transition: color .2s linear;
+		transition: color .2s linear;
+	}
+
+	.pd-pg-desc a:hover {
+		color: #229552;
+		text-decoration: none;
+	}
+
+
 /**** Cart ****/
 
 	/** Cart Main Section **/
