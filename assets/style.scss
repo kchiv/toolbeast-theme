@@ -1435,6 +1435,29 @@ $radius-primary: 0.15rem;
 	  }
 
 /**** Product ****/
+
+	/** Product Image Slider **/
+
+	.slick-prev::before {
+		font-family: "Font Awesome 5 Free";
+		content: "\f104";
+		font-weight: 900;
+		font-size: 25px;
+		color: #343A40;
+	}
+
+	.slick-next::before {
+		font-family: "Font Awesome 5 Free";
+		content:  "\f105";
+		font-weight: 900;
+		font-size: 25px;
+		color: #343A40;
+	}
+
+	.slider-nav .slick-slide {
+	margin-left: 10px;
+	margin-right: 10px;
+	}
 	
 	/** Product Description **/
 
