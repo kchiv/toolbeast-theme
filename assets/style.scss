@@ -1434,6 +1434,42 @@ $radius-primary: 0.15rem;
 	    margin-top: 15px;
 	  }
 
+/**** Cart ****/
+
+	/** Cart Main Section **/
+
+	.cart-grid-header {
+		background: #343A40;
+	}
+
+	.cart-grid-header span {
+		color: #ffffff;
+		font-size: 18px;
+	}
+
+	.cart-subtotal {
+		font-size: 20px;
+	}
+
+	.cart-update,
+	.cart-checkout,
+	.cart-continue {
+		font-size: 20px;
+	}
+
+	.cart-links {
+		color: #343A40;
+		-webkit-transition: color .2s linear;
+		-moz-transition: color .2s linear;
+		-ms-transition: color .2s linear;
+		-o-transition: color .2s linear;
+		transition: color .2s linear;
+	}
+
+	.cart-links:hover {
+		color: #737373;
+		text-decoration: none;
+	}
 
 /**** Blog ****/
 
