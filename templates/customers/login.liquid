@@ -11,39 +11,54 @@
   <div class="row">
     <div class="col-lg-6 col-md-12 mt-4">
 
-      <h4 class="mb-4">Returning Customers</h4>
+      <div id="returnCustForm">
 
-      {% form 'customer_login' %}
+        <h4 class="mb-4">Returning Customers</h4>
 
-      {{ form.errors | default_errors }}
+        {% form 'customer_login' %}
 
-      <div class="form-group">
-        <input class="form-control" type="email" placeholder="Email Address" name="customer[email]" />
+        {{ form.errors | default_errors }}
+
+        <div class="form-group">
+          <input class="form-control" type="email" placeholder="Email Address" name="customer[email]" required />
+        </div>
+
+        <div class="form-group">
+          <input class="form-control" type="password" placeholder="Password" name="customer[password]" required />
+        </div>
+
+        <div class="form-group">
+          <input type="submit" class="btn btn-primary tb-button" value="Sign In" />
+        </div>
+
+        {% endform %}
+
+        <a href="#" id="fgtPwd">Forgot your password?</a>
+
       </div>
 
-      <div class="form-group">
-        <input class="form-control" type="password" placeholder="Password" name="customer[password]" />
+      <div id="recovPwdForm" style="display: none">
+
+        <h4 class="mb-4">Reset Password</h4>
+        <p>We'll send you an email to reset your password.</p>
+
+        {% form 'recover_customer_password' %}
+
+        {{ form.errors | default_errors }}
+
+        <div class="form-group">
+          <input class="form-control" type="email" name="email" placeholder="Email Address" required />
+        </div>
+
+        <div class="form-group">
+          <input type="submit" class="btn btn-primary tb-button" value="Submit" />
+        </div>
+
+        {% endform %}
+
+        <a href="#" id="signInBack">Back to sign in</a>
+
       </div>
-
-      <div class="form-group">
-        <input type="submit" class="btn btn-primary tb-button" value="Sign In" />
-      </div>
-
-      {% endform %}
-
-      <a href="">Forgot your password?</a>
-
-
-      {% form 'recover_customer_password' %}
-
-      {{ form.errors | default_errors }}
-
-      <label for="customer_email">Email Address</label>
-      <input type="email" name="email" />
-
-      <input type="submit" value="Submit" />
-
-      {% endform %}
 
     </div>
     <div class="col-lg-6 col-md-12 mt-4">
