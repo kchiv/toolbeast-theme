@@ -1,26 +1,58 @@
-{% form 'customer_login' %}
+{% include 'breadcrumbs' %}
 
-{{ form.errors | default_errors }}
+<div class="container">
 
-<label for="customer_email">Email Address</label>
-<input type="email" name="customer[email]" />
+  <div class="row">
+    <div class="col-md-12">
+      <h1 class="tb-h-underline">Sign In</h1>
+    </div>
+  </div>
 
-<label for="customer_password">Password</label>
-<input type="password" name="customer[password]" />
+  <div class="row">
+    <div class="col-lg-6 col-md-12 mt-4">
 
-<input type="submit" value="Sign In" />
+      <h4 class="mb-4">Returning Customers</h4>
 
-{% endform %}
+      {% form 'customer_login' %}
+
+      {{ form.errors | default_errors }}
+
+      <div class="form-group">
+        <input class="form-control" type="email" placeholder="Email Address" name="customer[email]" />
+      </div>
+
+      <div class="form-group">
+        <input class="form-control" type="password" placeholder="Password" name="customer[password]" />
+      </div>
+
+      <div class="form-group">
+        <input type="submit" class="btn btn-primary tb-button" value="Sign In" />
+      </div>
+
+      {% endform %}
+
+      <a href="">Forgot your password?</a>
 
 
+      {% form 'recover_customer_password' %}
 
-{% form 'recover_customer_password' %}
+      {{ form.errors | default_errors }}
 
-{{ form.errors | default_errors }}
+      <label for="customer_email">Email Address</label>
+      <input type="email" name="email" />
 
-<label for="customer_email">Email Address</label>
-<input type="email" name="email" />
+      <input type="submit" value="Submit" />
 
-<input type="submit" value="Submit" />
+      {% endform %}
 
-{% endform %}
+    </div>
+    <div class="col-lg-6 col-md-12 mt-4">
+
+      <h4 class="mb-4">New Customers</h4>
+
+        <a href="/account/register" class="btn btn-primary tb-button">Create Account</a>
+      
+    </div>
+  </div>
+
+</div>
