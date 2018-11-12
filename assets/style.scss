@@ -511,6 +511,11 @@ $radius-primary: 0.15rem;
 		margin-top: 30px
 	}
 
+	.payment-options {
+		font-size: 39px;
+		color: $light-text;
+	}
+
 	@media (max-width: 991.98px) {
 		.footer-main .footer-email form input,
 		.footer-main .footer-email form button {
