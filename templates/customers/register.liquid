@@ -1,26 +1,52 @@
-<!-- /templates/customers/register.liquid -->
-<h1 class="small--text-center">{{ 'customer.register.title' | t }}</h1>
+{% include 'breadcrumbs' %}
 
-<div class="form-register form-vertical">
-  {% form 'create_customer' %}
+<div class="container">
 
-    {{ form.errors | default_errors }}
+  <div class="row">
+    <div class="col-md-12">
+      <h1 class="tb-h-underline">Create Account</h1>
+    </div>
+  </div>
 
-    <label for="FirstName" class="label--hidden">{{ 'customer.register.first_name' | t }}</label>
-    <input type="text" name="customer[first_name]" id="FirstName" placeholder="{{ 'customer.register.first_name' | t }}" {% if form.first_name %}value="{{ form.first_name }}"{% endif %} autocapitalize="words" autofocus>
+  <div class="row">
+    <div class="col-lg-5 col-md-12 mt-4">
 
-    <label for="LastName" class="label--hidden">{{ 'customer.register.last_name' | t }}</label>
-    <input type="text" name="customer[last_name]" id="LastName" placeholder="{{ 'customer.register.last_name' | t }}" {% if form.last_name %}value="{{ form.last_name }}"{% endif %} autocapitalize="words">
+      <p>Fill out all fields to create a new account</p>
 
-    <label for="Email" class="label--hidden">{{ 'customer.register.email' | t }}</label>
-    <input type="email" name="customer[email]" id="Email" class="{% if form.errors contains 'email' %} input--error{% endif %}" placeholder="{{ 'customer.register.email' | t }}" {% if form.email %} value="{{ form.email }}"{% endif %} autocorrect="off" autocapitalize="off">
+      {% form 'create_customer' %}
 
-    <label for="CreatePassword" class="label--hidden">{{ 'customer.register.password' | t }}</label>
-    <input type="password" name="customer[password]" id="CreatePassword" class="{% if form.errors contains 'password' %} input--error{% endif %}" placeholder="{{ 'customer.register.password' | t }}">
+        {{ form.errors | default_errors }}
 
-    <p>
-      <input type="submit" value="{{ 'customer.register.submit' | t }}" class="btn">
-    </p>
+        <div class="form-group">
+          <input type="text" value="" name="customer[first_name]" size="30" placeholder="First Name" class="form-control" required />
+        </div>
 
-  {% endform %}
+        <div class="form-group">
+          <input type="text" value="" name="customer[last_name]" size="30" placeholder="Last Name" class="form-control" required />
+        </div>
+
+        <div class="form-group">
+          <input type="email" value="" name="customer[email]" size="30" placeholder="Email Address" class="form-control" required />
+        </div>
+
+        <div class="form-group">
+          <input type="password" value="" name="customer[password]" size="30" placeholder="Password" class="form-control" required />
+        </div>
+
+        <div class="form-group">
+          <input class="btn btn-primary tb-button" type="submit" value="Create Account" />
+        </div>
+
+      {% endform %}
+    </div>
+    <div class="col-lg-6 offset-lg-1 col-md-12 mt-4">
+
+      <h4 class="mb-4">Returning Customer?</h4>
+
+        <p>Welcome back! Access your account via our sign in page.</p>
+
+        <a href="/account/login" class="btn btn-primary tb-button">Sign In</a>
+      
+    </div>
+  </div>
 </div>
