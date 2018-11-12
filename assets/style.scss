@@ -149,6 +149,27 @@ $radius-primary: 0.15rem;
 		color: $color-primary;
 	}
 
+	/** Generic Links **/
+
+	.standard-links {
+		color: $dark-text;
+		text-decoration: none;
+		-webkit-transition: color .2s linear;
+		-moz-transition: color .2s linear;
+		-ms-transition: color .2s linear;
+		-o-transition: color .2s linear;
+		transition: color .2s linear;
+	}
+
+	.standard-links.active {
+		color: $medium-text;
+	}
+
+	.standard-links:hover:not(.active) {
+		color: $medium-text;
+		text-decoration: none;
+	}
+
 	/** Forms **/
 
 	.form-control {
