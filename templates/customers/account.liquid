@@ -10,21 +10,27 @@
   </div>
 
   <div class="row">
+    <div class="col-md-12">
+      <h3>Welcome, {{ customer.first_name }}!</h3>
+    </div>
+  </div>
+
+  <div class="row">
     {% paginate customer.orders by 10 %}
     {% if customer.orders.size != 0 %}
 
       <div class="col-md-12">
         <div class="row">
-          <div class="col-md-3 text-center">
+          <div class="col-md-3 col-sm-3 col-3 text-center">
             <span>Order</span>
           </div>
-          <div class="col-md-3 text-center">
+          <div class="col-md-3 col-sm-3 col-3 text-center">
             <span>Date</span>
           </div>
-          <div class="col-md-3 text-center">
+          <div class="col-md-3 col-sm-3 col-3 text-center">
             <span>Status</span>
           </div>
-          <div class="col-md-3 text-center">
+          <div class="col-md-3 col-sm-3 col-3 text-center">
             <span>Total</span>
           </div>
         </div>
@@ -33,16 +39,16 @@
       {% for order in customer.orders %}
         <div class="col-md-12">
           <div class="row">
-            <div class="col-md-3 text-center">
+            <div class="col-md-3 col-sm-3 col-3 text-center">
               <span>{{ order.name | link_to: order.customer_url }}</span>
             </div>
-            <div class="col-md-3 text-center">
+            <div class="col-md-3 col-sm-3 col-3 text-center">
               <span>{{ order.created_at | date: "%b %d, %Y" }}</span>
             </div>
-            <div class="col-md-3 text-center">
+            <div class="col-md-3 col-sm-3 col-3 text-center">
               <span><a href="{{ order.order_status_url }}">{{ order.fulfillment_status | capitalize }}</a></span>
             </div>
-            <div class="col-md-3 text-center">
+            <div class="col-md-3 col-sm-3 col-3 text-center">
               <span>{{ order.subtotal_price | money }}</span>
             </div>
           </div>
