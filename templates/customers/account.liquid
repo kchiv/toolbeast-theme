@@ -1,52 +1,69 @@
-<!-- /templates/customers/account.liquid -->
-<h1 class="small--text-center">{{ 'customer.account.title' | t }}</h1>
+{% include 'breadcrumbs' %}
 
-<hr class="hr--clear hr--small">
 
-<h2 class="small--text-center">{{ 'customer.orders.title' | t }}</h2>
 
-{% paginate customer.orders by 20 %}
-  {% if customer.orders.size != 0 %}
-
-    <table class="responsive-table">
-      <thead>
-        <tr>
-          <th>{{ 'customer.orders.order_number' | t }}</th>
-          <th>{{ 'customer.orders.date' | t }}</th>
-          <th>{{ 'customer.orders.payment_status' | t }}</th>
-          <th>{{ 'customer.orders.fulfillment_status' | t }}</th>
-          <th>{{ 'customer.orders.total' | t }}</th>
-        </tr>
-      </thead>
-      <tbody>
-        {% for order in customer.orders %}
-          <tr>
-            <td data-label="{{ 'customer.orders.order_number' | t }}">{{ order.name | link_to: order.customer_url }}</td>
-            <td data-label="{{ 'customer.orders.date' | t }}">{{ order.created_at | date: format: 'month_day_year' }}</td>
-            <td data-label="{{ 'customer.orders.payment_status' | t }}">{{ order.financial_status_label }}</td>
-            <td data-label="{{ 'customer.orders.fulfillment_status' | t }}">{{ order.fulfillment_status_label }}</td>
-            <td data-label="{{ 'customer.orders.total' | t }}">{{ order.total_price | money }}</td>
-          </tr>
-        {% endfor %}
-      </tbody>
-    </table>
-
-  {% else %}
-
-    <p>{{ 'customer.orders.none' | t }}</p>
-
-  {% endif %}
-  {% if paginate.pages > 1 %}
-    <div class="pagination">
-      {{ paginate | default_pagination | replace: '&laquo; Previous', '&larr;' | replace: 'Next &raquo;', '&rarr;' }}
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h1 class="tb-h-underline">Account Details</h1>
     </div>
-  {% endif %}
-{% endpaginate %}
+  </div>
 
-<hr class="hr--clear hr--small">
+  <div class="row">
+    {% paginate customer.orders by 10 %}
+    {% if customer.orders.size != 0 %}
 
-<h2>{{ 'customer.account.details' | t }}</h2>
+      <div class="col-md-12">
+        <div class="row">
+          <div class="col-md-3 text-center">
+            <span>Order</span>
+          </div>
+          <div class="col-md-3 text-center">
+            <span>Date</span>
+          </div>
+          <div class="col-md-3 text-center">
+            <span>Status</span>
+          </div>
+          <div class="col-md-3 text-center">
+            <span>Total</span>
+          </div>
+        </div>
+      </div>
 
-{{ customer.default_address | format_address }}
+      {% for order in customer.orders %}
+        <div class="col-md-12">
+          <div class="row">
+            <div class="col-md-3 text-center">
+              <span>{{ order.name | link_to: order.customer_url }}</span>
+            </div>
+            <div class="col-md-3 text-center">
+              <span>{{ order.created_at | date: "%b %d, %Y" }}</span>
+            </div>
+            <div class="col-md-3 text-center">
+              <span><a href="{{ order.order_status_url }}">{{ order.fulfillment_status | capitalize }}</a></span>
+            </div>
+            <div class="col-md-3 text-center">
+              <span>{{ order.subtotal_price | money }}</span>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
 
-<p><a href="/account/addresses">{{ 'customer.account.view_addresses' | t }} ({{ customer.addresses_count }})</a></p>
+
+      {% if customer.default_address %}
+        <p>{{ customer.default_address.address1 }}</p>
+        {% if customer.default_address.address2 != "" %}
+          <p>{{ customer.default_address.address2 }}</p>
+        {% endif %}
+        <p>{{ customer.default_address.city}}, {% if address.province_code %}{{ customer.default_address.province_code }}, {% endif %}{{ customer.default_address.country }}</p>
+        <p>{{ customer.default_address.zip }}</p>
+        <p>{{ customer.default_address.phone }}</p>
+      {% endif %}
+
+    {% else %}
+      <p>You haven't placed any orders yet.</p>
+    {% endif %}
+    {{ paginate | default_pagination }}
+    {% endpaginate %}
+  </div>
+</div>
