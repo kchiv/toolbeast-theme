@@ -38,8 +38,11 @@
           <li class="breadcrumb-item active" aria-current="page">{{ article.title }}</li>
         {% elsif template == 'search' %}
           <li class="breadcrumb-item active" aria-current="page">Search</li>
+        {% elsif template == 'customers/order' %}
+          <li class="breadcrumb-item"><a href="/account">Account</a></li>
+          <li class="breadcrumb-item active" aria-current="page">{{ page_title }}</li>
         {% else %}
-         <li class="breadcrumb-item active" aria-current="page">{{ page_title }}</li>
+          <li class="breadcrumb-item active" aria-current="page">{{ page_title }}</li>
         {% endif %}
       </ol>
     </nav>
