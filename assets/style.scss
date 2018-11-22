@@ -449,6 +449,10 @@ $radius-primary: 0.15rem;
 
 /**** Footer ****/
 
+	footer {
+		box-shadow: 0 50vh 0 50vh #343a40;
+	}
+
 	.footer-social {
 		background-color: $light-background;
 		color: $dark-text;
