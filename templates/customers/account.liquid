@@ -4,7 +4,7 @@
   <div class="row">
     <div class="col-md-12">
       <div class="d-inline"><span class="h2 tb-h-underline d-inline mr-4">Your Account</span></div>
-      <div class="d-inline"><a href="/account/logout"><i class="fas fa-sign-out-alt"></i> Sign Out</a></div>
+      <div class="d-inline"><a class="standard-links-two" href="/account/logout"><i class="fas fa-sign-out-alt"></i> Sign Out</a></div>
     </div>
   </div>
 
@@ -43,13 +43,13 @@
           <div class="col-md-12 border-bottom">
             <div class="row">
               <div class="col-md-3 col-sm-3 col-2 text-center my-4">
-                <span>{{ order.name | link_to: order.customer_url }}</span>
+                <span><a class="standard-links-two" href="{{ order.customer_url }}">{{ order.name }}</a></span>
               </div>
               <div class="col-md-3 col-sm-3 col-4 text-center my-4">
                 <span>{{ order.created_at | date: "%b %d, %Y" }}</span>
               </div>
               <div class="col-md-3 col-sm-3 col-3 text-center my-4">
-                <span><a href="{{ order.order_status_url }}">{{ order.fulfillment_status | capitalize }}</a></span>
+                <span><a class="standard-links-two" href="{{ order.order_status_url }}">{{ order.fulfillment_status | capitalize }}</a></span>
               </div>
               <div class="col-md-3 col-sm-3 col-3 text-center my-4">
                 <span>{{ order.subtotal_price | money }}</span>
