@@ -170,7 +170,8 @@ $radius-primary: 0.15rem;
 		text-decoration: none;
 	}
 
-	.standard-links-two {
+	.standard-links-two,
+	.standard-links-two-div a {
 		color: $medium-text;
 		text-decoration: none;
 		-webkit-transition: color .2s linear;
@@ -180,11 +181,13 @@ $radius-primary: 0.15rem;
 		transition: color .2s linear;
 	}
 
-	.standard-links-two.active {
+	.standard-links-two.active,
+	.standard-links-two-div a.active {
 		color: $dark-text;
 	}
 
-	.standard-links-two:hover:not(.active) {
+	.standard-links-two:hover:not(.active),
+	.standard-links-two-div a:hover:not(.active) {
 		color: $dark-text;
 		text-decoration: none;
 	}
