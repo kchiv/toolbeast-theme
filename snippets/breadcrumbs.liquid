@@ -41,6 +41,9 @@
         {% elsif template == 'customers/order' %}
           <li class="breadcrumb-item"><a href="/account">Account</a></li>
           <li class="breadcrumb-item active" aria-current="page">{{ page_title }}</li>
+        {% elsif template == 'customers/addresses' %}
+          <li class="breadcrumb-item"><a href="/account">Account</a></li>
+          <li class="breadcrumb-item active" aria-current="page">{{ page_title }}</li>
         {% else %}
           <li class="breadcrumb-item active" aria-current="page">{{ page_title }}</li>
         {% endif %}
