@@ -86,6 +86,7 @@
             <p>{{ customer.default_address.city}}, {% if customer.default_address.province_code %}{{ customer.default_address.province_code }}, {% endif %}{{ customer.default_address.country }}</p>
             <p>{{ customer.default_address.zip }}</p>
             <p>{{ customer.default_address.phone }}</p>
+            <a class="standard-links-two" href="/account/addresses">Edit / Add Addresses</a>
           {% endif %}
         </dd>
       </dl>
