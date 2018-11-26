@@ -21,6 +21,11 @@
 						{% for link in linklists[section.settings.footer_linklist_1].links %}
 							<li><a href="{{ link.url }}">{{ link.title }}</a></li>
 						{% endfor %}
+						{% if customer %}
+							<li><a href="/account/logout">Sign Out</a></li>
+						{% else %}
+							<li><a href="/account/login">Sign In</a></li>
+						{% endif %}
 					</ul>
 				</div>
 				<div class="col-lg-3 col-md-6 col-sm-6">
