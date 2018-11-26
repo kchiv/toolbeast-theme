@@ -1,0 +1,32 @@
+{% include 'breadcrumbs' %}
+
+<div class="container">
+
+  <div class="row">
+    <div class="col-md-12">
+      <h1 class="tb-h-underline">All Categories</h1>
+    </div>
+  </div>
+
+  <div class="row">
+  	{% for collection in collections %}
+	  	<div class="col-md-4 text-center my-4">
+	  		<div class="row">
+	  			<div class="col-md-12">
+	  				{% if collection.image %}
+	  					<a href="collection.url"><img src="{{ collection.image.src | img_url: 'medium' }}"></a>
+	  				{% else %}
+	  					<a href="collection.url"><img src="{{ collection.products.first | img_url: 'medium' }}"></a>
+	  				{% endif %}
+	  			</div>
+	  		</div>
+	  		<div class="row">
+	  			<div class="col-md-12">
+	  				<span><a class="standard-links" href="{{ collection.url }}">{{ collection.title }}</a></span>
+	  			</div>
+	  		</div>
+	  	</div>
+	{% endfor %}
+  </div>
+
+</div>
