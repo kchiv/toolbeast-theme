@@ -4,7 +4,7 @@
 <div class="container-fluid">
 {% endif %}
   <div class="row">
-    {% unless template == 'index' or template == 'cart' or template == 'list-collections' %}
+    {% unless template == 'index' or template == 'cart' %}
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb tb-bcrumb">
         <li class="breadcrumb-item"><a href="/" title="Home">Home</a></li>
@@ -26,6 +26,8 @@
           {% else %}
             <li class="breadcrumb-item active" aria-current="page">{{ collection.title }}</li>
           {% endif %}
+        {% elsif template == 'list-collections' %}
+          <li class="breadcrumb-item active" aria-current="page">All Categories</li>
         {% elsif template == 'blog' %}
           {% if current_tags %}
             <li class="breadcrumb-item">{{ blog.title | link_to: blog.url }}</li>
