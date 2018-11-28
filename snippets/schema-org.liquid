@@ -1,0 +1,31 @@
+{% if template == 'article' %}
+	<script type="application/ld+json">
+	{
+	  "@context": "http://schema.org",
+	  "@type": "BlogPosting",
+	  "mainEntityOfPage": {
+	    "@type": "WebPage",
+	    "@id": "https://{{ shop.domain }}{{ article.url }}"
+	  },
+	  "headline": "{{ article.title }}",
+	  "image": [
+	    "https:{{ article.image.src | img_url: 'large' }}"
+	   ],
+	  "datePublished": "{{ article.created_at }}",
+	  "dateModified": "{{ article.published_at }}",
+	  "author": {
+	    "@type": "Person",
+	    "name": "{{ article.author }}"
+	  },
+	   "publisher": {
+	    "@type": "Organization",
+	    "name": "Tool Beast",
+	    "logo": {
+	      "@type": "ImageObject",
+	      "url": "https:{{ 'TOOL_BEAST201.png' | asset_url }}"
+	    }
+	  },
+	  "description": "{{ page_description }}"
+	}
+	</script>
+{% endif %}
