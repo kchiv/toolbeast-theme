@@ -1,3 +1,15 @@
 {% include 'breadcrumbs' %}
 
-<img src="{{ settings.about_img | img_url: '1920x' }}">
+<div class="container">
+
+  <div class="row">
+    <div class="col-md-12">
+      <h1 class="tb-h-underline">{{ page.title }}</h1>
+    </div>
+  </div>
+
+  <div class="row">
+  	{{ page.content }}
+  </div>
+
+</div>
