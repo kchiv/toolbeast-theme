@@ -96,6 +96,34 @@
 	  }]
 	}
 	</script>
+{% elsif template == 'index' %}
+	<script type="application/ld+json">
+	{
+	  "@context": "http://schema.org",
+	  "@type": "BreadcrumbList",
+	  "itemListElement": [{
+	    "@type": "ListItem",
+	    "position": 1,
+	    "name": "Home",
+	    "item": "https://{{ shop.domain }}/"
+	  }]
+	}
+	</script>
+	<script type="application/ld+json">
+    {
+	  "@context" : "https://schema.org",
+	  "@type" : "Organization",
+	  "name" : "Tool Beast",
+	  "url" : "https://{{ shop.domain }}/",
+	  "logo": "https:{{ 'TOOL_BEAST201.png' | asset_url }}",
+	  "sameAs" : [
+	    "https://www.facebook.com/toolbeast/",
+	    "https://twitter.com/ToolBeast",
+	    "https://www.pinterest.com/toolbeastshop/",
+	    "https://www.instagram.com/thetoolbeast/"
+	  ]
+    }
+	</script>
 {% elsif template == 'product' %}
 	{% assign product_vendor_handle_json = product.vendor | handle %}
 	<script type="application/ld+json">
@@ -159,4 +187,21 @@
 	}
 	</script>
 {% else %}
+	<script type="application/ld+json">
+	{
+	  "@context": "http://schema.org",
+	  "@type": "BreadcrumbList",
+	  "itemListElement": [{
+	    "@type": "ListItem",
+	    "position": 1,
+	    "name": "Home",
+	    "item": "https://{{ shop.domain }}/"
+	  },{
+	    "@type": "ListItem",
+	    "position": 2,
+	    "name": "{{ page_title }}",
+	    "item": "{{ canonical_url }}"
+	  }]
+	}
+	</script>
 {% endif %}
