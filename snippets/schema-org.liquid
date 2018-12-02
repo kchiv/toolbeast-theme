@@ -2,6 +2,33 @@
 	<script type="application/ld+json">
 	{
 	  "@context": "http://schema.org",
+	  "@type": "BreadcrumbList",
+	  "itemListElement": [{
+	    "@type": "ListItem",
+	    "position": 1,
+	    "name": "Home",
+	    "item": "https://{{ shop.domain }}/"
+	  },{
+	    "@type": "ListItem",
+	    "position": 2,
+	    "name": "Tips & Info",
+	    "item": "https://{{ shop.domain }}/pages/tips-info"
+	  },{
+	    "@type": "ListItem",
+	    "position": 3,
+	    "name": "{{ blog.title }}",
+	    "item": "https://{{ shop.domain }}{{ blog.url }}"
+	  },{
+	    "@type": "ListItem",
+	    "position": 4,
+	    "name": "{{ article.title }}",
+	    "item": "https://{{ shop.domain }}{{ article.url }}"
+	  }]
+	}
+	</script>
+	<script type="application/ld+json">
+	{
+	  "@context": "http://schema.org",
 	  "@type": "BlogPosting",
 	  "mainEntityOfPage": {
 	    "@type": "WebPage",
@@ -28,4 +55,108 @@
 	  "description": "{{ page_description }}"
 	}
 	</script>
+{% elsif template == 'blog' %}
+	<script type="application/ld+json">
+	{
+	  "@context": "http://schema.org",
+	  "@type": "BreadcrumbList",
+	  "itemListElement": [{
+	    "@type": "ListItem",
+	    "position": 1,
+	    "name": "Home",
+	    "item": "https://{{ shop.domain }}/"
+	  },{
+	    "@type": "ListItem",
+	    "position": 2,
+	    "name": "Tips & Info",
+	    "item": "https://{{ shop.domain }}/pages/tips-info"
+	  },{
+	    "@type": "ListItem",
+	    "position": 3,
+	    "name": "{{ blog.title }}",
+	    "item": "https://{{ shop.domain }}{{ blog.url }}"
+	  }]
+	}
+	</script>
+{% elsif template == 'collection' %}
+	<script type="application/ld+json">
+	{
+	  "@context": "http://schema.org",
+	  "@type": "BreadcrumbList",
+	  "itemListElement": [{
+	    "@type": "ListItem",
+	    "position": 1,
+	    "name": "Home",
+	    "item": "https://{{ shop.domain }}/"
+	  },{
+	    "@type": "ListItem",
+	    "position": 2,
+	    "name": "{{ collection.title }}",
+	    "item": "https://{{ shop.domain }}{{ collection.url }}"
+	  }]
+	}
+	</script>
+{% elsif template == 'product' %}
+	{% assign product_vendor_handle_json = product.vendor | handle %}
+	<script type="application/ld+json">
+	{
+	  "@context": "http://schema.org",
+	  "@type": "BreadcrumbList",
+	  "itemListElement": [{
+	    "@type": "ListItem",
+	    "position": 1,
+	    "name": "Home",
+	    "item": "https://{{ shop.domain }}/"
+	  },{
+	    "@type": "ListItem",
+	    "position": 2,
+	{% if product_vendor_handle_json != product.collections[1].handle %}
+	    "name": "{{ product.collections[1].title }}",
+	    "item": "https://{{ shop.domain }}{{ product.collections[1].url }}"
+	{% else %}
+	    "name": "{{ product.collections[2].title }}",
+	    "item": "https://{{ shop.domain }}{{ product.collections[2].url }}"
+	{% endif %}
+	  },{
+	    "@type": "ListItem",
+	    "position": 2,
+	    "name": "{{ product.title }}",
+	    "item": "https://{{ shop.domain }}{{ product.url }}"
+	  }]
+	}
+	</script>
+	<script type="application/ld+json">
+	{
+	  "@context": "http://schema.org/",
+	  "@type": "Product",
+	  "name": "{{ product.title }}",
+	  "image": [
+	  {% for image in product.images %}
+	  	{% if forloop.last == true %}
+	    "{{ image.src | product_img_url: 'large' }}"
+	    {% else %}
+	    "{{ image.src | product_img_url: 'large' }}",
+	    {% endif %}
+	  {% endfor %}
+	   ],
+	  "description": "{{ product.description | strip_html | escape }}",
+	  "mpn": "{{ product.selected_or_first_available_variant.sku }}",
+	  "brand": {
+	    "@type": "Thing",
+	    "name": "{{ product.vendor }}"
+	  },
+	  "offers": {
+	    "@type": "Offer",
+	    "priceCurrency": "USD",
+	    "price": "{{ product.selected_or_first_available_variant.price | money_without_currency }}",
+	    "itemCondition": "http://schema.org/NewCondition",
+	    "availability": "http://schema.org/InStock",
+	    "seller": {
+	      "@type": "Organization",
+	      "name": "Tool Beast"
+	    }
+	  }
+	}
+	</script>
+{% else %}
 {% endif %}
