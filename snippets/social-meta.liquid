@@ -1,0 +1,28 @@
+{% if template != 'article' %}
+	<meta property="og:type" content="website">
+	<meta property="og:site_name" content="Tool Beast">
+	<meta property="og:title" content="{{ page_title }}">
+	{% if page_description != blank %}
+		<meta property="og:description" content="{{ page_description }}">
+	{% endif %}
+	<meta property="og:url" content="{{ canonical_url }}">
+
+	{% if template == 'collection' %}
+		{% if collection.image %}
+			<meta property="og:image" content="https:{{ collection.image.src | img_url: 'large' }}">
+		{% else %}
+			<meta property="og:image" content="https:{{ collection.products.first | img_url: 'large' }}">
+		{% endif %}
+	{% elsif template == 'product' %}
+		<meta property="og:image" content="https:{{ product.featured_image | img_url: 'large' }}">
+	{% endif %}
+{% else %}
+	<meta property="og:type" content="article" />
+	<meta property="og:url" content="{{ canonical_url }}" />
+	<meta property="og:title" content="{{ page_title }}" />
+	<meta property="og:image" content="{{ article.image.src | img_url: 'large' }}" />
+	<meta property="og:description" content="{{ page_description }}">
+	<meta property="article:published_time" content="{{ article.created_at }}" />
+	<meta property="article:modified_time" content="{{ article.published_at }}" />
+	<meta property="article:section" content="{{ blog.title }}" />
+{% endif %}
