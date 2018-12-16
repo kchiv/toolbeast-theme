@@ -17,11 +17,15 @@
     </span>
   </div>
   {% comment %}
-    Prevent Caiman from showing SKU.
+    If product vendor is Caiman, show all variants otherwise only show first variant split on "-"
   {% endcomment %}
   {% if product.vendor != 'Caiman' %}
     <div class="pd-sku">
       <span><strong>SKU <span class="tb-green">//</span></strong>{% for vari in product.variants %}{% if forloop.last == true %} <a href="{{ vari.url }}">{{ vari.sku }}</a>{% else %} <a href="{{ vari.url }}">{{ vari.sku }}</a>,{% endif %}{% endfor %}</span>
+    </div>
+  {% else %}
+    <div class="pd-sku">
+      <span><strong>SKU <span class="tb-green">//</span></strong> <a href="{{ product.selected_or_first_available_variant.url }}">{% assign caiman_sku = product.selected_or_first_available_variant.sku | split: '-' %}{{ caiman_sku[0] }}</a></span>
     </div>
   {% endif %}
   <div class="pd-vendor">
