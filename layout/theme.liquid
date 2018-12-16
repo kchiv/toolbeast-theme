@@ -22,6 +22,11 @@
       <meta name="description" content="{{ page_description }}" />
     {% endif %}
 
+    {% if current_tags %}
+      <meta name="robots" content="noindex">
+    {% endif %}
+
+
     {{ content_for_header }}
 
     <link rel="canonical" href="{{ canonical_url }}" />
