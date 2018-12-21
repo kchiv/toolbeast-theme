@@ -11,7 +11,15 @@
     {% if template == 'index' %}
       <title>{{ shop.name }} | {{ page_title }}</title>
     {% elsif template == 'product' %}
-      <title>{{ product.title }} | {{ product.vendor }}</title>
+      {% if product.vendor != 'Caiman' %}
+        {% if product.variants[0].sku == product.variants[1].sku %}
+          <title>{{ product.title }} {{ product.selected_or_first_available_variant.sku }} | {{ product.vendor }}</title>
+        {% else %}
+          <title>{{ product.title }}{% for vari in product.variants %}{% if forloop.last == true %} {{ vari.sku }}{% else %} {{ vari.sku }},{% endif %}{% endfor %} | {{ product.vendor }}</title>
+        {% endif %}
+      {% else %}
+        <title>{{ product.vendor }} {{ product.title }} {% assign caiman_sku = product.selected_or_first_available_variant.sku | split: '-' %}{{ caiman_sku[0] }} | {{ shop.name }}</title>
+      {% endif %}
     {% elsif template == '404' %}
       <title>Page Not Found | {{ shop.name }}</title>
     {% else %}
