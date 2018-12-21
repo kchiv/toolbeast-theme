@@ -8,6 +8,17 @@
 <div class="row">
 	<div class="col-md-12 mt-4 pd-pg-desc">
 		<div class="row">
+			<div class="col-md-12">
+				{% if product.vendor != 'Caiman' %}
+					{% if product.variants[0].sku == product.variants[1].sku %}
+						<h2 class="mb-4">{{ product.title }} {{ product.selected_or_first_available_variant.sku }} - {{ product.vendor }}</h2>
+					{% else %}
+						<h2 class="mb-4">{{ product.title }}{% for vari in product.variants %}{% if forloop.last == true %} {{ vari.sku }}{% else %} {{ vari.sku }},{% endif %}{% endfor %} - {{ product.vendor }}</h2>
+					{% endif %}
+				{% else %}
+					<h2 class="mb-4">{{ product.vendor }} {{ product.title }} {% assign caiman_sku = product.selected_or_first_available_variant.sku | split: '-' %}{{ caiman_sku[0] }}</h2>
+				{% endif %}
+			</div>
 			{% if product.description contains 'shortdescriptionend' %}
 				{{ product.description | split: 'shortdescriptionend' | last }}
 			{% else %}
