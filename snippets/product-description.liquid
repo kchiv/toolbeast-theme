@@ -19,11 +19,15 @@
 					<h2 class="mb-4">{{ product.vendor }} {{ product.title }} {% assign caiman_sku = product.selected_or_first_available_variant.sku | split: '-' %}{{ caiman_sku[0] }}</h2>
 				{% endif %}
 			</div>
-			{% if product.description contains 'shortdescriptionend' %}
-				{{ product.description | split: 'shortdescriptionend' | last }}
-			{% else %}
-				{{ product.description }}
-			{% endif %}
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				{% if product.description contains 'shortdescriptionend' %}
+					{{ product.description | split: 'shortdescriptionend' | last }}
+				{% else %}
+					{{ product.description }}
+				{% endif %}
+			</div>
 		</div>
 	</div>
 </div>
