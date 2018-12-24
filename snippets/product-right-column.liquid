@@ -23,71 +23,81 @@
 
 {% include 'product-short-description' %}
 
-<div class="col-md-12">
-	<form action="/cart/add" method="post" enctype="multipart/form-data">
-		{% comment %}
-		{% if product.has_only_default_variant == false %}
-			<div class="form-group row mt-4">
-				<label class="col-md-3 col-sm-2 col-2 col-form-label font-weight-bold">Size</label>
-				<div class="col-md-9 col-sm-8 col-10 product-category">
-					<select name="id" class="custom-select product-single__variants" id="ProductSelect-{{ section.id }}" data-index="option1">
-						{% for variant in product.variants %}
-							{% if variant.available %}
-								<option {% if variant == product.selected_or_first_available_variant %}selected="selected"{% endif %} value="{{variant.id}}">
-									{{ variant.title }}
-								</option>
-							{% else %}
-								<option disabled="disabled"> {{ variant.title }} - sold out!</option>
-							{% endif %}
-						{% endfor %}
-					</select>
-				</div>
-			</div>
-		{% endif %}
-		{% endcomment %}
-		{% if product.has_only_default_variant == false %}
-			{% for product_option in product.options_with_values %}
-				<div class="form-group row mt-3 product-category">
-					<label class="col-md-3 col-sm-2 col-2 col-form-label font-weight-bold">{{ product_option.name }}</label>
-					<div class="col-md-9 col-sm-8 col-10">
-						<select class="custom-select" data-index="option{{forloop.index}}">
-							{% for value in product_option.values %}
-								<option value="{{ value | escape }}" {% if product_option.selected_value == value %} selected="selected" {% endif %}>
-										{{ value }}
-								</option>
+{% if product.available %}
+
+	<div class="col-md-12">
+		<form action="/cart/add" method="post" enctype="multipart/form-data">
+			{% comment %}
+			{% if product.has_only_default_variant == false %}
+				<div class="form-group row mt-4">
+					<label class="col-md-3 col-sm-2 col-2 col-form-label font-weight-bold">Size</label>
+					<div class="col-md-9 col-sm-8 col-10 product-category">
+						<select name="id" class="custom-select product-single__variants" id="ProductSelect-{{ section.id }}" data-index="option1">
+							{% for variant in product.variants %}
+								{% if variant.available %}
+									<option {% if variant == product.selected_or_first_available_variant %}selected="selected"{% endif %} value="{{variant.id}}">
+										{{ variant.title }}
+									</option>
+								{% else %}
+									<option disabled="disabled"> {{ variant.title }} - sold out!</option>
+								{% endif %}
 							{% endfor %}
 						</select>
 					</div>
 				</div>
-			{% endfor %}
-		{% endif %}
-		<!-- endtest -->
-		<div class="form-group row mt-4">
-			<label class="col-md-3 col-sm-2 col-2 col-form-label font-weight-bold" for="quantity">Quantity</label>
-			<div class="col-md-9 col-sm-8 col-10">
-				<div class="input-group number-spinner">
-					<span class="input-group-btn">
-						<button class="btn btn-default" data-dir="dwn" type="button">
-							<i class="fas fa-minus"></i>
-						</button>
-					</span>
-					<input class="form-control text-center" pattern="[0-9]*" type="number" id="quantity" name="quantity" value="1" min="1">
-					<span class="input-group-btn">
-						<button class="btn btn-default" data-dir="up" type="button">
-							<i class="fas fa-plus"></i>
-						</button>
-					</span>
+			{% endif %}
+			{% endcomment %}
+			{% if product.has_only_default_variant == false %}
+				{% for product_option in product.options_with_values %}
+					<div class="form-group row mt-3 product-category">
+						<label class="col-md-3 col-sm-2 col-2 col-form-label font-weight-bold">{{ product_option.name }}</label>
+						<div class="col-md-9 col-sm-8 col-10">
+							<select class="custom-select" data-index="option{{forloop.index}}">
+								{% for value in product_option.values %}
+									<option value="{{ value | escape }}" {% if product_option.selected_value == value %} selected="selected" {% endif %}>
+											{{ value }}
+									</option>
+								{% endfor %}
+							</select>
+						</div>
+					</div>
+				{% endfor %}
+			{% endif %}
+			<!-- endtest -->
+			<div class="form-group row mt-4">
+				<label class="col-md-3 col-sm-2 col-2 col-form-label font-weight-bold" for="quantity">Quantity</label>
+				<div class="col-md-9 col-sm-8 col-10">
+					<div class="input-group number-spinner">
+						<span class="input-group-btn">
+							<button class="btn btn-default" data-dir="dwn" type="button">
+								<i class="fas fa-minus"></i>
+							</button>
+						</span>
+						<input class="form-control text-center" pattern="[0-9]*" type="number" id="quantity" name="quantity" value="1" min="1">
+						<span class="input-group-btn">
+							<button class="btn btn-default" data-dir="up" type="button">
+								<i class="fas fa-plus"></i>
+							</button>
+						</span>
+					</div>
 				</div>
 			</div>
-		</div>
-		<div class="form-group row mt-4">
-			<div class="col-md-12 pd-page-add-cart-btn">
-				<input type="hidden" name="id" id="variant-id" value={{ product.variants.first.id }}>
-				<button type="submit" name="add" id="add" class="btn btn-primary tb-button">Add to Cart</button>
+			<div class="form-group row mt-4">
+				<div class="col-md-12 pd-page-add-cart-btn">
+					<input type="hidden" name="id" id="variant-id" value={{ product.variants.first.id }}>
+					<button type="submit" name="add" id="add" class="btn btn-primary tb-button">Add to Cart</button>
+				</div>
 			</div>
-		</div>
-	</form>	
-</div>
+		</form>	
+	</div>
+
+{% else %}
+
+	<div class="col-md-12 alert alert-dark" role="alert">
+		<span>Temporarily Out of Stock</span>
+	</div>
+
+{% endif %}
 
 <div class="col-md-12 col-sm-12 col-12 mt-2">
 	<div class="solid-bottom-line-2"></div>
