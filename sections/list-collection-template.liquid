@@ -14,9 +14,9 @@
 	  		<div class="row">
 	  			<div class="col-md-12">
 	  				{% if collection.image %}
-	  					<a href="collection.url"><img src="{{ collection.image.src | img_url: 'medium' }}"></a>
+	  					<a href="{{ collection.url }}"><img src="{{ collection.image.src | img_url: 'medium' }}"></a>
 	  				{% else %}
-	  					<a href="collection.url"><img src="{{ collection.products.first | img_url: 'medium' }}"></a>
+	  					<a href="{{ collection.url }}"><img src="{{ collection.products.first | img_url: 'medium' }}"></a>
 	  				{% endif %}
 	  			</div>
 	  		</div>
