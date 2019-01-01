@@ -9,7 +9,11 @@
 	<div class="pd-page-sku">
 		<span><strong>SKU</strong></span>
 		<span class="tb-green">//</span>
-		<span class="variant-sku">{{ product.selected_or_first_available_variant.sku }}</span>
+		{% if product.vendor != 'Caiman' %}
+			<span class="variant-sku">{{ product.selected_or_first_available_variant.sku }}</span>
+		{% else %}
+			<span>{% assign caiman_sku = product.selected_or_first_available_variant.sku | split: '-' %}{{ caiman_sku[0] }}</span>
+		{% endif %}
 	</div>
 </div>
 <div class="col-md-12 mt-2">
