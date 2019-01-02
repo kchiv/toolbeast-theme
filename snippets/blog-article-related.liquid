@@ -21,7 +21,7 @@
 								</div>
 								<div class="related-article-txt-block">
 									<h5 class="related-article_title">
-										<a href="{{ article.url }}">{{ article.title | truncate: 100 }}</a>
+										<a class="gtm-hp-blog" href="{{ article.url }}">{{ article.title | truncate: 100 }}</a>
 									</h5>
 										<p class="related-article-pubdate"><i class="fas fa-clock"></i> {{ article.published_at | date: "%b %d, %Y" }}</p>
 								</div>
@@ -48,7 +48,7 @@
 								</div>
 								<div class="related-article-txt-block">
 									<h5 class="related-article_title">
-										<a href="{{ article.url }}">{{ article.title | truncate: 100 }}</a>
+										<a class="gtm-hp-blog" href="{{ article.url }}">{{ article.title | truncate: 100 }}</a>
 									</h5>
 										<p class="related-article-pubdate"><i class="fas fa-clock"></i> {{ article.published_at | date: "%b %d, %Y" }}</p>
 								</div>
@@ -62,7 +62,7 @@
 	{% if template contains 'index' %}
 		<div class="row related-article-button">
 			<div class="col-md-12 text-center">
-				<a href="{{ section.settings.hp_articles_btn_url }}" class="btn btn-primary tb-button">{{ section.settings.hp_articles_btn_text }}</a>
+				<a href="{{ section.settings.hp_articles_btn_url }}" class="btn btn-primary tb-button gtm-hp-blog">{{ section.settings.hp_articles_btn_text }}</a>
 			</div>
 		</div>
 	{% endif %}

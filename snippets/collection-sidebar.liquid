@@ -8,11 +8,11 @@
 				{% assign collection_handle = "collection-" | append: collection.handle %}
 					{% if linklists[collection_handle].links != blank %}
 						{% for link in linklists[collection_handle].links %}
-							<li class="list-group-item"><a href="{{ link.url }}">{{ link.title }}</a></li>
+							<li class="list-group-item"><a class="gtm-cat-left-nav" href="{{ link.url }}">{{ link.title }}</a></li>
 						{% endfor %}
 					{% else %}
 						{% for link in linklists[section.settings.cat_sidebar_linklist].links %}
-							<li class="list-group-item"><a href="{{ link.url }}">{{ link.title }}</a></li>
+							<li class="list-group-item"><a class="gtm-cat-left-nav" href="{{ link.url }}">{{ link.title }}</a></li>
 						{% endfor %}
 					{% endif %}
 			</ul>
@@ -25,7 +25,7 @@
 			</div>
 			<ul class="list-group">
 				{% for product_vendor in shop.vendors %}
-					<li class="list-group-item"><a href="/collections/{{ product_vendor | downcase | replace: ' ', '-' }}">{{ product_vendor }}</a></li>
+					<li class="list-group-item"><a class="gtm-cat-left-nav" href="/collections/{{ product_vendor | downcase | replace: ' ', '-' }}">{{ product_vendor }}</a></li>
 				{% endfor %}
 			</ul>
 		</div>
@@ -42,7 +42,7 @@
 					{% for article in featuredArticles limit:2 %}
 						<div class="coll-sb-article">
 							<div class="coll-sb-art-imgtext">
-								<a href="{{ article.url }}">
+								<a class="gtm-cat-left-nav" href="{{ article.url }}">
 									<img class="img-fluid" src="{{ article.image.src | img_url: '500x300', crop: 'center' }}">
 									<div><span>{{ article.title | truncate: 65 }}</span></div>
 								</a>
@@ -50,7 +50,7 @@
 						</div>
 					{% endfor %}
 						<div class="coll-sb-art-button">
-							<a href="{{ section.settings.cat_sidebar_blog_link }}" class="btn btn-primary tb-button">See More</a>
+							<a href="{{ section.settings.cat_sidebar_blog_link }}" class="btn btn-primary tb-button gtm-cat-left-nav">See More</a>
 						</div>
 				{% endif %}
 			</div>

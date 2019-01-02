@@ -3,9 +3,9 @@
       <div class="navbar-text subnav-elem">
         {% if shop.customer_accounts_enabled %}
           {% if customer %}
-            <span class="subnav-icon hvr-icon-fade"><a href="/account"><i class="fas fa-user hvr-icon"></i> Account</a></span>
+            <span class="subnav-icon hvr-icon-fade"><a class="gtm-account-signin" href="/account"><i class="fas fa-user hvr-icon"></i> Account</a></span>
           {% else %}
-            <span class="subnav-icon hvr-icon-fade"><a href="/account/login"><i class="fas fa-user hvr-icon"></i> Sign In</a></span>
+            <span class="subnav-icon hvr-icon-fade"><a class="gtm-account-signin" href="/account/login"><i class="fas fa-user hvr-icon"></i> Sign In</a></span>
           {% endif %}
         {% endif %}
         <span class="subnav-icon hvr-icon-fade"><a href="/cart"><i class="fas fa-shopping-cart hvr-icon"></i> Cart{% if cart.item_count > 0 %} ({{ cart.item_count }}){% endif %}</a></span>
