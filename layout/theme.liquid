@@ -53,7 +53,15 @@
 
     {{ content_for_header }}
 
-    <link rel="canonical" href="{{ canonical_url }}" />
+    {% comment %}
+        Canonical logic needs to be updated after test.
+    {% endcomment %}
+    {% if collection.handle == 'pipe-fitting-tools-v2' %}
+        <link rel="canonical" href="https://toolbeast.com/collections/pipe-fitting-tools" />
+    {% else %}
+        <link rel="canonical" href="{{ canonical_url }}" />
+    {% endif %}
+
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.3.1/css/hover-min.css">
