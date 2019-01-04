@@ -115,7 +115,7 @@
 	  "@type" : "Organization",
 	  "name" : "Tool Beast",
 	  "url" : "https://{{ shop.domain }}/",
-	  "logo": "https:{{ 'TOOL_BEAST201.png' | asset_url }}",
+	  "logo": "https:{{ 'tool-beast-logo-nav.png' | asset_url }}",
 	  "sameAs" : [
 	    "https://www.facebook.com/toolbeast/",
 	    "https://twitter.com/ToolBeast",
@@ -161,9 +161,9 @@
 	  "image": [
 	  {% for image in product.images %}
 	  	{% if forloop.last == true %}
-	    "{{ image.src | product_img_url: 'large' }}"
+	    "https:{{ image.src | product_img_url: 'large' }}"
 	    {% else %}
-	    "{{ image.src | product_img_url: 'large' }}",
+	    "https:{{ image.src | product_img_url: 'large' }}",
 	    {% endif %}
 	  {% endfor %}
 	   ],
